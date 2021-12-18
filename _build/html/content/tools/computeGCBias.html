@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>computeGCBias &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>computeGCBias</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/content/tools/computeGCBias.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="computegcbias">
+<h1>computeGCBias<a class="headerlink" href="#computegcbias" title="Permalink to this headline"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#background" id="id1">Background</a></p>
+<ul>
+<li><p><a class="reference internal" href="#excluding-regions-from-the-read-distribution-calculation" id="id2">Excluding regions from the read distribution calculation</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#usage-example" id="id3">Usage example</a></p></li>
+</ul>
+</div>
+<section id="background">
+<h2><a class="toc-backref" href="#id1">Background</a><a class="headerlink" href="#background" title="Permalink to this headline"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">computeGCBias</span></code> is based on a paper by <a class="reference external" href="http://nar.oxfordjournals.org/content/40/10/e72">Benjamini and Speed</a>.
+The basic assumption of the GC bias diagnosis is that an ideal sample should show a uniform distribution of sequenced reads across the genome, i.e. all regions of the genome should have similar numbers of reads, regardless of their base-pair composition.
+In reality, the DNA polymerases used for PCR-based amplifications during the library preparation of the sequencing protocols prefer GC-rich regions. This will influence the outcome of the sequencing as there will be more reads for GC-rich regions just because of the DNA polymerase’s preference.</p>
+<p><code class="docutils literal notranslate"><span class="pre">computeGCbias</span></code> will first calculate the <strong>expected GC profile</strong> by counting the number of DNA fragments of a fixed size per GC fraction where GC fraction is defined as the number of G’s or C’s in a genome region of a given length.
+The result is basically a histogram depicting the frequency of DNA fragments for each type of genome region with a GC fraction between 0 to 100 percent. This will be different for each reference genome, but is independent of the actual sequencing experiment.</p>
+<p>The profile of the expected DNA fragment distribution is then compared to the <strong>observed GC profile</strong>, which is generated by counting the number of sequenced reads per GC fraction.</p>
+<p>In an ideal experiment, the observed GC profile would, of course, look like the expected profile.
+This is indeed the case when applying <code class="docutils literal notranslate"><span class="pre">computeGCBias</span></code> to simulated reads.</p>
+<img alt="images/GC_bias_simulated_reads_2L.png" id="computegcbias-example-image" src="images/GC_bias_simulated_reads_2L.png" />
+<p>As you can see, both plots based on <strong>simulated reads</strong> do not show enrichments or depletions for specific GC content bins, there is an almost flat line around the log2ratio of 0 (= ratio(observed/expected) of 1). The fluctuations on the ends of the x axis are due to the fact that only very, very few regions in the <em>Drosophila</em> genome have such extreme GC fractions so that the number of fragments that are picked up in the random sampling can vary.</p>
+<p>Now, let’s have a look at <strong>real-life data</strong> from genomic DNA sequencing. Panels A and B can be clearly distinguished and the major change that took place between the experiments underlying the plots was that the samples in panel A were prepared with too many PCR cycles and a standard polymerase whereas the samples of panel B were subjected to very few rounds of amplification using a high fidelity DNA polymerase.</p>
+<img alt="images/QC_GCplots_input.png" src="images/QC_GCplots_input.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The expected GC profile depends on the reference genome as different organisms have very different GC contents. For example, one would expect more fragments with GC fractions between 30% to 60% in mouse samples (average GC content of the mouse genome: 45 %) than for genome fragments from, for example, <em>Plasmodium falciparum</em> (average genome GC content <em>P. falciparum</em>: 20%).</p>
+</div>
+<section id="excluding-regions-from-the-read-distribution-calculation">
+<h3><a class="toc-backref" href="#id2">Excluding regions from the read distribution calculation</a><a class="headerlink" href="#excluding-regions-from-the-read-distribution-calculation" title="Permalink to this headline"></a></h3>
+<p>In some cases, it will make sense to exclude certain regions from the calculation of the read distributions to increase the accuracy of the computation.
+There are several kinds of regions that are either not expected to show a read distribution matching the background or where the uncertainty of the reference genome might be too big. Please consider the following points:</p>
+<ul class="simple">
+<li><p><strong>repetitive regions</strong>: if multi-reads (reads that map to more than one genomic position) were excluded from the [BAM][] file, it will help to exclude known repetitive regions. You can get BED files of known repetitive regions from <a class="reference external" href="http://genome.ucsc.edu/cgi-bin/hgTables?command=start">UCSC Table Browser</a> (see the screenshot below for an example of human repetitive elements).</p></li>
+</ul>
+<img alt="images/QC_GCregionexclusion_UCSCscreenshot.png" src="images/QC_GCregionexclusion_UCSCscreenshot.png" />
+<ul class="simple">
+<li><p><strong>regions of low mappability</strong>: these are regions where the mapping of the reads notoriously fails and we recommend to exclude known regions with mappability issues from the GC computation. You can download the mappability tracks for different read lengths from UCSC, e.g. for <a class="reference external" href="http://hgdownload.cse.ucsc.edu/gbdb/mm9/bbi/">mouse</a> and <a class="reference external" href="http://hgdownload.cse.ucsc.edu/gbdb/hg19/bbi">human</a>. In the github deepTools folder “scripts”, you can find a shell script called <code class="docutils literal notranslate"><span class="pre">mappabilityBigWig_to_unmappableBed.sh</span></code> which will turn the [bigWig][] mappability file from UCSC into a BED file.</p></li>
+<li><p><strong>ChIP-seq peaks</strong>: in ChIP-seq samples it is <em>expected</em> that certain regions <em>should</em> show more reads than expected based on the background distribution, therefore it makes absolute sense to exclude those regions from the GC bias calculation. We recommend to run a simple, non-conservative peak calling on the uncorrected [BAM][] file first to obtain a BED file of peak regions that should then subsequently be supplied to <code class="docutils literal notranslate"><span class="pre">computeGCbias</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="usage-example">
+<h2><a class="toc-backref" href="#id3">Usage example</a><a class="headerlink" href="#usage-example" title="Permalink to this headline"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ computeGCBias -b H3K27Me3.bam --effectiveGenomeSize 2695000000
+   --genome genome.2bit -l 200 -freq freq_test.txt
+   --region X --biasPlot test_gc.png
+</pre></div>
+</div>
+<img alt="images/test_plots/ExampleComputeGCBias.png" src="images/test_plots/ExampleComputeGCBias.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

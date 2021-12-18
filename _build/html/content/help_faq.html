@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>General FAQ &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>General FAQ</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/help_faq.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="general-faq">
+<h1>General FAQ<a class="headerlink" href="#general-faq" title="Permalink to this headline"></a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For support or questions please post to <a class="reference external" href="http://biostars.org">Biostars</a>. For bug reports and feature requests please open an issue <a class="reference external" href="http://github.com/deeptools/deeptools">&lt;on github</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We also have a <a class="reference internal" href="help_faq_galaxy.html"><span class="doc">Galaxy-related FAQ</span></a> with questions that are more specific to Galaxy rather than deepTools usage.</p>
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#how-does-deeptools-handle-data-from-paired-end-sequencing" id="id1">How does deepTools handle data from paired-end sequencing?</a></p></li>
+<li><p><a class="reference internal" href="#how-can-i-test-a-tool-with-little-computation-time" id="id2">How can I test a tool with little computation time?</a></p></li>
+<li><p><a class="reference internal" href="#can-i-specify-more-than-one-chromosome-in-the-regions-option" id="id3">Can I specify more than one chromosome in the <code class="docutils literal notranslate"><span class="pre">--regions</span></code> option?</a></p>
+<ul>
+<li><p><a class="reference internal" href="#general-workaround" id="id4">General workaround</a></p></li>
+<li><p><a class="reference internal" href="#build-in-solutions" id="id5">Build-in solutions</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#when-should-i-exclude-regions-from-computegcbias" id="id6">When should I exclude regions from <code class="docutils literal notranslate"><span class="pre">computeGCBias</span></code>?</a></p></li>
+<li><p><a class="reference internal" href="#when-should-i-use-bamcoverage-or-bamcompare" id="id7">When should I use <code class="docutils literal notranslate"><span class="pre">bamCoverage</span></code> or <code class="docutils literal notranslate"><span class="pre">bamCompare</span></code>?</a></p></li>
+<li><p><a class="reference internal" href="#what-should-i-pay-attention-to-when-dealing-with-rna-seq-data" id="id8">What should I pay attention to when dealing with RNA-seq data?</a></p></li>
+<li><p><a class="reference internal" href="#how-does-computematrix-handle-overlapping-genome-regions" id="id9">How does computeMatrix handle overlapping genome regions?</a></p>
+<ul>
+<li><p><a class="reference internal" href="#galaxy-based-work-around" id="id10">Galaxy-based work around</a></p></li>
+<li><p><a class="reference internal" href="#command-line-based-work-arounds" id="id11">Command line-based work arounds</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#why-does-the-maximum-value-in-the-heatmap-not-equal-the-maximum-value-in-the-matrix" id="id12">Why does the maximum value in the heatmap not equal the maximum value in the matrix?</a></p></li>
+<li><p><a class="reference internal" href="#the-heatmap-i-generated-looks-very-coarse-i-would-like-a-much-more-fine-grained-image" id="id13">The heatmap I generated looks very “coarse”, I would like a much more fine-grained image.</a></p></li>
+<li><p><a class="reference internal" href="#how-can-i-change-the-automatic-labels-of-the-clusters-in-a-k-means-clustered-heatmap" id="id14">How can I change the automatic labels of the clusters in a k-means clustered heatmap?</a></p></li>
+<li><p><a class="reference internal" href="#how-can-i-manually-specify-several-groups-of-regions-instead-of-clustering" id="id15">How can I manually specify several groups of regions (instead of clustering)?</a></p></li>
+<li><p><a class="reference internal" href="#what-do-i-have-to-pay-attention-to-when-working-with-a-draft-version-of-a-genome" id="id16">What do I have to pay attention to when working with a draft version of a genome?</a></p></li>
+<li><p><a class="reference internal" href="#how-do-i-calculate-the-effective-genome-size-for-an-organism-that-s-not-in-your-list" id="id17">How do I calculate the effective genome size for an organism that’s not in your list?</a></p>
+<ul>
+<li><p><a class="reference internal" href="#use-gem" id="id18">Use <code class="docutils literal notranslate"><span class="pre">GEM</span></code></a></p></li>
+<li><p><a class="reference internal" href="#use-facount" id="id19">Use <code class="docutils literal notranslate"><span class="pre">faCount</span></code></a></p></li>
+<li><p><a class="reference internal" href="#use-bamcoverage" id="id20">Use <code class="docutils literal notranslate"><span class="pre">bamCoverage</span></code></a></p></li>
+<li><p><a class="reference internal" href="#use-genomecoveragebed" id="id21">Use <code class="docutils literal notranslate"><span class="pre">genomeCoverageBed</span></code></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#where-can-i-download-the-2bit-genome-files-required-for-computegcbias" id="id22">Where can I download the 2bit genome files required for <code class="docutils literal notranslate"><span class="pre">computeGCBias</span></code>?</a></p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<section id="how-does-deeptools-handle-data-from-paired-end-sequencing">
+<h2><a class="toc-backref" href="#id1">How does deepTools handle data from paired-end sequencing?</a><a class="headerlink" href="#how-does-deeptools-handle-data-from-paired-end-sequencing" title="Permalink to this headline"></a></h2>
+<p>Generally, all the modules working on <a class="reference internal" href="help_glossary.html#bam"><span class="std std-ref">BAM</span></a> files (<code class="docutils literal notranslate"><span class="pre">multiBamSummary</span></code>, <code class="docutils literal notranslate"><span class="pre">bamCoverage</span></code>, <code class="docutils literal notranslate"><span class="pre">bamCompare</span></code>, <code class="docutils literal notranslate"><span class="pre">plotFingerprint</span></code>, <code class="docutils literal notranslate"><span class="pre">computeGCBias</span></code>) automatically recognize paired-end sequencing data and will use the fragment size based on the distance between read pairs.
+You can by-pass the typical fragment handling on mate pairs with the option <code class="docutils literal notranslate"><span class="pre">--doNotExtendPairedEnds</span></code> (can be found under “advanced options” in Galaxy).</p>
+</section>
+<hr class="docutils" />
+<section id="how-can-i-test-a-tool-with-little-computation-time">
+<h2><a class="toc-backref" href="#id2">How can I test a tool with little computation time?</a><a class="headerlink" href="#how-can-i-test-a-tool-with-little-computation-time" title="Permalink to this headline"></a></h2>
+<p>When you’re playing around with the tools to see what kinds of results they will produce, you can limit the operation to one chromosome or a specific region to save time. In Galaxy, you will find this under “advanced output options” –&gt; “Region of the genome to limit the operation to”. The command line option is called <code class="docutils literal notranslate"><span class="pre">--region</span> <span class="pre">(CHR:START:END)</span></code>.</p>
+<p>The following tools currently have this option:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="tools/multiBamSummary.html"><span class="doc">multiBamSummary</span></a></p></li>
+<li><p><a class="reference internal" href="tools/plotFingerprint.html"><span class="doc">plotFingerprint</span></a></p></li>
+<li><p><a class="reference internal" href="tools/computeGCBias.html"><span class="doc">computeGCBias</span></a>, <a class="reference internal" href="tools/correctGCBias.html"><span class="doc">correctGCBias</span></a></p></li>
+<li><p><a class="reference internal" href="tools/bamCoverage.html"><span class="doc">bamCoverage</span></a>, <a class="reference internal" href="tools/bamCompare.html"><span class="doc">bamCompare</span></a></p></li>
+</ul>
+<p>It works as follows: first, the <em>entire</em> genome represented in the <a class="reference internal" href="help_glossary.html#bam"><span class="std std-ref">BAM</span></a> file will be regarded and sampled, <em>then</em> all the regions or sampled bins that do not overlap the region indicated by the user will be discarded.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can limit the operation to only <strong>one</strong> chromosome (or <strong>one</strong> specific locus on a chromosome) at a time. If you would like to limit the operation to more than one region, see the answer to the next question.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="can-i-specify-more-than-one-chromosome-in-the-regions-option">
+<h2><a class="toc-backref" href="#id3">Can I specify more than one chromosome in the <code class="docutils literal notranslate"><span class="pre">--regions</span></code> option?</a><a class="headerlink" href="#can-i-specify-more-than-one-chromosome-in-the-regions-option" title="Permalink to this headline"></a></h2>
+<p>The short answer is: no.</p>
+<p>Several programs allow specifying a specific regions.
+For these, the input must be in the format of <code class="docutils literal notranslate"><span class="pre">chr:start:end</span></code>, for example “chr10” or “chr10:456700:891000”.</p>
+<p>For these programs, it is <strong>not possible</strong> to indicate more than one region, e.g. chr10, chr11 - <strong>this will not work</strong>! Here are some ideas for workarounds if you none-the-less need to do this:</p>
+<section id="general-workaround">
+<h3><a class="toc-backref" href="#id4">General workaround</a><a class="headerlink" href="#general-workaround" title="Permalink to this headline"></a></h3>
+<p>Since all the tools that have the <code class="docutils literal notranslate"><span class="pre">--region</span></code> option work on <a class="reference internal" href="help_glossary.html#bam"><span class="std std-ref">BAM</span></a> files, you could <em>filter your reads</em> prior to running the program, e.g. using <code class="docutils literal notranslate"><span class="pre">intersectBed</span></code> with <code class="docutils literal notranslate"><span class="pre">--abam</span></code> or <code class="docutils literal notranslate"><span class="pre">samtools</span> <span class="pre">view</span></code>. Then use the resulting (smaller) BAM file with the deepTools program of your choice.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ samtools view -b -L regionsOfInterest.bed Reads.bam &gt; ReadsOverlappingWithRegionsOfInterest.bam
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ intersectBed -abam Reads.bam -b regionsOfInterest.bed &gt; ReadsOverlappingWithRegionsOfInterest.bam
+</pre></div>
+</div>
+</section>
+<section id="build-in-solutions">
+<h3><a class="toc-backref" href="#id5">Build-in solutions</a><a class="headerlink" href="#build-in-solutions" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">computeGCBias</span></code> and <code class="docutils literal notranslate"><span class="pre">multiBamSummary</span></code> offer build-in solutions so that you do not need to resort to tools outside of deepTools.</p>
+<dl class="simple">
+<dt><a class="reference internal" href="tools/multiBamSummary.html"><span class="doc">multiBamSummary</span></a> has two modes, <code class="docutils literal notranslate"><span class="pre">bins</span></code> and <code class="docutils literal notranslate"><span class="pre">BED</span></code>.</dt><dd><p>If you make use of the <code class="docutils literal notranslate"><span class="pre">BED</span></code> mode, you can supply a <a class="reference internal" href="help_glossary.html#bed"><span class="std std-ref">BED</span></a> file of regions that you would like to limit the operation to. This will do the same thing as in the general workaround mentioned above.</p>
+</dd>
+<dt><a class="reference internal" href="tools/computeGCBias.html"><span class="doc">computeGCBias</span></a> has a <code class="docutils literal notranslate"><span class="pre">--filterOut</span></code> option.</dt><dd><p>If you to create a BED file that contains all the regions you are <strong>not</strong> interested in, you can then supply this file to <code class="docutils literal notranslate"><span class="pre">computeGCBias</span> <span class="pre">--filterOut</span> <span class="pre">Regions_to_be_ignored.bed</span></code> and those regions will subsequently be ignored.</p>
+</dd>
+</dl>
+</section>
+</section>
+<hr class="docutils" />
+<section id="when-should-i-exclude-regions-from-computegcbias">
+<h2><a class="toc-backref" href="#id6">When should I exclude regions from <code class="docutils literal notranslate"><span class="pre">computeGCBias</span></code>?</a><a class="headerlink" href="#when-should-i-exclude-regions-from-computegcbias" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In general, we recommend to only correct for GC bias (using <a class="reference internal" href="tools/computeGCBias.html"><span class="doc">computeGCBias</span></a> followed by <a class="reference internal" href="tools/correctGCBias.html"><span class="doc">correctGCBias</span></a>) if the majority of the genome (e.g., for mouse and human genomes the region between 30-60%) is GC-biased <em>and</em> you want to compare this sample with another sample that is not GC-biased.</p>
+</div>
+<p>Sometimes, a certain GC bias is expected, for example for ChIP samples of H3K4Me3 in mammalian samples where GC-rich promoters are expected to be enriched. To not confound the GC bias caused by the library preparation with the inherent, expected GC-bias, we incorporated the possibility to supply a file of regions to <code class="docutils literal notranslate"><span class="pre">computeGCBias</span></code> that will be excluded from the GC bias calculation. This file should typically contain those regions that one expects to be significantly enriched. This allows the tool to focus on background regions.</p>
+</section>
+<hr class="docutils" />
+<section id="when-should-i-use-bamcoverage-or-bamcompare">
+<h2><a class="toc-backref" href="#id7">When should I use <code class="docutils literal notranslate"><span class="pre">bamCoverage</span></code> or <code class="docutils literal notranslate"><span class="pre">bamCompare</span></code>?</a><a class="headerlink" href="#when-should-i-use-bamcoverage-or-bamcompare" title="Permalink to this headline"></a></h2>
+<p>Both tools produce <a class="reference internal" href="help_glossary.html#bigwig"><span class="std std-ref">bigWig</span></a> files, i.e. they translate the read-centered information from a <a class="reference internal" href="help_glossary.html#bam"><span class="std std-ref">BAM</span></a> file into scores for genomic regions of a fixed size. The only difference is the <em>number of BAM files</em> that the tools use as input: while <a class="reference internal" href="tools/bamCoverage.html"><span class="doc">bamCoverage</span></a> will only take one BAM file and produce a coverage file that is mostly normalized for sequencing depth, <a class="reference internal" href="tools/bamCompare.html"><span class="doc">bamCompare</span></a> will take <em>two</em> <a class="reference internal" href="help_glossary.html#bam"><span class="std std-ref">BAM</span></a> files that can be compared with each other using several mathematical operations.</p>
+<p><code class="docutils literal notranslate"><span class="pre">bamCompare</span></code> will always normalize for sequencing depth like <code class="docutils literal notranslate"><span class="pre">bamCoverage</span></code>, but then it will perform additional calculations depending on what the user chose, for example:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>ChIP vs. <a class="reference internal" href="help_glossary.html#terminology"><span class="std std-ref">input</span></a></dt><dd><p>obtain a <a class="reference internal" href="help_glossary.html#bigwig"><span class="std std-ref">bigWig</span></a> file of log2ratios(ChIP/input)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>treatment vs. control</dt><dd><p>obtain a <a class="reference internal" href="help_glossary.html#bigwig"><span class="std std-ref">bigWig</span></a> file of <em>differences</em> (treatment - control)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>replicate 1 and replicate 2</dt><dd><p>obtain a <a class="reference internal" href="help_glossary.html#bigwig"><span class="std std-ref">bigWig</span></a> file where the values from two <a class="reference internal" href="help_glossary.html#bam"><span class="std std-ref">BAM</span></a> files are summed up (replicate 1 + replicate 2)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="what-should-i-pay-attention-to-when-dealing-with-rna-seq-data">
+<h2><a class="toc-backref" href="#id8">What should I pay attention to when dealing with RNA-seq data?</a><a class="headerlink" href="#what-should-i-pay-attention-to-when-dealing-with-rna-seq-data" title="Permalink to this headline"></a></h2>
+<p>By default, deepTools (<strong>since version 2</strong>) makes use of the information stored in the so-called CIGAR string of the alignment file (<a class="reference external" href="https://samtools.github.io/hts-specs/SAMv1.pdf">SAM/BAM specification</a>). The CIGAR tells precisely to which bases of the reference a read maps - and, accordingly, which bases are skipped in the case of reads that span introns. These so-called split reads are natively handled by all modules of deepTools 2.0.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is generally <strong>not</strong> recommended to activate the deepTools parameter <code class="docutils literal notranslate"><span class="pre">--extendReads</span></code> for RNA-seq data.</p>
+<p>This is because there is no verified information on the fragment alignment outside the actual read sequence. A simple extension of a read over uncovered parts would probably be wrong for a lot of fragments! Activating the read extension also <strong>deactivates</strong> the utilization of the CIGAR.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="how-does-computematrix-handle-overlapping-genome-regions">
+<h2><a class="toc-backref" href="#id9">How does computeMatrix handle overlapping genome regions?</a><a class="headerlink" href="#how-does-computematrix-handle-overlapping-genome-regions" title="Permalink to this headline"></a></h2>
+<p>If the <a class="reference internal" href="help_glossary.html#bed"><span class="std std-ref">BED</span></a> file supplied to <a class="reference internal" href="tools/computeMatrix.html"><span class="doc">computeMatrix</span></a> contains regions that overlap but they will just be taken as is. If you would like to prevent this, then clean the <a class="reference internal" href="help_glossary.html#bed"><span class="std std-ref">BED</span></a> file before using <code class="docutils literal notranslate"><span class="pre">computeMatrix</span></code>. There are several methods for modifying your BED file.</p>
+<p>Let’s say your file looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cat testBed.bed
+chr1        10      20      region1
+chr1        7       15      region2
+chr1        18      29      region3
+chr1        35      40      region4
+chr1        10      20      region1Duplicate
+</pre></div>
+</div>
+<section id="galaxy-based-work-around">
+<h3><a class="toc-backref" href="#id10">Galaxy-based work around</a><a class="headerlink" href="#galaxy-based-work-around" title="Permalink to this headline"></a></h3>
+<p>To eliminate entries with <em>identical</em> genome coordinates, first use the tool “Count” and then filter out all entries that are present more than once.</p>
+<img alt="images/Gal_FAQ_filteringDuplicates.png" src="images/Gal_FAQ_filteringDuplicates.png" />
+</section>
+<section id="command-line-based-work-arounds">
+<h3><a class="toc-backref" href="#id11">Command line-based work arounds</a><a class="headerlink" href="#command-line-based-work-arounds" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>if you just want to eliminate <em>identical</em> entries (here: region1 and region1Duplicate), use <code class="docutils literal notranslate"><span class="pre">sort</span></code> and <code class="docutils literal notranslate"><span class="pre">uniq</span></code> in the shell (note that the label of the identical regions is different - as <code class="docutils literal notranslate"><span class="pre">uniq</span></code> can only ignore fields at the beginning of a file, use <code class="docutils literal notranslate"><span class="pre">rev</span></code> to revert the sorted file, then <code class="docutils literal notranslate"><span class="pre">uniq</span></code> with ignoring the first field (which is now the name column) and then revert back:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sort -k1,1 -k2,2n testBed.bed | rev | uniq -f1 | rev
+chr1        10      20      region1
+chr1        7       15      region2
+chr1        18      29      region3
+chr1        35      40      region4
+</pre></div>
+</div>
+</li>
+<li><p>if you would like to <em>merge all overlapping regions</em> into one big one, use the <code class="docutils literal notranslate"><span class="pre">mergeBed</span></code> from the BEDtools suite:</p>
+<ul>
+<li><p>again, the BED file must be sorted first</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> and <code class="docutils literal notranslate"><span class="pre">-nms</span></code> tell <code class="docutils literal notranslate"><span class="pre">mergeBed</span></code> to output the number of overlapping regions and the names of them</p></li>
+<li><p>in the resulting file, regions 1, 2 and 3 are merged</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sort -k1,1 -k2,2n testBed.bed | mergeBed -i stdin -n -nms
+chr1      7       29      region2;region1;region1Duplicate;region3        4
+chr1      35      40      region4 1
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>if you would like to <em>keep only regions that do not overlap</em> with any other region in the same BED file, use the same <code class="docutils literal notranslate"><span class="pre">mergeBed</span></code> routine but subsequently filter out those regions where several regions were merged.</p>
+<ul>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">awk</span></code> command will check the last field of each line (<code class="docutils literal notranslate"><span class="pre">$NF</span></code>) and will print the original line (<code class="docutils literal notranslate"><span class="pre">$0</span></code>) only if the last field contained a number smaller than 2</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sort -k1,1 -k2,2n testBed.bed | mergeBed -i stdin -n -nms | awk &#39;$NF &lt; 2 {print $0}&#39;
+chr1      35      40      region4 1
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="why-does-the-maximum-value-in-the-heatmap-not-equal-the-maximum-value-in-the-matrix">
+<h2><a class="toc-backref" href="#id12">Why does the maximum value in the heatmap not equal the maximum value in the matrix?</a><a class="headerlink" href="#why-does-the-maximum-value-in-the-heatmap-not-equal-the-maximum-value-in-the-matrix" title="Permalink to this headline"></a></h2>
+<p>Additional processing, such as outlier removal, is done on the matrix prior to plotting the heatmap. We’ve found this beneficial in most cases. You can override this by manually setting <code class="docutils literal notranslate"><span class="pre">--zMax</span></code> and/or <code class="docutils literal notranslate"><span class="pre">`--zMin</span></code>, respectively.</p>
+</section>
+<hr class="docutils" />
+<section id="the-heatmap-i-generated-looks-very-coarse-i-would-like-a-much-more-fine-grained-image">
+<h2><a class="toc-backref" href="#id13">The heatmap I generated looks very “coarse”, I would like a much more fine-grained image.</a><a class="headerlink" href="#the-heatmap-i-generated-looks-very-coarse-i-would-like-a-much-more-fine-grained-image" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>decrease the <em>bin size</em> when generating the matrix using <a class="reference internal" href="tools/computeMatrix.html"><span class="doc">computeMatrix</span></a></p></li>
+</ul>
+<dl class="simple">
+<dt>In Galaxy:</dt><dd><ul class="simple">
+<li><p>go to “advanced options” –&gt; “Length, in base pairs, of the non-overlapping <a class="reference internal" href="help_glossary.html#terminology"><span class="std std-ref">bin</span></a> for averaging the score over the regions length” –&gt; define a smaller value, e.g. 50 or 25 bp</p></li>
+<li><p>make sure that you used a sufficiently small <a class="reference internal" href="help_glossary.html#terminology"><span class="std std-ref">bin</span></a> size when calculating the <a class="reference internal" href="help_glossary.html#bigwig"><span class="std std-ref">bigWig</span></a> file, though (if generated with deepTools, you can check the option “bin size”)</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<hr class="docutils" />
+<section id="how-can-i-change-the-automatic-labels-of-the-clusters-in-a-k-means-clustered-heatmap">
+<h2><a class="toc-backref" href="#id14">How can I change the automatic labels of the clusters in a k-means clustered heatmap?</a><a class="headerlink" href="#how-can-i-change-the-automatic-labels-of-the-clusters-in-a-k-means-clustered-heatmap" title="Permalink to this headline"></a></h2>
+<p>Each cluster is treated exactly the same way as different groups of regions. Therefore, you can use the same option to define the labels of the final heatmap:</p>
+<dl class="simple">
+<dt>In Galaxy:</dt><dd><p>plotHeatmap –&gt; “Advanced output options” –&gt; “Labels for the regions plotted in the heatmap”.</p>
+</dd>
+</dl>
+<p>If you indicated 2 clusters for k-means clustering, enter here: C1, C2, –&gt; instead of the full default label (“cluster 1”), the heatmap will be labeled with the abbreviations.</p>
+<img alt="images/Gal_FAQ_clusterLabeling.png" src="images/Gal_FAQ_clusterLabeling.png" />
+<p>In the command line, use the <code class="docutils literal notranslate"><span class="pre">--regionsLabel</span></code> option to define the customized names for the regions.</p>
+</section>
+<hr class="docutils" />
+<section id="how-can-i-manually-specify-several-groups-of-regions-instead-of-clustering">
+<h2><a class="toc-backref" href="#id15">How can I manually specify several groups of regions (instead of clustering)?</a><a class="headerlink" href="#how-can-i-manually-specify-several-groups-of-regions-instead-of-clustering" title="Permalink to this headline"></a></h2>
+<p>Simply specify multiple BED files (e.g., genes.bed, exons.bed and introns.bed). This works both in Galaxy and on the command line.</p>
+</section>
+<hr class="docutils" />
+<section id="what-do-i-have-to-pay-attention-to-when-working-with-a-draft-version-of-a-genome">
+<h2><a class="toc-backref" href="#id16">What do I have to pay attention to when working with a draft version of a genome?</a><a class="headerlink" href="#what-do-i-have-to-pay-attention-to-when-working-with-a-draft-version-of-a-genome" title="Permalink to this headline"></a></h2>
+<p>If your genome isn’t included in our standard dataset then you’ll need the following:</p>
+<ol class="arabic simple">
+<li><p><strong>Effective genome size</strong> - this is mostly needed for <a class="reference internal" href="tools/bamCoverage.html"><span class="doc">bamCoverage</span></a> and <a class="reference internal" href="tools/bamCompare.html"><span class="doc">bamCompare</span></a>, see <a class="reference internal" href="#effgenomesize"><span class="std std-ref">below</span></a> for details</p></li>
+<li><p><strong>Reference genome sequence in 2bit format</strong> - this is needed for <a class="reference internal" href="tools/computeGCBias.html"><span class="doc">computeGCBias</span></a>, see <a class="reference internal" href="help_glossary.html#bit"><span class="std std-ref">2bit</span></a> for details</p></li>
+</ol>
+<hr class="docutils" />
+</section>
+<section id="how-do-i-calculate-the-effective-genome-size-for-an-organism-that-s-not-in-your-list">
+<span id="effgenomesize"></span><h2><a class="toc-backref" href="#id17">How do I calculate the effective genome size for an organism that’s not in your list?</a><a class="headerlink" href="#how-do-i-calculate-the-effective-genome-size-for-an-organism-that-s-not-in-your-list" title="Permalink to this headline"></a></h2>
+<p>At the moment we do not provide a tool for this purpose, so you’ll have to find a solution outside of deepTools for the time being.</p>
+<p>The “real” effective genome size is the part of the genome that is <em>uniquely mappable</em>. This means that the value will depend on the genome properties (how many repetitive elements, quality of the assembly etc.) and the length of the sequenced reads as 100 million 36-bp-reads might cover less than 100 million 100-bp-reads.</p>
+<p>We currently have these options for you:</p>
+<ol class="arabic simple">
+<li><p>Use an <a class="reference internal" href="#gem"><span class="std std-ref">GEM</span></a></p></li>
+<li><p>Use <a class="reference internal" href="#facount"><span class="std std-ref">faCount</span></a> (only if you let reads be aligned non-uniquely, too!)</p></li>
+<li><p>Use <a class="reference internal" href="#mapp-bamcov"><span class="std std-ref">bamCoverage</span></a></p></li>
+<li><p>Use <a class="reference internal" href="#mapp-genomecov"><span class="std std-ref">genomeCoverageBed</span></a></p></li>
+</ol>
+<section id="use-gem">
+<span id="gem"></span><h3><a class="toc-backref" href="#id18">Use <code class="docutils literal notranslate"><span class="pre">GEM</span></code></a><a class="headerlink" href="#use-gem" title="Permalink to this headline"></a></h3>
+<p>There is a tool that promises to calculate the mappability for any genome given the read length (k-mer length): <a class="reference external" href="http://algorithms.cnag.cat/wiki/Man:gem-mappability#Mappability.2Falignability">GEM-Mappability Calculator</a> . According to this reply <a class="reference external" href="https://groups.google.com/forum/#!topic/macs-announcement/-iIDkVwenn8">here</a>, you can calculate the effective genome size after running this program by counting the numbers of “!” which stands for uniquely mappable regions.</p>
+</section>
+<section id="use-facount">
+<span id="facount"></span><h3><a class="toc-backref" href="#id19">Use <code class="docutils literal notranslate"><span class="pre">faCount</span></code></a><a class="headerlink" href="#use-facount" title="Permalink to this headline"></a></h3>
+<p>If you are using <code class="docutils literal notranslate"><span class="pre">bowtie2</span></code>, which reports <em>multimappers</em> (i.e., <em>non-uniquely</em> mapped reads) as a default setting, you can use <strong>faCount from UCSC tools</strong> to report the total number of bases as well as the number of bases that are missing from the genome assembly indicated by ‘N’. The effective genome size would then be the total number of base pairs minus the total number of ‘N’.
+Here’s an example output of <code class="docutils literal notranslate"><span class="pre">faCount</span></code> on <em>D. melanogaster</em> genome version dm3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ UCSCtools/faCount dm3.fa
+#seq                len             A       C       G        T       N       cpg
+chr2L               23011544        6699731 4811687 4815192  6684734 200     926264
+chr2LHet    368872          90881   58504   57899    90588   71000   10958
+chr2R               21146708        6007371 4576037 4574750  5988450 100     917644
+chr2RHet    3288761         828553  537840   529242  826306  566820  99227
+chr3L               24543557        7113242 5153576  5141498 7135141 100     995078
+chr3LHet    2555491         725986  473888   479000  737434 139183   89647
+chr3R               27905053        7979156 5995211  5980227 7950459 0       1186894
+chr3RHet    2517507         678829  447155   446597  691725  253201  84175
+chr4                1351857         430227  238155   242039  441336  100     43274
+chrU                10049037        2511952 1672330  1672987 2510979 1680789 335241
+chrUextra   29004656        7732998 5109465  5084891 7614402 3462900 986216
+chrX                22422827        6409325 4742952  4748415 6432035 90100   959534
+chrXHet             204112          61961   40017    41813   60321  0        754
+chrYHet             347038          74566   45769    47582   74889  104232   8441
+chrM                19517           8152    2003     1479    7883   0        132
+total               168736537       47352930 33904589 33863611 47246682 6368725 6650479
+</pre></div>
+</div>
+<p>In this example:
+Total no. bp = 168,736,537
+Total no. ‘N’ = 6,368,725</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This method only works if multimappers are randomly assigned to their possible locations (in such cases the effective genome size is simply the number of non-N bases).</p>
+</div>
+</section>
+<section id="use-bamcoverage">
+<span id="mapp-bamcov"></span><h3><a class="toc-backref" href="#id20">Use <code class="docutils literal notranslate"><span class="pre">bamCoverage</span></code></a><a class="headerlink" href="#use-bamcoverage" title="Permalink to this headline"></a></h3>
+<p>If you have a sample where you expect the genome to be covered completely, e.g. from genome sequencing, a very trivial solution is to use <a class="reference internal" href="tools/bamCoverage.html"><span class="doc">bamCoverage</span></a> with a bin size of 1 bp and the <code class="docutils literal notranslate"><span class="pre">--outFileFormat</span></code> option set to ‘bedgraph’. You can then count the number of non-Zero bins (bases) which will indicate the mappable genome size for this specific sample.</p>
+</section>
+<section id="use-genomecoveragebed">
+<span id="mapp-genomecov"></span><h3><a class="toc-backref" href="#id21">Use <code class="docutils literal notranslate"><span class="pre">genomeCoverageBed</span></code></a><a class="headerlink" href="#use-genomecoveragebed" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">genomeCoverageBed</span></code> from the BEDtools suite can be used to calculate the number of bases in the genome for which 0 overlapping reads can be found.
+As described on the <a class="reference external" href="http://bedtools.readthedocs.org/en/latest/content/tools/genomecov.html">BEDtools website</a> (go to genomeCov description), you need:</p>
+<ul class="simple">
+<li><p>a file with the chromosome sizes of your sample’s organism</p></li>
+<li><p>a position-sorted BAM file</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ bedtools genomecov -ibam sortedBAMfile.bam -g genome.size
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="where-can-i-download-the-2bit-genome-files-required-for-computegcbias">
+<h2><a class="toc-backref" href="#id22">Where can I download the 2bit genome files required for <code class="docutils literal notranslate"><span class="pre">computeGCBias</span></code>?</a><a class="headerlink" href="#where-can-i-download-the-2bit-genome-files-required-for-computegcbias" title="Permalink to this headline"></a></h2>
+<p>The 2bit files of most genomes can be found <a class="reference external" href="http://hgdownload.cse.ucsc.edu/gbdb/">here</a>.
+Search for the .2bit ending. Otherwise, <strong>fasta files can be converted to 2bit</strong> using the UCSC program
+faToTwoBit (available for different platforms from <a class="reference external" href="http://hgdownload.cse.ucsc.edu/admin/exe/">UCSC here</a>).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

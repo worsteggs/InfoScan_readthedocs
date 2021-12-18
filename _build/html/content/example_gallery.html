@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery of deepTools plots &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Gallery of deepTools plots</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/example_gallery.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gallery-of-deeptools-plots">
+<h1>Gallery of deepTools plots<a class="headerlink" href="#gallery-of-deeptools-plots" title="Permalink to this headline"></a></h1>
+<div class="contents local topic" id="published-example-plots">
+<p class="topic-title">Published example plots</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#normalized-chip-seq-signals-and-peak-regions" id="id1">Normalized ChIP-seq signals and peak regions</a></p></li>
+<li><p><a class="reference internal" href="#dnase-accessibility-at-enhancers-in-murine-es-cells" id="id2">DNase accessibility at enhancers in murine ES cells</a></p></li>
+<li><p><a class="reference internal" href="#tata-box-enrichments-around-the-tss-of-mouse-genes" id="id3">TATA box enrichments around the TSS of mouse genes</a></p></li>
+<li><p><a class="reference internal" href="#visualizing-the-gc-content-for-mouse-and-fly-genes" id="id4">Visualizing the GC content for mouse and fly genes</a></p></li>
+<li><p><a class="reference internal" href="#cpg-methylation-around-murine-transcription-start-sites-in-two-different-cell-types" id="id5">CpG methylation around murine transcription start sites in two different cell types</a></p></li>
+<li><p><a class="reference internal" href="#histone-marks-for-genes-of-the-mosquito-anopheles-gambiae" id="id6">Histone marks for genes of the mosquito <em>Anopheles gambiae</em></a></p></li>
+<li><p><a class="reference internal" href="#signals-of-repressive-chromatin-marks-their-enzymes-and-repeat-element-conservation-scores" id="id7">Signals of repressive chromatin marks, their enzymes and repeat element conservation scores</a></p></li>
+</ul>
+</div>
+<p>We’re trying to collect a wide variety of plots generated using deepTools.
+For the plots that we created ourselves, we try to point out the options that were used to create
+each image, so perhaps these can serve as inspiration for you.</p>
+<section id="normalized-chip-seq-signals-and-peak-regions">
+<h2><a class="toc-backref" href="#id1">Normalized ChIP-seq signals and peak regions</a><a class="headerlink" href="#normalized-chip-seq-signals-and-peak-regions" title="Permalink to this headline"></a></h2>
+<p>This image was published by <a class="reference external" href="http://bioinformatics.oxfordjournals.org/content/early/2014/09/26/bioinformatics.btu568">Ibrahim et al., 2014
+(NAR)</a>.
+They used deepTools to generate extended reads per kilobase per million
+reads at 10 base resolution and visualized the resulting coverage files in
+<a class="reference external" href="dx.doi.org/10.1093/bib/bbs017">IGV</a>.</p>
+<img alt="images/gallery/coverage_Ibrahim.png" src="images/gallery/coverage_Ibrahim.png" />
+</section>
+<section id="dnase-accessibility-at-enhancers-in-murine-es-cells">
+<h2><a class="toc-backref" href="#id2">DNase accessibility at enhancers in murine ES cells</a><a class="headerlink" href="#dnase-accessibility-at-enhancers-in-murine-es-cells" title="Permalink to this headline"></a></h2>
+<p>The following image demonstrates that enhancer regions are typically
+small stretches of highly accessible chromatin (more information on
+enhancers can be found, for example,
+<a class="reference external" href="http://dx.doi.org/doi:10.1038/nature07829">here</a>). In the heatmap,
+yellow and blue tiles indicate a large numbers of reads that were
+sequenced (indicative of open chromatin) and black spots indicate
+missing data points. An appropriate labeling of the y-axis was
+neglected.</p>
+<img alt="images/gallery/hm_DNase.png" src="images/gallery/hm_DNase.png" />
+<p><strong>Fast Facts:</strong></p>
+<ul class="simple">
+<li><p><cite>computeMatrix</cite> mode: reference-point</p></li>
+<li><p><em>regions file</em>: BED file with typical enhancer regions from <a class="reference external" href="http://dx.doi.org/10.1016/j.cell.2013.03.035">Whyte et al., 2013</a> (download <a class="reference external" href="https://raw.github.com/deeptools/deepTools/master/gallery/Whyte_TypicalEnhancers_ESC.bed">here</a>)</p></li>
+<li><p><em>signal file</em>: bigWig file with <a class="reference external" href="http://hgdownload.cse.ucsc.edu/goldenPath/mm9/encodeDCC/wgEncodeUwDnase/wgEncodeUwDnaseEscj7S129ME0SigRep1.bigWig">DNase signal from UCSC</a></p></li>
+<li><p><em>heatmap cosmetics</em>: labels, titles, heatmap height</p></li>
+</ul>
+<p><strong>Command:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ computeMatrix reference-point \
+ -S DNase_mouse.bigwig \
+ -R Whyte_TypicalEnhancers_ESC.bed \
+ --referencePoint center \
+ -a 2000 -b 2000 \ ## regions before and after the enhancer centers
+ -out matrix_Enhancers_DNase_ESC.tab.gz
+
+$ plotHeatmap \
+ -m matrix_Enhancers_DNase_ESC.tab.gz\
+ -out hm_DNase_ESC.png \
+ --heatmapHeight 15  \
+ --refPointLabel enh.center \
+ --regionsLabel enhancers \
+ --plotTitle &#39;DNase signal&#39; \
+</pre></div>
+</div>
+</section>
+<section id="tata-box-enrichments-around-the-tss-of-mouse-genes">
+<h2><a class="toc-backref" href="#id3">TATA box enrichments around the TSS of mouse genes</a><a class="headerlink" href="#tata-box-enrichments-around-the-tss-of-mouse-genes" title="Permalink to this headline"></a></h2>
+<p>Using the <a class="reference external" href="http://www.mybiosoftware.com/sequence-analysis/3894">TRAP</a>
+suite, we produced a bigWig file that contained TRAP scores for the
+well-known TATA box motif along the mouse genome. The TRAP score is a
+measure for the strength of a protein-DNA interaction at a given DNA
+sequence; the higher the score, the closer the motif is to the consensus
+motif sequence. The following heatmap demonstrates that:</p>
+<ul class="simple">
+<li><p>TATA-like motifs occur quite frequently</p></li>
+<li><p>there is an obvious clustering of TATA motifs slightly upstream of
+the TSS of many mouse genes</p></li>
+<li><p>there are many genes that do not contain TATA-like motifs at their
+promoter</p></li>
+</ul>
+<p>Note that the heatmap shows <em>all</em> mouse RefSeq genes, so ca. 15,000
+genes!</p>
+<img alt="images/gallery/hm_TATApsem.png" src="images/gallery/hm_TATApsem.png" />
+<p><strong>Fast Facts:</strong></p>
+<ul class="simple">
+<li><p><cite>computeMatrix mode</cite>: reference-point</p></li>
+<li><p><em>regions file</em>: BED file with all mouse genes (from UCSC table browser)</p></li>
+<li><p><em>signal file</em>: bigWig file of TATA psem scores</p></li>
+<li><p><em>heatmap cosmetics</em>: color scheme, labels, titles, heatmap height, only showing heatmap + colorbar</p></li>
+</ul>
+<p><strong>Command:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ computeMatrix reference-point \
+ -S TATA_01_pssm.bw \
+ -R RefSeq_genes.bed \
+ --referencePoint TSS \
+ -a 100 -b 100 \
+ --binSize 5 \
+
+$ plotHeatmap \
+ -m matrix_Genes_TATA.tab.gz  \
+ -out hm_allGenes_TATA.png \
+ --colorMap hot_r \
+ --missingDataColor .4 \
+ --heatmapHeight 7 \
+ --plotTitle &#39;TATA motif&#39; \
+ --whatToShow &#39;heatmap and colorbar&#39; \
+ --sortRegions ascend
+</pre></div>
+</div>
+</section>
+<section id="visualizing-the-gc-content-for-mouse-and-fly-genes">
+<h2><a class="toc-backref" href="#id4">Visualizing the GC content for mouse and fly genes</a><a class="headerlink" href="#visualizing-the-gc-content-for-mouse-and-fly-genes" title="Permalink to this headline"></a></h2>
+<p>It is well known that different species have different genome GC
+contents. Here, we used two bigWig files where the GC content was
+calculated for 50 base windows along the genome of mice and flies and
+the resulting scores visualized for gene regions.</p>
+<p>The images nicely illustrate the completely opposite GC distributions in
+flies and mice: while the gene starts of mammalian genomes are enriched
+for Gs and Cs, fly promoters show depletion of GC content.</p>
+<img alt="images/gallery/hm_GC.png" src="images/gallery/hm_GC.png" />
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Fast Facts</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>computeMatrix mode</p></td>
+<td><p>scale-regions</p></td>
+</tr>
+<tr class="row-odd"><td><p>regions files</p></td>
+<td><p>BED files with mouse and fly genes (from UCSC table browser)</p></td>
+</tr>
+<tr class="row-even"><td><p>signal file</p></td>
+<td><p>bigwig files with GC content</p></td>
+</tr>
+<tr class="row-odd"><td><p>heatmap cosmetics</p></td>
+<td><p>color scheme, labels, titles, color for missing data was set to white, heatmap height</p></td>
+</tr>
+</tbody>
+</table>
+<p>Fly and mouse genes were scaled to different sizes due to the different
+median sizes of the two species’ genes (genes of <em>D.melanogaster</em>
+contain many fewer introns and are considerably shorter than mammalian
+genes). Thus, computeMatrix had to be run with slightly different
+parameters while the plotHeatmap commands were virtually identical
+(except for the labels).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ computeMatrix scale-regions \
+ -S GCcontent_Mm9_50_5.bw \
+ -R RefSeq_genes_uniqNM.bed \
+ -bs 50
+ -m 10000 -b 3000 -a 3000 \
+ -out matrix_GCcont_Mm9_scaledGenes.tab.gz \
+ --skipZeros \
+ --missingDataAsZero
+
+$ computeMatrix scale-regions \
+ -S GCcontent_Dm3_50_5.bw \
+ -R Dm530.genes.bed \
+ -bs 50
+ -m 3000 -b 1000 -a 1000 \
+ -out matrix_GCcont_Dm3_scaledGenes.tab.gz \
+ --skipZeros --missingDataAsZero
+
+$ plotHeatmap \
+ -m matrix_GCcont_Dm3_scaledGenes.tab.gz \
+ -out hm_GCcont_Dm3_scaledGenes.png \
+ --colorMap YlGnBu \
+ --regionsLabel &#39;fly genes&#39; \
+ --heatmapHeight 15 \
+ --plotTitle &#39;GC content fly&#39; &amp;
+
+$ plotHeatmap \
+ -m matrix_GCcont_Mm9_scaledGenes.tab.gz \
+ -out hm_GCcont_Mm9_scaledGenes.png \
+ --colorMap YlGnBu \
+ --regionsLabel &#39;mouse genes&#39; \
+ --heatmapHeight 15 \
+ --plotTitle &#39;GC content mouse&#39; &amp;
+</pre></div>
+</div>
+</section>
+<section id="cpg-methylation-around-murine-transcription-start-sites-in-two-different-cell-types">
+<h2><a class="toc-backref" href="#id5">CpG methylation around murine transcription start sites in two different cell types</a><a class="headerlink" href="#cpg-methylation-around-murine-transcription-start-sites-in-two-different-cell-types" title="Permalink to this headline"></a></h2>
+<p>In addition to the methylation of histone tails, the cytosines
+can also be methylated (for more information on CpG methylation,
+read
+<a class="reference external" href="http://www.nature.com/scitable/topicpage/the-role-of-methylation-in-gene-expression-1070">here</a>).
+In mammalian genomes, most CpGs are methylated unless they are in
+gene promoters that need to be kept unmethylated to allow full
+transcriptional activity. In the following heatmaps, we used genes
+expressed primarily in ES cells and checked the
+percentages of methylated cytosines around their transcription start
+sites. The blue signal indicates that very few methylated cytosines are
+found. When you compare the CpG methylation signal between ES cells and
+neuronal progenitor (NP) cells, you can see that the majority of genes remain unmethylated,
+but the general amount of CpG methylation around the TSS increases, as
+indicated by the stronger red signal and the slight elevation of the CpG
+methylation signal in the summary plot. This supports the notion that
+genes stored in the BED file indeed tend to be more expressed in ES
+than in NP cells.</p>
+<p>This image was taken from <a class="reference external" href="http://elifesciences.org/content/3/e02024">Chelmicki &amp; Dündar et al. (2014),
+eLife</a>.</p>
+<img alt="images/gallery/hm_CpG.png" src="images/gallery/hm_CpG.png" />
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Fast Facts</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>computeMatrix mode</p></td>
+<td><p>reference-point</p></td>
+</tr>
+<tr class="row-odd"><td><p>regions files</p></td>
+<td><p><a class="reference internal" href="help_glossary.html#bed"><span class="std std-ref">BED</span></a> file mouse genes expressed in ES cells</p></td>
+</tr>
+<tr class="row-even"><td><p>signal file</p></td>
+<td><p><a class="reference internal" href="help_glossary.html#bigwig"><span class="std std-ref">bigWig</span></a> files with fraction of methylated cytosins (from <a class="reference external" href="http://dx.doi.org/10.1038/nature10716">Stadler et al., 2011</a>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>heatmap cosmetics</p></td>
+<td><p>color scheme, labels, titles, color for missing data was set to customized color, y-axis of profiles were changed, heatmap height</p></td>
+</tr>
+</tbody>
+</table>
+<p>The commands for the bigWig files from the ES and NP cells
+were the same:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ computeMatrix reference-point \
+ -S GSE30202_ES_CpGmeth.bw \
+ -R activeGenes_ESConly.bed \
+ --referencePoint TSS \
+ -a 2000 -b 2000 \
+ -out matrix_Genes_ES_CpGmeth.tab.gz
+
+$ plotHeatmap \
+ -m matrix_Genes_ES_CpGmeth.tab.gz \
+ -out hm_activeESCGenes_CpG_ES_indSort.png \
+ --colorMap jet \
+ --missingDataColor &quot;#FFF6EB&quot; \
+ --heatmapHeight 15 \
+ --yMin 0 --yMax 100 \
+ --plotTitle &#39;ES cells&#39; \
+ --regionsLabel &#39;genes active in ESC&#39;
+</pre></div>
+</div>
+</section>
+<section id="histone-marks-for-genes-of-the-mosquito-anopheles-gambiae">
+<h2><a class="toc-backref" href="#id6">Histone marks for genes of the mosquito <em>Anopheles gambiae</em></a><a class="headerlink" href="#histone-marks-for-genes-of-the-mosquito-anopheles-gambiae" title="Permalink to this headline"></a></h2>
+<p>This figure was taken from <a class="reference external" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4133732/">Gómez-Díaz et al. (2014): Insights into the
+epigenomic landscape of the human malaria vector *Anopheles gambiae*.
+From Genet
+Aug15;5:277</a>.
+It shows the distribution of H3K27Me3 (left) and H3K27Ac (right) over
+gene features in <em>A. gambiae</em> midguts. The enrichment or
+depletion is shown relative to chromatin input. The regions in the map
+comprise gene bodies flanked by a segment of 200 bases at the 5′ end of
+TSSs and TTSs. Average profile across gene regions ±200 bases for each
+histone modification are shown on top.</p>
+<img alt="images/gallery/hm_histonesGomez.png" src="images/gallery/hm_histonesGomez.png" />
+</section>
+<section id="signals-of-repressive-chromatin-marks-their-enzymes-and-repeat-element-conservation-scores">
+<h2><a class="toc-backref" href="#id7">Signals of repressive chromatin marks, their enzymes and repeat element conservation scores</a><a class="headerlink" href="#signals-of-repressive-chromatin-marks-their-enzymes-and-repeat-element-conservation-scores" title="Permalink to this headline"></a></h2>
+<p>This image is from <a class="reference external" href="http://www.sciencedirect.com/science/article/pii/S1097276514004535">Bulut-Karsliogu and De La Rosa-Velázquez et al.
+(2014), Mol
+Cell.</a>
+The heatmaps depict various signal types for unscaled peak regions of
+proteins and histone marks associated with repressed chromatin. The
+peaks were separated into those containing long interspersed elements
+(LINEs) on the forward and reverse strand. The signals include
+normalized ChIP-seq signals for H3K9Me3, Suv39h1, Suv39h2, Eset, and
+HP1alpha-EGFP, followed by LINE and ERV content and repeat conservation
+scores.</p>
+<img alt="images/gallery/hm_Bulut.png" src="images/gallery/hm_Bulut.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

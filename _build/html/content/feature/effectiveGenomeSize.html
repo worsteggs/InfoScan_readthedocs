@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Effective Genome Size &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Effective Genome Size</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/content/feature/effectiveGenomeSize.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="effective-genome-size">
+<h1>Effective Genome Size<a class="headerlink" href="#effective-genome-size" title="Permalink to this headline"></a></h1>
+<p>A number of tools can accept an “effective genome size”. This is defined as the length of the “mappable” genome. There are two common alternative ways to calculate this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">non</span><span class="o">-</span><span class="n">N</span> <span class="n">bases</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">genome</span><span class="o">.</span>
+<span class="mf">2.</span> <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">regions</span> <span class="p">(</span><span class="n">of</span> <span class="n">some</span> <span class="n">size</span><span class="p">)</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">genome</span> <span class="n">that</span> <span class="n">are</span> <span class="n">uniquely</span> <span class="n">mappable</span> <span class="p">(</span><span class="n">possibly</span> <span class="n">given</span> <span class="n">some</span> <span class="n">maximal</span> <span class="n">edit</span> <span class="n">distance</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Option 1 can be computed using <code class="docutils literal notranslate"><span class="pre">faCount</span></code> from <a class="reference external" href="http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/">Kent’s tools</a>. The effective genome size for a number of genomes using this method is given below:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Genome</p></th>
+<th class="head"><p>Effective size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GRCh37</p></td>
+<td><p>2864785220</p></td>
+</tr>
+<tr class="row-odd"><td><p>GRCh38</p></td>
+<td><p>2913022398</p></td>
+</tr>
+<tr class="row-even"><td><p>GRCm37</p></td>
+<td><p>2620345972</p></td>
+</tr>
+<tr class="row-odd"><td><p>GRCm38</p></td>
+<td><p>2652783500</p></td>
+</tr>
+<tr class="row-even"><td><p>dm3</p></td>
+<td><p>162367812</p></td>
+</tr>
+<tr class="row-odd"><td><p>dm6</p></td>
+<td><p>142573017</p></td>
+</tr>
+<tr class="row-even"><td><p>GRCz10</p></td>
+<td><p>1369631918</p></td>
+</tr>
+<tr class="row-odd"><td><p>WBcel235</p></td>
+<td><p>100286401</p></td>
+</tr>
+<tr class="row-even"><td><p>TAIR10</p></td>
+<td><p>119481543</p></td>
+</tr>
+</tbody>
+</table>
+<p>These values only appropriate if multimapping reads are included. If they are excluded (or there’s any MAPQ filter applied), then values derived from option 2 are more appropriate. These are then based on the read length. We can approximate these values for various read lengths using the <a class="reference external" href="http://khmer.readthedocs.io/en/v2.1.1/">khmer program</a> program and <code class="docutils literal notranslate"><span class="pre">unique-kmers.py</span></code> in particular. A table of effective genome sizes given a read length using this method is provided below:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 11%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Read length</p></th>
+<th class="head"><p>GRCh37</p></th>
+<th class="head"><p>GRCh38</p></th>
+<th class="head"><p>GRCm37</p></th>
+<th class="head"><p>GRCm38</p></th>
+<th class="head"><p>dm3</p></th>
+<th class="head"><p>dm6</p></th>
+<th class="head"><p>GRCz10</p></th>
+<th class="head"><p>WBcel235</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>50</p></td>
+<td><p>2685511504</p></td>
+<td><p>2701495761</p></td>
+<td><p>2304947926</p></td>
+<td><p>2308125349</p></td>
+<td><p>130428560</p></td>
+<td><p>125464728</p></td>
+<td><p>1195445591</p></td>
+<td><p>95159452</p></td>
+</tr>
+<tr class="row-odd"><td><p>75</p></td>
+<td><p>2736124973</p></td>
+<td><p>2747877777</p></td>
+<td><p>2404646224</p></td>
+<td><p>2407883318</p></td>
+<td><p>135004462</p></td>
+<td><p>127324632</p></td>
+<td><p>1251132686</p></td>
+<td><p>96945445</p></td>
+</tr>
+<tr class="row-even"><td><p>100</p></td>
+<td><p>2776919808</p></td>
+<td><p>2805636331</p></td>
+<td><p>2462481010</p></td>
+<td><p>2467481108</p></td>
+<td><p>139647232</p></td>
+<td><p>129789873</p></td>
+<td><p>1280189044</p></td>
+<td><p>98259998</p></td>
+</tr>
+<tr class="row-odd"><td><p>150</p></td>
+<td><p>2827437033</p></td>
+<td><p>2862010578</p></td>
+<td><p>2489384235</p></td>
+<td><p>2494787188</p></td>
+<td><p>144307808</p></td>
+<td><p>129941135</p></td>
+<td><p>1312207169</p></td>
+<td><p>98721253</p></td>
+</tr>
+<tr class="row-even"><td><p>200</p></td>
+<td><p>2855464000</p></td>
+<td><p>2887553303</p></td>
+<td><p>2513019276</p></td>
+<td><p>2520869189</p></td>
+<td><p>148524010</p></td>
+<td><p>132509163</p></td>
+<td><p>1321355241</p></td>
+<td><p>98672758</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CellInfo &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="FuncScan" href="FuncScan.html" />
+    <link rel="prev" title="NovelScan" href="NovelScan.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CellInfo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#options">Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#genome">Genome</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mitochondria-content-filter">Mitochondria content filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spike-in-filter">spike-in filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#maxgene-filter">maxGene filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mingene-filter">minGene filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chose-pc-number">chose pc number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resolution-chose">resolution chose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conservation-filter">Conservation filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fpkm-filter">fpkm filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#group-information">Group information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#example-result">Example Result</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FuncScan.html">FuncScan</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>CellInfo</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/CellInfo.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cellinfo">
+<h1>CellInfo<a class="headerlink" href="#cellinfo" title="Permalink to this headline"></a></h1>
+<p><cite>Investigate cell-specific transcripts and their cell cluster ability.</cite></p>
+<img alt="content/images/CellInfo.png" src="content/images/CellInfo.png" />
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#options" id="id1">Options</a></p>
+<ul>
+<li><p><a class="reference internal" href="#genome" id="id2">Genome</a></p></li>
+<li><p><a class="reference internal" href="#mitochondria-content-filter" id="id3">Mitochondria content filter</a></p></li>
+<li><p><a class="reference internal" href="#spike-in-filter" id="id4">spike-in filter</a></p></li>
+<li><p><a class="reference internal" href="#maxgene-filter" id="id5">maxGene filter</a></p></li>
+<li><p><a class="reference internal" href="#mingene-filter" id="id6">minGene filter</a></p></li>
+<li><p><a class="reference internal" href="#chose-pc-number" id="id7">chose pc number</a></p></li>
+<li><p><a class="reference internal" href="#resolution-chose" id="id8">resolution chose</a></p></li>
+<li><p><a class="reference internal" href="#conservation-filter" id="id9">Conservation filter</a></p></li>
+<li><p><a class="reference internal" href="#fpkm-filter" id="id10">fpkm filter</a></p></li>
+<li><p><a class="reference internal" href="#group-information" id="id11">Group information</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#example-result" id="id12">Example Result</a></p></li>
+</ul>
+</div>
+<section id="options">
+<h2><a class="toc-backref" href="#id1">Options</a><a class="headerlink" href="#options" title="Permalink to this headline"></a></h2>
+<section id="genome">
+<h3><a class="toc-backref" href="#id2">Genome</a><a class="headerlink" href="#genome" title="Permalink to this headline"></a></h3>
+<p>Select the species of the data(Human or Mouse).</p>
+</section>
+<section id="mitochondria-content-filter">
+<h3><a class="toc-backref" href="#id3">Mitochondria content filter</a><a class="headerlink" href="#mitochondria-content-filter" title="Permalink to this headline"></a></h3>
+<p>Remove samples with mitochondrial content above the threshold in single-cell data.</p>
+</section>
+<section id="spike-in-filter">
+<h3><a class="toc-backref" href="#id4">spike-in filter</a><a class="headerlink" href="#spike-in-filter" title="Permalink to this headline"></a></h3>
+<p>Remove samples with spike-in content above the threshold in single-cell data.</p>
+</section>
+<section id="maxgene-filter">
+<h3><a class="toc-backref" href="#id5">maxGene filter</a><a class="headerlink" href="#maxgene-filter" title="Permalink to this headline"></a></h3>
+<p>Remove samples with the number of genes above the threshold.</p>
+</section>
+<section id="mingene-filter">
+<h3><a class="toc-backref" href="#id6">minGene filter</a><a class="headerlink" href="#mingene-filter" title="Permalink to this headline"></a></h3>
+<p>Remove samples with the number of genes below the threshold.</p>
+</section>
+<section id="chose-pc-number">
+<h3><a class="toc-backref" href="#id7">chose pc number</a><a class="headerlink" href="#chose-pc-number" title="Permalink to this headline"></a></h3>
+<p>Dimensions of reduction to use as input.</p>
+</section>
+<section id="resolution-chose">
+<h3><a class="toc-backref" href="#id8">resolution chose</a><a class="headerlink" href="#resolution-chose" title="Permalink to this headline"></a></h3>
+<p>Value of the resolution parameter, use a value above (below) 1.0 if you want to obtain a larger (smaller) number of communities.</p>
+</section>
+<section id="conservation-filter">
+<h3><a class="toc-backref" href="#id9">Conservation filter</a><a class="headerlink" href="#conservation-filter" title="Permalink to this headline"></a></h3>
+<p>Remove the transcripts whose conservation is lower than the threshold in the unannotated cluster marker gene.</p>
+</section>
+<section id="fpkm-filter">
+<h3><a class="toc-backref" href="#id10">fpkm filter</a><a class="headerlink" href="#fpkm-filter" title="Permalink to this headline"></a></h3>
+<p>Remove the transcripts whose expression is lower than the threshold in the unannotated cluster marker gene.</p>
+</section>
+<section id="group-information">
+<h3><a class="toc-backref" href="#id11">Group information</a><a class="headerlink" href="#group-information" title="Permalink to this headline"></a></h3>
+<p>If the user provides group information, you can check the <em>Group information</em> option, and use the <em>Browse</em> button to select the file, and enter the group you want to display in the <em>group_chose</em> column.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The file needs to have a column named “sample”.</p>
+</div>
+<p>Then the user can run the program by clicking <em>START</em> button.</p>
+<p>After the program runs, the user can view the results by clicking the <em>Example Result</em> button.</p>
+</section>
+</section>
+<section id="example-result">
+<h2><a class="toc-backref" href="#id12">Example Result</a><a class="headerlink" href="#example-result" title="Permalink to this headline"></a></h2>
+<img alt="content/images/CellInfo_result.png" src="content/images/CellInfo_result.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="NovelScan.html" class="btn btn-neutral float-left" title="NovelScan" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="FuncScan.html" class="btn btn-neutral float-right" title="FuncScan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

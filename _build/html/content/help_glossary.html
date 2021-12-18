@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glossary of NGS terms &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Glossary of NGS terms</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/help_glossary.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="glossary-of-ngs-terms">
+<h1>Glossary of NGS terms<a class="headerlink" href="#glossary-of-ngs-terms" title="Permalink to this headline"></a></h1>
+<p>Like most specialized fields, next-generation sequencing has inspired many an acronyms.
+We are trying to keep track of those <a class="reference internal" href="#abbreviations"><span class="std std-ref">Abbreviations</span></a> that we heavily use.
+Do make us aware if something is unclear by opening an issue on <a class="reference external" href="http://github.com/deeptools/deeptools">github</a></p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#abbreviations" id="id14">Abbreviations</a></p></li>
+<li><p><a class="reference internal" href="#ngs-and-generic-terminology" id="id15">NGS and generic terminology</a></p>
+<ul>
+<li><p><a class="reference internal" href="#bin" id="id16">bin</a></p></li>
+<li><p><a class="reference internal" href="#input" id="id17">Input</a></p></li>
+<li><p><a class="reference internal" href="#read" id="id18">read</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#file-formats" id="id19">File Formats</a></p>
+<ul>
+<li><p><a class="reference internal" href="#bit" id="id20">2bit</a></p></li>
+<li><p><a class="reference internal" href="#bam" id="id21">BAM</a></p></li>
+<li><p><a class="reference internal" href="#bed" id="id22">BED</a></p></li>
+<li><p><a class="reference internal" href="#bedgraph" id="id23">bedGraph</a></p></li>
+<li><p><a class="reference internal" href="#bigwig" id="id24">bigWig</a></p></li>
+<li><p><a class="reference internal" href="#fasta" id="id25">FASTA</a></p></li>
+<li><p><a class="reference internal" href="#fastq" id="id26">FASTQ</a></p></li>
+<li><p><a class="reference internal" href="#sam" id="id27">SAM</a></p>
+<ul>
+<li><p><a class="reference internal" href="#sam-header-section" id="id28">SAM header section</a></p></li>
+<li><p><a class="reference internal" href="#sam-alignment-section" id="id29">SAM alignment section</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="abbreviations">
+<span id="id1"></span><h2><a class="toc-backref" href="#id14">Abbreviations</a><a class="headerlink" href="#abbreviations" title="Permalink to this headline"></a></h2>
+<p>Reference genomes are usually referred to by their abbreviations, such as:</p>
+<ul class="simple">
+<li><p>hg19 = human genome, version 19</p></li>
+<li><p>mm9 = <em>Mus musculus</em> genome, version 9</p></li>
+<li><p>dm3 = <em>Drosophila melanogaster</em>, version 3</p></li>
+<li><p>ce10 = <em>Caenorhabditis elegans</em>, version 10</p></li>
+</ul>
+<p>For a more comprehensive list of available reference genomes and their abbreviations,
+see the <a class="reference external" href="http://hgdownload.soe.ucsc.edu/downloads.html">UCSC data base</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 21%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Acronym</p></th>
+<th class="head"><p>full phrase</p></th>
+<th class="head"><p>Synonyms/Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&lt;ANYTHING&gt;-seq</p></td>
+<td><p>-sequencing</p></td>
+<td><p>indicates that an experiment was completed by DNA sequencing using NGS</p></td>
+</tr>
+<tr class="row-odd"><td><p>ChIP-seq</p></td>
+<td><p>chromatin immunoprecipitation sequencing</p></td>
+<td><p>NGS technique for detecting transcription factor binding sites and histone modifications (see entry <em>Input</em> for more information)</p></td>
+</tr>
+<tr class="row-even"><td><p>DNase</p></td>
+<td><p>deoxyribonuclease I</p></td>
+<td><p>DNase I digestion is used to determine active (“open”) chromatin regions</p></td>
+</tr>
+<tr class="row-odd"><td><p>HTS</p></td>
+<td><p>high-throughput sequencing</p></td>
+<td><p>next-generation sequencing, massive parallel short read sequencing, deep sequencing</p></td>
+</tr>
+<tr class="row-even"><td><p>MNase</p></td>
+<td><p>micrococcal nuclease</p></td>
+<td><p>MNase digestion is used to determine sites with nucleosomes</p></td>
+</tr>
+<tr class="row-odd"><td><p>NGS</p></td>
+<td><p>next-generation sequencing</p></td>
+<td><p>high-throughput (DNA) sequencing, massive parallel short read sequencing, deep sequencing</p></td>
+</tr>
+<tr class="row-even"><td><p>RPGC</p></td>
+<td><p>reads per genomic content</p></td>
+<td><p>normalize reads to 1x sequencing depth, sequencing depth is defined as: (mapped reads x fragment length) / effective genome size</p></td>
+</tr>
+<tr class="row-odd"><td><p>RPKM</p></td>
+<td><p>reads per kilobase per million reads</p></td>
+<td><p>normalize read numbers: RPKM (per bin) = reads per bin / ( mapped reads (in millions) x bin length (kb))</p></td>
+</tr>
+</tbody>
+</table>
+<p>For a review of popular *-seq applications, see <a class="reference external" href="http://genomebiology.com/2012/13/10/250">Zentner and Henikoff</a>.</p>
+</section>
+<section id="ngs-and-generic-terminology">
+<span id="terminology"></span><h2><a class="toc-backref" href="#id15">NGS and generic terminology</a><a class="headerlink" href="#ngs-and-generic-terminology" title="Permalink to this headline"></a></h2>
+<p>The following are terms that may be new to some:</p>
+<section id="bin">
+<span id="id2"></span><h3><a class="toc-backref" href="#id16">bin</a><a class="headerlink" href="#bin" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>synonyms: window, region</p></li>
+<li><p>A ‘bin’ is a subset of a larger grouping. Many calculations calculation are performed by first dividing the genome into small regions (bins), on which the calculations are actually performed.</p></li>
+</ul>
+</section>
+<section id="input">
+<span id="id3"></span><h3><a class="toc-backref" href="#id17">Input</a><a class="headerlink" href="#input" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Control experiment typically done for ChIP-seq experiments</p></li>
+<li><p>While ChIP-seq relies on antibodies to enrich for DNA fragments bound to a certain protein, the input sample should be processed exactly the same way, excluding the antibody. This allows one to account for biases introduced by sample handling and the general chromatin structure of the cells</p></li>
+</ul>
+</section>
+<section id="read">
+<span id="id4"></span><h3><a class="toc-backref" href="#id18">read</a><a class="headerlink" href="#read" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>synonym: tag</p></li>
+<li><p>This term refers to the piece of DNA that is sequenced (“read”) by the sequencers. We try to differentiate between “read” and “DNA fragment” as the fragments that are put into the sequencer tend to be in the range of 200-1000 bases, of which only the first 50 to 300 bases are typically sequenced. Most of the deepTools will not only take these reads into account, but also extend them to match the original DNA fragment size. (The original size will either be given by you or, if you used paired-end sequencing, be calculated from the distance between the two read mates).</p></li>
+</ul>
+</section>
+</section>
+<section id="file-formats">
+<span id="id5"></span><h2><a class="toc-backref" href="#id19">File Formats</a><a class="headerlink" href="#file-formats" title="Permalink to this headline"></a></h2>
+<p>Data obtained from next-generation sequencing data must be processed several times.
+Most of the processing steps are aimed at extracting only that information
+needed for a specific down-stream analysis, with redundant entries often discarded.
+Therefore, <strong>specific data formats are often associated with different steps of a data processing pipeline</strong>.</p>
+<p>Here, we just want to give very brief key descriptions of the file, for elaborate information we will link to external websites.
+Be aware, that the file name sorting here is alphabetical, not according to their usage within an analysis pipeline that is depicted here:</p>
+<img alt="images/flowChart_FileFormats.png" src="images/flowChart_FileFormats.png" />
+<p>Follow the links for more information on the different tool collections mentioned in the figure:</p>
+<p><a class="reference external" href="http://www.htslib.org/">samtools</a> |
+<a class="reference external" href="http://hgdownload.cse.ucsc.edu/admin/exe/">UCSCtools</a> |
+<a class="reference external" href="http://bedtools.readthedocs.org/en/latest/">BEDtools</a> |</p>
+<section id="bit">
+<span id="id6"></span><h3><a class="toc-backref" href="#id20">2bit</a><a class="headerlink" href="#bit" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>compressed, binary version of genome sequences that are often stored in <a class="reference internal" href="#fasta"><span class="std std-ref">FASTA</span></a></p></li>
+<li><p>most genomes in 2bit format can be found <a class="reference external" href="http://hgdownload.cse.ucsc.edu/gbdb/">at UCSC</a></p></li>
+<li><p><a class="reference internal" href="#fasta"><span class="std std-ref">FASTA</span></a> files can be converted to 2bit using the UCSC programm <em>faToTwoBit</em>, which is available for different platforms at <a class="reference external" href="http://hgdownload.cse.ucsc.edu/admin/exe/">UCSC</a></p></li>
+<li><p>more information can be found <a class="reference external" href="http://genome.ucsc.edu/FAQ/FAQformat.html#format7">here</a></p></li>
+</ul>
+</section>
+<section id="bam">
+<span id="id7"></span><h3><a class="toc-backref" href="#id21">BAM</a><a class="headerlink" href="#bam" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>typical file extension: <code class="docutils literal notranslate"><span class="pre">.bam</span></code></p></li>
+<li><p><em>binary</em> file format (complement to <a class="reference internal" href="#sam"><span class="std std-ref">SAM</span></a>)</p></li>
+<li><p>contains information about sequenced reads (typically) <em>after alignment</em> to a reference genome</p></li>
+<li><dl class="simple">
+<dt>each line = 1 mapped read, with information about:</dt><dd><ul>
+<li><p>its mapping quality (how likelihood that the reported alignment is correct)</p></li>
+<li><p>its sequencing quality (the probability that each base is correct)</p></li>
+<li><p>its sequence</p></li>
+<li><p>its location in the genome</p></li>
+<li><p>etc.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>highly recommended format for storing data</p></li>
+<li><p>to make a BAM file human-readable, one can, for example, use the program <em>samtools view</em></p></li>
+<li><p>for more information, see below for the definition of <a class="reference internal" href="#sam"><span class="std std-ref">SAM</span></a> files</p></li>
+</ul>
+</section>
+<section id="bed">
+<span id="id8"></span><h3><a class="toc-backref" href="#id22">BED</a><a class="headerlink" href="#bed" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>typical file extension: <code class="docutils literal notranslate"><span class="pre">.bed</span></code></p></li>
+<li><p>text file</p></li>
+<li><p>used for genomic intervals, e.g. genes, peak regions etc.</p></li>
+<li><p>the format can be found at <a class="reference external" href="http://genome.ucsc.edu/FAQ/FAQformat.html#format1">UCSC</a></p></li>
+<li><p>for deepTools, the first 3 columns are important: chromosome, start position of the region, end position of the genome</p></li>
+<li><p>do not confuse it with the <a class="reference internal" href="#bedgraph"><span class="std std-ref">bedGraph</span></a> format (although they are related)</p></li>
+<li><p>example lines from a BED file of mouse genes (note that the start position is 0-based, the end-position 1-based, following UCSC conventions for BED files):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chr1</span>    <span class="mi">3204562</span> <span class="mi">3661579</span> <span class="n">NM_001011874</span> <span class="n">Xkr4</span>   <span class="o">-</span>
+<span class="n">chr1</span>    <span class="mi">4481008</span> <span class="mi">4486494</span> <span class="n">NM_011441</span>    <span class="n">Sox17</span>  <span class="o">-</span>
+<span class="n">chr1</span>    <span class="mi">4763278</span> <span class="mi">4775807</span> <span class="n">NM_001177658</span> <span class="n">Mrpl15</span> <span class="o">-</span>
+<span class="n">chr1</span>    <span class="mi">4797973</span> <span class="mi">4836816</span> <span class="n">NM_008866</span>    <span class="n">Lypla1</span> <span class="o">+</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="bedgraph">
+<span id="id9"></span><h3><a class="toc-backref" href="#id23">bedGraph</a><a class="headerlink" href="#bedgraph" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>typical file extension: <code class="docutils literal notranslate"><span class="pre">.bg</span></code>, <code class="docutils literal notranslate"><span class="pre">.bedGraph</span></code></p></li>
+<li><p>text file</p></li>
+<li><p>similar to BED file (not the same!), it can <em>only</em> contain 4 columns and the 4th column <em>must</em> be a score</p></li>
+<li><p>again, read the <a class="reference external" href="https://genome.ucsc.edu/FAQ/FAQformat.html#format1.8">UCSC description</a>  for more details</p></li>
+<li><p>4  example lines from a bedGraph file (like BED files following the UCSC convention, the start position is 0-based, the end-position 1-based in bedGraph files):</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chr1</span> <span class="mi">10</span> <span class="mi">20</span> <span class="mf">1.5</span>
+<span class="n">chr1</span> <span class="mi">20</span> <span class="mi">30</span> <span class="mf">1.7</span>
+<span class="n">chr1</span> <span class="mi">30</span> <span class="mi">40</span> <span class="mf">2.0</span>
+<span class="n">chr1</span> <span class="mi">40</span> <span class="mi">50</span> <span class="mf">1.8</span>
+</pre></div>
+</div>
+</section>
+<section id="bigwig">
+<span id="id10"></span><h3><a class="toc-backref" href="#id24">bigWig</a><a class="headerlink" href="#bigwig" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>typical file extension: <code class="docutils literal notranslate"><span class="pre">.bw</span></code>, <code class="docutils literal notranslate"><span class="pre">.bigwig</span></code></p></li>
+<li><p><em>binary</em> version of a <a class="reference internal" href="#bedgraph"><span class="std std-ref">bedGraph</span></a> or <code class="docutils literal notranslate"><span class="pre">wig</span></code> file</p></li>
+<li><p>contains coordinates for an interval and an associated score</p></li>
+<li><p>the score can be anything, e.g. an average read coverage</p></li>
+<li><p><a class="reference external" href="https://genome.ucsc.edu/FAQ/FAQformat.html#format6.1">UCSC description</a> for more details</p></li>
+</ul>
+</section>
+<section id="fasta">
+<span id="id11"></span><h3><a class="toc-backref" href="#id25">FASTA</a><a class="headerlink" href="#fasta" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>typical file extension: <code class="docutils literal notranslate"><span class="pre">.fasta</span></code></p></li>
+<li><p>text file, often gzipped (<code class="docutils literal notranslate"><span class="pre">.fasta.gz</span></code>)</p></li>
+<li><p>very simple format for <strong>DNA/RNA</strong> or <strong>protein</strong> sequences, this can be anything from small pieces of DNA or proteins to an entire genome (most likely, you will get the genome sequence of your organism of interest in fasta format)</p></li>
+<li><p>see the <a class="reference internal" href="#bit"><span class="std std-ref">2bit</span></a> file format entry for a compressed alternative</p></li>
+<li><p>example from <a class="reference external" href="http://en.wikipedia.org/wiki/FASTA_format">wikipedia</a> showing exactly one sequence:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="n">gi</span><span class="o">|</span><span class="mi">5524211</span><span class="o">|</span><span class="n">gb</span><span class="o">|</span><span class="n">AAD44166</span><span class="mf">.1</span><span class="o">|</span> <span class="n">cytochrome</span> <span class="n">b</span> <span class="p">[</span><span class="n">Elephas</span> <span class="n">maximus</span> <span class="n">maximus</span><span class="p">]</span>
+ <span class="n">LCLYTHIGRNIYYGSYLYSETWNTGIMLLLITMATAFMGYVLPWGQMSFWGATVITNLFSAIPYIGTNLV</span>
+ <span class="n">EWIWGGFSVDKATLNRFFAFHFILPFTMVALAGVHLTFLHETGSNNPLGLTSDSDKIPFHPYYTIKDFLG</span>
+ <span class="n">LLILILLLLLLALLSPDMLGDPDNHMPADPLNTPLHIKPEWYFLFAYAILRSVPNKLGGVLALFLSIVIL</span>
+ <span class="n">GLMPFLHTSKHRSMMLRPLSQALFWTLTMDLLTLTWIGSQPVEYPYTIIGQMASILYFSIILAFLPIAGX</span>
+ <span class="n">IENY</span>
+</pre></div>
+</div>
+</section>
+<section id="fastq">
+<span id="id12"></span><h3><a class="toc-backref" href="#id26">FASTQ</a><a class="headerlink" href="#fastq" title="Permalink to this headline"></a></h3>
+<ul>
+<li><p>typical file extension: <code class="docutils literal notranslate"><span class="pre">.fastq</span></code>, <code class="docutils literal notranslate"><span class="pre">.fq</span></code></p></li>
+<li><p>text file, often gzipped (–&gt; <code class="docutils literal notranslate"><span class="pre">.fastq.gz</span></code>)</p></li>
+<li><dl class="simple">
+<dt>contains raw read information – 4 lines per read:</dt><dd><ul class="simple">
+<li><p>read ID</p></li>
+<li><p>base calls</p></li>
+<li><p>additional information or empty line</p></li>
+<li><p>sequencing quality measures - 1 per base call</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>note that there is no information about where in the genome the read originated from</p></li>
+<li><p>example from the <a class="reference external" href="http://en.wikipedia.org/wiki/Fastq">wikipedia page</a>, which contains further information:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>@read001                                                                                                            # read ID
+GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT        # read sequence
++                                                                                                                           # usually empty line
+!&#39;&#39;*((((***+))%%%++)(%%%%).1***-+*&#39;&#39;))**55CCF&gt;&gt;&gt;&gt;&gt;&gt;CCCCCCC65        # ASCII-encoded quality scores
+</pre></div>
+</div>
+</li>
+<li><p>if you need to find out what type of ASCII-encoding your .fastq file contains, you can simply run <a class="reference external" href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a> – its summery file will tell you</p></li>
+</ul>
+</section>
+<section id="sam">
+<span id="id13"></span><h3><a class="toc-backref" href="#id27">SAM</a><a class="headerlink" href="#sam" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>typical file extension: <code class="docutils literal notranslate"><span class="pre">.sam</span></code></p></li>
+<li><p>usually the result of an alignment of sequenced reads to a reference genome</p></li>
+<li><p>contains a short header section (entries are marked by &#64; signs) and an alignment section where each line corresponds to a single read (thus, there can be millions of these lines)</p></li>
+</ul>
+<img alt="images/glossary_sam.png" src="images/glossary_sam.png" />
+<section id="sam-header-section">
+<h4><a class="toc-backref" href="#id28">SAM header section</a><a class="headerlink" href="#sam-header-section" title="Permalink to this headline"></a></h4>
+<blockquote>
+<div><ul class="simple">
+<li><p>tab-delimited lines, beginning with &#64;, followed by tag:value pairs</p></li>
+<li><p><em>tag</em> = two-letter string that defines the content and the format of <em>value</em></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="sam-alignment-section">
+<h4><a class="toc-backref" href="#id29">SAM alignment section</a><a class="headerlink" href="#sam-alignment-section" title="Permalink to this headline"></a></h4>
+<blockquote>
+<div><ul>
+<li><p>each line contains information about its mapping quality, its sequence, its location in the genome etc.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r001</span> <span class="mi">163</span> <span class="n">chr1</span> <span class="mi">7</span> <span class="mi">30</span> <span class="mi">8</span><span class="n">M2I4M1D3M</span> <span class="o">=</span> <span class="mi">37</span> <span class="mi">39</span> <span class="n">TTAGATAAAGGATACTG</span> <span class="o">*</span>
+<span class="n">r002</span> <span class="mi">0</span> <span class="n">chr1</span> <span class="mi">9</span> <span class="mi">30</span> <span class="mi">3</span><span class="n">S6M1P1I4M</span> <span class="o">*</span> <span class="mi">0</span> <span class="mi">0</span> <span class="n">AAAAGATAAGGATA</span> <span class="o">*</span>
+</pre></div>
+</div>
+</li>
+<li><p>the <strong>flag in the second field</strong> contains the answer to several yes/no assessments that are encoded in a single number</p></li>
+<li><p>for more details on the flag, see <a class="reference external" href="http://ppotato.wordpress.com/2010/08/25/samtool-bitwise-flag-paired-reads/">this thorough explanation</a> or <a class="reference external" href="http://blog.nextgenetics.net/?e=18">this more technical explanation</a></p></li>
+<li><p>the <strong>CIGAR string in the 6th field</strong> represents the types of operations that were needed in order to align the read to the specific genome location:</p>
+<ul class="simple">
+<li><p>insertion</p></li>
+<li><p>deletion (small deletions denoted with <cite>D</cite>, bigger deletions, e.g., for spliced reads, denoted with <cite>N</cite>)</p></li>
+<li><p>clipping (deletion at the ends of a read)</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Although the SAM/BAM format is rather meticulously defined and documented, whether an alignment program will produce a SAM/BAM file that adheres to these principles is completely up to the programmer. The mapping score, CIGAR string, and particularly, <strong>all optional flags</strong> (fields &gt;11) are often <strong>very differently defined depending on the program</strong>. If you plan on filtering your data based on any of these criteria, make sure you know exactly how these entries were calculated and set!</p>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

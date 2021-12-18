@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>computeMatrixOperations &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>computeMatrixOperations</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/content/tools/computeMatrixOperations.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="computematrixoperations">
+<h1>computeMatrixOperations<a class="headerlink" href="#computematrixoperations" title="Permalink to this headline"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#details" id="id1">Details</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id2">Examples</a></p></li>
+</ul>
+</div>
+<section id="details">
+<h2><a class="toc-backref" href="#id1">Details</a><a class="headerlink" href="#details" title="Permalink to this headline"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">computeMatrixOperations</span></code> can perform a variety of operations on one or more files produced by <code class="docutils literal notranslate"><span class="pre">computeMatrix</span></code> (N.B., the output is always written to a new file):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 88%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td rowspan="2"><p><strong>Subcommand</strong></p></td>
+<td rowspan="2"><p><strong>What it does</strong></p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>info</p></td>
+<td rowspan="2"><p>Prints out the sample and region group names in the order in which they appear.</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>subset</p></td>
+<td rowspan="2"><p>Subsets a file by the desired samples/region group names. This can also change the order of these samples/region groups.</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>filterStrand</p></td>
+<td rowspan="2"><p>Filters the file to only include regions annotated as being on a particular strand.</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>rbind</p></td>
+<td rowspan="2"><p>Concatenates multiple matrices together, top to bottom.</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>cbind</p></td>
+<td rowspan="2"><p>Merges multiple matrices, left to right.</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>sort</p></td>
+<td rowspan="2"><p>Sorts the given file so regions are in the order of occurence in the input BED/GTF file(s).</p></td>
+</tr>
+<tr class="row-even"></tr>
+</tbody>
+</table>
+<p>These operations are useful when you want to run computeMatrix on multiple files (thereby keeping all of the values together) and later exclude regions/samples or add new ones. Another common use would be if you require the output of computeMatrix to be sorted to match the order of regions in the input file.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>As of version 3.0, computeMatrix (and therefore also computeMatrixOperations) produces output with labels present for each sample. If you run any operations on matrices output by older versions then they will be modified to be comformant with the new output, which is not backward compatible!</p>
+</div>
+</section>
+<section id="examples">
+<h2><a class="toc-backref" href="#id2">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline"></a></h2>
+<p>Suppose that we have a strand-specific RNAseq dataset and would like to plot only the strand-specific signal across spliced transcripts. The general steps would be as follows:</p>
+<ol class="arabic simple">
+<li><p>Run <cite>bamCoverage</cite> on each sample twice, once with <cite>–filterRNAstrand forward</cite> and again with <cite>–filterRNAstrand reverse</cite>. This will result in twice the number of bigWig files as samples.</p></li>
+<li><p>Run <cite>computeMatrix scale-regions</cite> with all of these bigWig files, including the <cite>–metagene</cite> option and a BED12 and/or a GTF file. This produces a file containing the signal separated by strand for each transcript.</p></li>
+<li><p>Get the list of sample names stored in the matrix file:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ computeMatrixOperations info -m foo.mat.gz
+Groups:
+    genes
+Samples:
+    SRR648667.forward
+    SRR648668.forward
+    SRR648669.forward
+    SRR648670.forward
+    SRR648667.reverse
+    SRR648668.reverse
+    SRR648669.reverse
+    SRR648670.reverse
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Create two new files, each containing only the samples containing signal from a given strand.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ computeMatrixOperations subset -m foo.mat.gz -o forward.mat.gz --samples SRR648667.forward SRR648668.forward SRR648669.forward SRR648670.forward
+$ computeMatrixOperations subset -m foo.mat.gz -o reverse.mat.gz --samples SRR648667.reverse SRR648668.reverse SRR648669.reverse SRR648670.reverse
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>These files can then be subset to contain only transcripts on a particular strand. Note that it’s best to double check that the <code class="docutils literal notranslate"><span class="pre">--strand</span> <span class="pre">-</span></code> setting produces the intended results. There are many peculiar variants of RNAseq library preparation and the settings for one type may not be appropriate for another (to check this, use the different <code class="docutils literal notranslate"><span class="pre">--strand</span></code> options on the same matrix and then run <code class="docutils literal notranslate"><span class="pre">plotHeatmap</span></code>, one of them will be obviously correct and the other largely blank).</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ computeMatrixOperations filterStrand -m forward.mat.gz -o forward.subset.mat.gz --strand -
+$ computeMatrixOperations filterStrand -m reverse.mat.gz -o reverse.subset.mat.gz --strand +
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Finally, the files can be merged back together, head to tail. The samples are already in the correct order, as indicated by step 3.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ computeMatrixOperations rbind -m forward.subset.mat.gz reverse.subset.mat.gz -o merged.mat.gz
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>If desired, the transcripts can then be resorted to match the order of the input GTF file.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ computeMatrixOperations sort -m merged.mat.gz -o sorted.mat.gz -R genes.gtf
+</pre></div>
+</div>
+<p>The resulting file can then be used with <code class="docutils literal notranslate"><span class="pre">plotHeatmap</span></code> or <code class="docutils literal notranslate"><span class="pre">plotProfile</span></code>. Note that we could have skipped the subset step and run <code class="docutils literal notranslate"><span class="pre">computeMatrix</span></code> independently on the forward and reverse bigWig files.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

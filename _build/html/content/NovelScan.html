@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovelScan &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CellInfo" href="CellInfo.html" />
+    <link rel="prev" title="InfoUpload" href="InfoUpload.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NovelScan</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#options">Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#genome">Genome</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coding-capability-filter">Coding Capability filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fpkm-filter">FPKM filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#length-filter">Length filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exon-number-filter">Exon number filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#translation-capability-filter">Translation Capability filter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#example-result">Example Result</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FuncScan.html">FuncScan</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>NovelScan</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/NovelScan.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="novelscan">
+<h1>NovelScan<a class="headerlink" href="#novelscan" title="Permalink to this headline"></a></h1>
+<p><cite>Identify of novel transcripts (including mRNA and lncRNAs) and their characters.</cite></p>
+<img alt="content/images/NovelScan.png" src="content/images/NovelScan.png" />
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#options" id="id1">Options</a></p>
+<ul>
+<li><p><a class="reference internal" href="#genome" id="id2">Genome</a></p></li>
+<li><p><a class="reference internal" href="#coding-capability-filter" id="id3">Coding Capability filter</a></p></li>
+<li><p><a class="reference internal" href="#fpkm-filter" id="id4">FPKM filter</a></p></li>
+<li><p><a class="reference internal" href="#length-filter" id="id5">Length filter</a></p></li>
+<li><p><a class="reference internal" href="#exon-number-filter" id="id6">Exon number filter</a></p></li>
+<li><p><a class="reference internal" href="#translation-capability-filter" id="id7">Translation Capability filter</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#example-result" id="id8">Example Result</a></p></li>
+</ul>
+</div>
+<section id="options">
+<h2><a class="toc-backref" href="#id1">Options</a><a class="headerlink" href="#options" title="Permalink to this headline"></a></h2>
+<section id="genome">
+<h3><a class="toc-backref" href="#id2">Genome</a><a class="headerlink" href="#genome" title="Permalink to this headline"></a></h3>
+<p>Select the species of the data.</p>
+</section>
+<section id="coding-capability-filter">
+<h3><a class="toc-backref" href="#id3">Coding Capability filter</a><a class="headerlink" href="#coding-capability-filter" title="Permalink to this headline"></a></h3>
+<p>Select the threshold for selecting non-coding transcripts in CPAT predictive coding ability software, and transcripts below this threshold are non-coding transcripts.</p>
+</section>
+<section id="fpkm-filter">
+<h3><a class="toc-backref" href="#id4">FPKM filter</a><a class="headerlink" href="#fpkm-filter" title="Permalink to this headline"></a></h3>
+<p>Remove samples with low expression levels in the data(At least one sample has FPKM greater than the threshold).</p>
+</section>
+<section id="length-filter">
+<h3><a class="toc-backref" href="#id5">Length filter</a><a class="headerlink" href="#length-filter" title="Permalink to this headline"></a></h3>
+<p>Filter out transcripts whose length is less than the threshold.</p>
+</section>
+<section id="exon-number-filter">
+<h3><a class="toc-backref" href="#id6">Exon number filter</a><a class="headerlink" href="#exon-number-filter" title="Permalink to this headline"></a></h3>
+<p>Screen out transcript with exon number equal to 1. This step is optional, and single-exon transcripts are removed by default.</p>
+</section>
+<section id="translation-capability-filter">
+<h3><a class="toc-backref" href="#id7">Translation Capability filter</a><a class="headerlink" href="#translation-capability-filter" title="Permalink to this headline"></a></h3>
+<p>Translate unannotated transcript sequences into protein sequences and compare them with protein databases to remove sequences that may be translated into proteins.</p>
+<p>Then the user can run the program by clicking START button.</p>
+<p>After the program runs, the user can view the results by clicking the Example Result button.</p>
+</section>
+</section>
+<section id="example-result">
+<h2><a class="toc-backref" href="#id8">Example Result</a><a class="headerlink" href="#example-result" title="Permalink to this headline"></a></h2>
+<img alt="content/images/NovelScan_result.png" src="content/images/NovelScan_result.png" />
+<p>By clicking the NEXT button, the user can reach the CellInfo interface.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="InfoUpload.html" class="btn btn-neutral float-left" title="InfoUpload" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="CellInfo.html" class="btn btn-neutral float-right" title="CellInfo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

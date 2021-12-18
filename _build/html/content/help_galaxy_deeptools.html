@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Which tools can I find in the deepTools Galaxy? &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Which tools can I find in the deepTools Galaxy?</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/help_galaxy_deeptools.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="which-tools-can-i-find-in-the-deeptools-galaxy">
+<h1>Which tools can I find in the deepTools Galaxy?<a class="headerlink" href="#which-tools-can-i-find-in-the-deeptools-galaxy" title="Permalink to this headline"></a></h1>
+<p>As mentioned before, each Galaxy installation can be tuned to the
+individual interests.
+Our goal is to provide a Galaxy that enables you to <strong>quality check, process and normalize and subsequently visualize your data obtained by high-throughput DNA sequencing</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you do not know the difference between a BAM and a BED file, that’s fine. You can read up on them in our <a class="reference internal" href="help_glossary.html"><span class="doc">Glossary of NGS terms</span></a>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For more specific help, check our <a class="reference internal" href="help_faq_galaxy.html"><span class="doc">Galaxy-related FAQ</span></a> and the <a class="reference internal" href="example_step_by_step.html"><span class="doc">Step-by-step protocols</span></a>.</p>
+</div>
+<p>We provide the following kinds of tools:</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#deeptools" id="id1">deepTools</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tools-for-bam-and-bigwig-file-processing" id="id2">Tools for BAM and bigWig file processing</a></p></li>
+<li><p><a class="reference internal" href="#tools-for-qc-of-ngs-data" id="id3">Tools for QC of NGS data</a></p></li>
+<li><p><a class="reference internal" href="#heatmaps-and-summary-plots" id="id4">Heatmaps and summary plots</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#working-with-text-files-and-tables" id="id5">Working with text files and tables</a></p>
+<ul>
+<li><p><a class="reference internal" href="#text-manipulation" id="id6">Text manipulation</a></p></li>
+<li><p><a class="reference internal" href="#filter-and-sort" id="id7">Filter and Sort</a></p></li>
+<li><p><a class="reference internal" href="#join-subtract-group" id="id8">Join, Subtract, Group</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#basic-arithmetics-for-tables" id="id9">Basic arithmetics for tables</a></p></li>
+</ul>
+</div>
+<section id="deeptools">
+<h2><a class="toc-backref" href="#id1">deepTools</a><a class="headerlink" href="#deeptools" title="Permalink to this headline"></a></h2>
+<p>The most important category is called <strong>“deepTools”</strong> that contains all the main tools we have developed.</p>
+<section id="tools-for-bam-and-bigwig-file-processing">
+<h3><a class="toc-backref" href="#id2">Tools for BAM and bigWig file processing</a><a class="headerlink" href="#tools-for-bam-and-bigwig-file-processing" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 77%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">multiBamSummary</span></code></p></td>
+<td><p>get read counts for the binned genome or user-specified regions</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">multiBigwigSummary</span></code></p></td>
+<td><p>calculate score summaries for the binned genome or user-specified regions</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">correctGCBias</span></code></p></td>
+<td><p>obtain a BAM file with reads distributed according to the genome’s GC content</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bamCoverage</span></code></p></td>
+<td><p>obtain the normalized read coverage of a single BAM file</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bamCompare</span></code></p></td>
+<td><p>normalize 2 BAM files to each other (e.g. log2ratio, difference)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bigwigCompare</span></code></p></td>
+<td><p>normalize the scores of two bigWig files to each other (e.g., ratios)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">computeMatrix</span></code></p></td>
+<td><p>compute the values needed for heatmaps and summary plots</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tools-for-qc-of-ngs-data">
+<h3><a class="toc-backref" href="#id3">Tools for QC of NGS data</a><a class="headerlink" href="#tools-for-qc-of-ngs-data" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 82%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">plotCorrelation</span></code></p></td>
+<td><p>calculate and visualize the pairwise Spearman or Pearson correlation of read counts (or other scores)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">plotPCA</span></code></p></td>
+<td><p>perform PCA and visualize the results</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">plotFingerprint</span></code></p></td>
+<td><p>assess the ChIP enrichment strength</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">bamPEFragmentSize</span></code></p></td>
+<td><p>obtain the average fragment length for paired-end samples</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">computeGCBias</span></code></p></td>
+<td><p>assess the GC bias by calculating the expected and observed GC distribution of aligned reads</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">plotCoverage</span></code></p></td>
+<td><p>obtain the normalized read coverage of a single BAM file</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="heatmaps-and-summary-plots">
+<h3><a class="toc-backref" href="#id4">Heatmaps and summary plots</a><a class="headerlink" href="#heatmaps-and-summary-plots" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">plotHeatmap</span></code></p></td>
+<td><p>visualize read counts or other scores in heatmaps with one row per genomic region</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">plotProfile</span></code></p></td>
+<td><p>visualize read counts or other scores using average profiles (e.g., meta-gene profiles)</p></td>
+</tr>
+</tbody>
+</table>
+<p>For each tool, you can find example usages and tips within Galaxy once you select the tool.</p>
+<p>In addition, you may want to check our pages about <a class="reference internal" href="example_usage.html"><span class="doc">Example usage</span></a>, particularly <a class="reference internal" href="example_step_by_step.html"><span class="doc">Step-by-step protocols</span></a>.</p>
+</section>
+</section>
+<section id="working-with-text-files-and-tables">
+<h2><a class="toc-backref" href="#id5">Working with text files and tables</a><a class="headerlink" href="#working-with-text-files-and-tables" title="Permalink to this headline"></a></h2>
+<p>In addition to deepTools that were specifically developed for the handling of NGS data, we have incorporated several standard Galaxy tools that enable you to manipulate tab-separated files such as gene lists, peak lists, data matrices etc.</p>
+<p>There are 3 main categories;</p>
+<img alt="images/Gal_textfiles.png" src="images/Gal_textfiles.png" />
+<section id="text-manipulation">
+<h3><a class="toc-backref" href="#id6">Text manipulation</a><a class="headerlink" href="#text-manipulation" title="Permalink to this headline"></a></h3>
+<p>Unlike Excel, where you can easily interact with your text and tables via the mouse, data manipulations within Galaxy are strictly based on commands.</p>
+<p>If you feel like you would like to do something to certain <em>columns</em> of a data set, go through the tools of this category!</p>
+<p>Example actions are:
+* adding columns
+* extracting columns
+* pasting two files side by side
+* selecting random lines
+* etc.</p>
+<p>A very useful tool of this category is called <code class="docutils literal notranslate"><span class="pre">Trim</span></code>: if you need to <strong>remove some characters from a column</strong>, this tool’s for you! (for example, sometimes you need to adjust the chromosome naming between two files from different source - using <code class="docutils literal notranslate"><span class="pre">Trim</span></code>, you can remove the “chr” in front of the chromosome name)</p>
+</section>
+<section id="filter-and-sort">
+<h3><a class="toc-backref" href="#id7">Filter and Sort</a><a class="headerlink" href="#filter-and-sort" title="Permalink to this headline"></a></h3>
+<p>In addition to the common sorting and filtering, there’s the very useful tool to <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">lines</span> <span class="pre">that</span> <span class="pre">match</span> <span class="pre">an</span> <span class="pre">expression</span></code>.
+For example, using the expression <code class="docutils literal notranslate"><span class="pre">c1=='chrM'</span></code> will select all rows from a BED file with regions located on the mitochondrial chromosome.</p>
+<img alt="images/Gal_filter.png" src="images/Gal_filter.png" />
+</section>
+<section id="join-subtract-group">
+<h3><a class="toc-backref" href="#id8">Join, Subtract, Group</a><a class="headerlink" href="#join-subtract-group" title="Permalink to this headline"></a></h3>
+<p>The tools of this category are very useful if you have several data sets that you would like to work with, e.g. by comparing them.</p>
+<img alt="images/Gal_join.png" src="images/Gal_join.png" />
+</section>
+</section>
+<section id="basic-arithmetics-for-tables">
+<h2><a class="toc-backref" href="#id9">Basic arithmetics for tables</a><a class="headerlink" href="#basic-arithmetics-for-tables" title="Permalink to this headline"></a></h2>
+<p>We offer some very basic mathematical operations on values stored with tables.
+The <code class="docutils literal notranslate"><span class="pre">Summary</span> <span class="pre">Statistics</span></code> can be used to calculate the sum, mean, standard deviation and percentiles for a set of numbers, e.g. for values stored in a specific column.</p>
+<img alt="images/Gal_statistics.png" src="images/Gal_statistics.png" />
+<p><strong>More help</strong></p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you encounter a failing data set (marked in red), please <strong>send a bug report</strong> via the Galaxy bug report button and we will get in touch if you indicate your email address.</p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 45%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference external" href="http://wiki.galaxyproject.org/Learn">http://wiki.galaxyproject.org/Learn</a></p></td>
+<td><p>Help for Galaxy usage in general</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="Galaxy-related-FAQs">deepTools Galaxy FAQs</a></p></td>
+<td><p>Frequently encountered issues with our specific Galaxy instance</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="http://biostars.org">Biostars</a></p></td>
+<td><p>For issues not addressed in the FAQs</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

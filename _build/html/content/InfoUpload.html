@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InfoUpload &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NovelScan" href="NovelScan.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">InfoUpload</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#input-fastq-files">Input fastq files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#perform-quality-control-on-data">Perform quality control on data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#basic-parameters">Basic Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quality-control-results">Quality control results</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#infoassembly">InfoAssembly</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#genome">Genome</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#number-of-thread">Number of Thread</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#params">params</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#assembly-results">Assembly results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#input-bam-files">Input bam files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FuncScan.html">FuncScan</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>InfoUpload</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/InfoUpload.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="infoupload">
+<h1>InfoUpload<a class="headerlink" href="#infoupload" title="Permalink to this headline"></a></h1>
+<p><cite>upload unaligned or aligned reads from scRNA-Seq data</cite></p>
+<img alt="content/images/upload_file.png" src="content/images/upload_file.png" />
+<p>Users can choose to upload Fastq files or BAM files:</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#input-fastq-files" id="id1">Input fastq files</a></p>
+<ul>
+<li><p><a class="reference internal" href="#perform-quality-control-on-data" id="id2">Perform quality control on data</a></p>
+<ul>
+<li><p><a class="reference internal" href="#basic-parameters" id="id3">Basic Parameters</a></p></li>
+<li><p><a class="reference internal" href="#quality-control-results" id="id4">Quality control results</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#infoassembly" id="id5">InfoAssembly</a></p>
+<ul>
+<li><p><a class="reference internal" href="#genome" id="id6">Genome</a></p></li>
+<li><p><a class="reference internal" href="#number-of-thread" id="id7">Number of Thread</a></p></li>
+<li><p><a class="reference internal" href="#params" id="id8">params</a></p></li>
+<li><p><a class="reference internal" href="#assembly-results" id="id9">Assembly results</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#input-bam-files" id="id10">Input bam files</a></p></li>
+</ul>
+</div>
+<section id="input-fastq-files">
+<h2><a class="toc-backref" href="#id1">Input fastq files</a><a class="headerlink" href="#input-fastq-files" title="Permalink to this headline"></a></h2>
+<p>The file needs to be in fastq.gz format, users can select the directory where the data is located through the Browse button;
+.. image:: images/upload_file_browse.png</p>
+<section id="perform-quality-control-on-data">
+<h3><a class="toc-backref" href="#id2">Perform quality control on data</a><a class="headerlink" href="#perform-quality-control-on-data" title="Permalink to this headline"></a></h3>
+<p>After uploading the data, the data will be automatically controlled for quality; if the Adapter sequence is provided, the user can enter the adapter sequence in reads1, reads2; if the adapter sequence not provided, the adapter will be automatically detected for quality control.</p>
+<section id="basic-parameters">
+<h4><a class="toc-backref" href="#id3">Basic Parameters</a><a class="headerlink" href="#basic-parameters" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-q</span> <span class="pre">(--qualified_quality_phred)</span></code> - The quality value that a base is qualified. Default 15 means phred quality &gt;=Q15 is qualified. (int [=15]).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--thread</span></code> - The worker thread number.</p></li>
+</ul>
+<p>Then the user can run the program by clicking START.
+.. image:: images/upload_file_START.png</p>
+<p>After the program runs, the user can view the results of the quality control by clicking the Result button.
+.. image:: images/upload_file_Result.png</p>
+</section>
+<section id="quality-control-results">
+<h4><a class="toc-backref" href="#id4">Quality control results</a><a class="headerlink" href="#quality-control-results" title="Permalink to this headline"></a></h4>
+<img alt="content/images/upload_file_Result_enter.png" src="content/images/upload_file_Result_enter.png" />
+<p>The user presses the Enter Key to display the results of the quality control and double-click the file to view the quality of the reads in the upload files.
+.. image:: images/upload_file_Result_files.png</p>
+</section>
+</section>
+<section id="infoassembly">
+<h3><a class="toc-backref" href="#id5">InfoAssembly</a><a class="headerlink" href="#infoassembly" title="Permalink to this headline"></a></h3>
+<p><cite>merge reads from multiple cells to perform reads alignment and transcripts assembly</cite></p>
+<p>By clicking the NEXT-&gt; Transcript Alignment button, the user can reach the InfoAssembly interface.</p>
+<img alt="content/images/upload_file_InfoAssembly.png" src="content/images/upload_file_InfoAssembly.png" />
+<p>The functions of this interface mainly include: comparing data to a reference genome, assembling transcripts, and merging transcripts.</p>
+<section id="genome">
+<h4><a class="toc-backref" href="#id6">Genome</a><a class="headerlink" href="#genome" title="Permalink to this headline"></a></h4>
+<p>Select species (Human or Mouse).</p>
+</section>
+<section id="number-of-thread">
+<h4><a class="toc-backref" href="#id7">Number of Thread</a><a class="headerlink" href="#number-of-thread" title="Permalink to this headline"></a></h4>
+<p>The worker thread number.</p>
+</section>
+<section id="params">
+<h4><a class="toc-backref" href="#id8">params</a><a class="headerlink" href="#params" title="Permalink to this headline"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--fast</span></code> hisat2 params, –no-repeat-index.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--sensitive</span></code> hisat2 params, –bowtie2-dp 1 -k 30 –score-min L,0,-0.5.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--very-sensitive</span></code> hisat2 params, –bowtie2-dp 1 -k 30 –score-min L,0,-0.5.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>-k: A read may have multiple valid alignments, and not all alignments will be output when output, but only the N alignments specified by the -k parameter. The default value of -k is 5;</p></li>
+<li><p>–score-min: Sets a function governing the minimum alignment score needed for an alignment to be considered “valid” (i.e. good enough to report). This is a function of read length. For instance, specifying L,0,-0.6 sets the minimum-score function f to f(x) = 0 + -0.6 * x, where x is the read length. See also: [setting function options]. The default is L,0,-0.2</p></li>
+<li><p>–bowtie2-dp 1 :use Bowtie2’s dynamic programming alignment algorithm (0) - 0: no dynamic programming, 1: conditional dynamic programming, and 2: unconditional dynamic programming (slowest)</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--min-intronlen</span></code> &lt;int&gt; minimum intron length (default 20).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--max-intronlen</span></code> &lt;int&gt; maximum intron length (default 500000).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">avoid-pseudogene</span></code> tries to avoid aligning reads to pseudogenes (experimental option).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--qc-filter</span></code> filter out reads that are bad according to QSEQ filter.</p></li>
+</ul>
+<p>Then the user can run the program by clicking START button.
+After the program runs, the user can view the results of the quality control by clicking the Result button.</p>
+</section>
+<section id="assembly-results">
+<h4><a class="toc-backref" href="#id9">Assembly results</a><a class="headerlink" href="#assembly-results" title="Permalink to this headline"></a></h4>
+<img alt="content/images/InfoAssembly_Result_enter.png" src="content/images/InfoAssembly_Result_enter.png" />
+<p>The user presses the Enter Key to display the results of the quality control and double-click the file to view.</p>
+<img alt="content/images/InfoAssembly_Result_files.png" src="content/images/InfoAssembly_Result_files.png" />
+<p>By clicking the NEXT button, the user can reach the NovelScan interface.</p>
+</section>
+</section>
+</section>
+<section id="input-bam-files">
+<h2><a class="toc-backref" href="#id10">Input bam files</a><a class="headerlink" href="#input-bam-files" title="Permalink to this headline"></a></h2>
+<p>If upload bam files, the program will automatically assemble and merge transcripts.</p>
+<p>The file needs to be in bam format, users can select the directory where the data is located through the Browse button;</p>
+<p>Upload the example data by checking the Use example data;</p>
+<p>Then the user can run the program by clicking BEGIN.</p>
+<p>By clicking the NEXT-&gt; NovelScan button, the user can reach the NovelScan interface.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="NovelScan.html" class="btn btn-neutral float-right" title="NovelScan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

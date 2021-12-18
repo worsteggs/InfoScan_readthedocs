@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload File &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Upload File</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/list_of_tools.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="upload-file">
+<h1>Upload File<a class="headerlink" href="#upload-file" title="Permalink to this headline"></a></h1>
+<img alt="content/images/upload_file.png" src="content/images/upload_file.png" />
+<p>Users can choose to upload Fastq files or BAM files:</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#input-fastq-data" id="id1">Input fastq data</a></p>
+<ul>
+<li><p><a class="reference internal" href="#parameters-to-decrease-the-run-time" id="id2">Parameters to decrease the run time</a></p></li>
+<li><p><a class="reference internal" href="#filtering-bams-while-processing" id="id3">Filtering BAMs while processing</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#tools-for-bam-and-bigwig-file-processing" id="id4">Tools for BAM and bigWig file processing</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tools-multibamsummary" id="id5"><a class="reference internal" href="tools/multiBamSummary.html"><span class="doc">multiBamSummary</span></a></a></p></li>
+<li><p><a class="reference internal" href="#tools-multibigwigsummary" id="id6"><a class="reference internal" href="tools/multiBigwigSummary.html"><span class="doc">multiBigwigSummary</span></a></a></p></li>
+<li><p><a class="reference internal" href="#tools-correctgcbias" id="id7"><a class="reference internal" href="tools/correctGCBias.html"><span class="doc">correctGCBias</span></a></a></p></li>
+<li><p><a class="reference internal" href="#tools-bamcoverage" id="id8"><a class="reference internal" href="tools/bamCoverage.html"><span class="doc">bamCoverage</span></a></a></p></li>
+<li><p><a class="reference internal" href="#tools-bamcompare" id="id9"><a class="reference internal" href="tools/bamCompare.html"><span class="doc">bamCompare</span></a></a></p></li>
+<li><p><a class="reference internal" href="#tools-bigwigcompare" id="id10"><a class="reference internal" href="tools/bigwigCompare.html"><span class="doc">bigwigCompare</span></a></a></p></li>
+<li><p><a class="reference internal" href="#tools-computematrix" id="id11"><a class="reference internal" href="tools/computeMatrix.html"><span class="doc">computeMatrix</span></a></a></p></li>
+<li><p><a class="reference internal" href="#tools-alignmentsieve" id="id12"><a class="reference internal" href="tools/alignmentSieve.html"><span class="doc">alignmentSieve</span></a></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#tools-for-qc" id="id13">Tools for QC</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tools-plotcorrelation" id="id14"><a class="reference internal" href="tools/plotCorrelation.html"><span class="doc">plotCorrelation</span></a></a></p></li>
+<li><p><a class="reference internal" href="#tools-plotpca" id="id15"><a class="reference internal" href="tools/plotPCA.html"><span class="doc">plotPCA</span></a></a></p></li>
+<li><p><a class="reference internal" href="#tools-plotfingerprint" id="id16"><a class="reference internal" href="tools/plotFingerprint.html"><span class="doc">plotFingerprint</span></a></a></p></li>
+<li><p><a class="reference internal" href="#tools-bampefragmentsize" id="id17"><a class="reference internal" href="tools/bamPEFragmentSize.html"><span class="doc">bamPEFragmentSize</span></a></a></p></li>
+<li><p><a class="reference internal" href="#tools-computegcbias" id="id18"><a class="reference internal" href="tools/computeGCBias.html"><span class="doc">computeGCBias</span></a></a></p></li>
+<li><p><a class="reference internal" href="#tools-plotcoverage" id="id19"><a class="reference internal" href="tools/plotCoverage.html"><span class="doc">plotCoverage</span></a></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#heatmaps-and-summary-plots" id="id20">Heatmaps and summary plots</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tools-plotheatmap" id="id21"><a class="reference internal" href="tools/plotHeatmap.html"><span class="doc">plotHeatmap</span></a></a></p></li>
+<li><p><a class="reference internal" href="#tools-plotprofile" id="id22"><a class="reference internal" href="tools/plotProfile.html"><span class="doc">plotProfile</span></a></a></p></li>
+<li><p><a class="reference internal" href="#tools-plotenrichment" id="id23"><a class="reference internal" href="tools/plotEnrichment.html"><span class="doc">plotEnrichment</span></a></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#miscellaneous" id="id24">Miscellaneous</a></p>
+<ul>
+<li><p><a class="reference internal" href="#tools-computematrixoperations" id="id25"><a class="reference internal" href="tools/computeMatrixOperations.html"><span class="doc">computeMatrixOperations</span></a></a></p></li>
+<li><p><a class="reference internal" href="#tools-estimatereadfiltering" id="id26"><a class="reference internal" href="tools/estimateReadFiltering.html"><span class="doc">estimateReadFiltering</span></a></a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="input-fastq-data">
+<h2><a class="toc-backref" href="#id1">Input fastq data</a><a class="headerlink" href="#input-fastq-data" title="Permalink to this headline"></a></h2>
+<p>The file needs to be in fastq.gz format, the user should select the directory where the data is located through the Browse button;
+.. image:: images/upload_file_browse.png</p>
+<p>You can always see all available command-line options via –help:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ bamCoverage --help
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Output format of plots should be indicated by the file ending, e.g. <code class="docutils literal notranslate"><span class="pre">MyPlot.pdf</span></code> will return a pdf file, <code class="docutils literal notranslate"><span class="pre">MyPlot.png</span></code> a png-file</p></li>
+<li><p>All tools that produce plots can also output the underlying data - this can be useful in cases where you don’t like the deepTools visualization, as you can then use the data matrices produced by deepTools with your favorite plotting tool, such as R</p></li>
+<li><p>The vast majority of command line options are also available in Galaxy (in a few cases with minor changes to their naming).</p></li>
+</ul>
+<section id="parameters-to-decrease-the-run-time">
+<h3><a class="toc-backref" href="#id2">Parameters to decrease the run time</a><a class="headerlink" href="#parameters-to-decrease-the-run-time" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">numberOfProcessors</span></code> - Number of processors to be used</dt><dd><dl class="simple">
+<dt>For example, setting <code class="docutils literal notranslate"><span class="pre">--numberOfProcessors</span> <span class="pre">10</span></code> will split up the</dt><dd><p>workload internally into 10 chunks, which will be
+processed in parallel.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">region</span></code> - Process only a single genomic region.</dt><dd><p>This is particularly useful when you’re still trying    to figure out the best parameter setting. You can focus on a certain genomic region by setting, e.g., <code class="docutils literal notranslate"><span class="pre">--region</span> <span class="pre">chr2</span></code> or
+<code class="docutils literal notranslate"><span class="pre">--region</span> <span class="pre">chr2:100000-200000</span></code></p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>These parameters are optional and available throughout almost all deepTools.</p>
+</section>
+<section id="filtering-bams-while-processing">
+<h3><a class="toc-backref" href="#id3">Filtering BAMs while processing</a><a class="headerlink" href="#filtering-bams-while-processing" title="Permalink to this headline"></a></h3>
+<p>Several deepTools modules allow for efficient processing of BAM files, e.g. <code class="docutils literal notranslate"><span class="pre">bamCoverage</span></code> and <code class="docutils literal notranslate"><span class="pre">bamCompare</span></code>.
+We offer several ways to filter those BAM files on the fly so that you don’t need to pre-process them using other tools such as <a class="reference external" href="http://www.htslib.org/">samtools</a></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ignoreDuplicates</span></code></dt><dd><p>Reads with the same orientation and start position will be considered only once. If reads are paired, the mate is also evaluated</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">minMappingQuality</span></code></dt><dd><p>Only reads with a mapping quality score of at least this are considered</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">samFlagInclude</span></code></dt><dd><p>Include reads based on the SAM flag, e.g. <code class="docutils literal notranslate"><span class="pre">--samFlagInclude</span> <span class="pre">64</span></code> gets reads that are first in a pair. For translating SAM flags into English, go to: <a class="reference external" href="https://broadinstitute.github.io/picard/explain-flags.html">https://broadinstitute.github.io/picard/explain-flags.html</a></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">samFlagExclude</span></code></dt><dd><p>Exclude reads based on the SAM flags - see previous explanation.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>These parameters are optional and available throughout deepTools.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In version 2.3 we introduced a sampling method to correct the effect of filtering when normalizing using <code class="docutils literal notranslate"><span class="pre">bamCoverage</span></code> or <code class="docutils literal notranslate"><span class="pre">bamCompare</span></code>. For previous versions, if you know that your files will be strongly affected by  the filtering  of duplicates or reads of low quality then consider removing  those reads <em>before</em> using <code class="docutils literal notranslate"><span class="pre">bamCoverage</span></code> or <code class="docutils literal notranslate"><span class="pre">bamCompare</span></code>, as the filtering  by deepTools is done <em>after</em> the scaling factors are calculated!</p>
+</div>
+</section>
+</section>
+<section id="tools-for-bam-and-bigwig-file-processing">
+<h2><a class="toc-backref" href="#id4">Tools for BAM and bigWig file processing</a><a class="headerlink" href="#tools-for-bam-and-bigwig-file-processing" title="Permalink to this headline"></a></h2>
+<section id="tools-multibamsummary">
+<h3><a class="toc-backref" href="#id5"><a class="reference internal" href="tools/multiBamSummary.html"><span class="doc">multiBamSummary</span></a></a><a class="headerlink" href="#tools-multibamsummary" title="Permalink to this headline"></a></h3>
+</section>
+<section id="tools-multibigwigsummary">
+<h3><a class="toc-backref" href="#id6"><a class="reference internal" href="tools/multiBigwigSummary.html"><span class="doc">multiBigwigSummary</span></a></a><a class="headerlink" href="#tools-multibigwigsummary" title="Permalink to this headline"></a></h3>
+</section>
+<section id="tools-correctgcbias">
+<h3><a class="toc-backref" href="#id7"><a class="reference internal" href="tools/correctGCBias.html"><span class="doc">correctGCBias</span></a></a><a class="headerlink" href="#tools-correctgcbias" title="Permalink to this headline"></a></h3>
+</section>
+<section id="tools-bamcoverage">
+<h3><a class="toc-backref" href="#id8"><a class="reference internal" href="tools/bamCoverage.html"><span class="doc">bamCoverage</span></a></a><a class="headerlink" href="#tools-bamcoverage" title="Permalink to this headline"></a></h3>
+</section>
+<section id="tools-bamcompare">
+<h3><a class="toc-backref" href="#id9"><a class="reference internal" href="tools/bamCompare.html"><span class="doc">bamCompare</span></a></a><a class="headerlink" href="#tools-bamcompare" title="Permalink to this headline"></a></h3>
+</section>
+<section id="tools-bigwigcompare">
+<h3><a class="toc-backref" href="#id10"><a class="reference internal" href="tools/bigwigCompare.html"><span class="doc">bigwigCompare</span></a></a><a class="headerlink" href="#tools-bigwigcompare" title="Permalink to this headline"></a></h3>
+</section>
+<section id="tools-computematrix">
+<h3><a class="toc-backref" href="#id11"><a class="reference internal" href="tools/computeMatrix.html"><span class="doc">computeMatrix</span></a></a><a class="headerlink" href="#tools-computematrix" title="Permalink to this headline"></a></h3>
+</section>
+<section id="tools-alignmentsieve">
+<h3><a class="toc-backref" href="#id12"><a class="reference internal" href="tools/alignmentSieve.html"><span class="doc">alignmentSieve</span></a></a><a class="headerlink" href="#tools-alignmentsieve" title="Permalink to this headline"></a></h3>
+</section>
+</section>
+<section id="tools-for-qc">
+<h2><a class="toc-backref" href="#id13">Tools for QC</a><a class="headerlink" href="#tools-for-qc" title="Permalink to this headline"></a></h2>
+<section id="tools-plotcorrelation">
+<h3><a class="toc-backref" href="#id14"><a class="reference internal" href="tools/plotCorrelation.html"><span class="doc">plotCorrelation</span></a></a><a class="headerlink" href="#tools-plotcorrelation" title="Permalink to this headline"></a></h3>
+</section>
+<section id="tools-plotpca">
+<h3><a class="toc-backref" href="#id15"><a class="reference internal" href="tools/plotPCA.html"><span class="doc">plotPCA</span></a></a><a class="headerlink" href="#tools-plotpca" title="Permalink to this headline"></a></h3>
+</section>
+<section id="tools-plotfingerprint">
+<h3><a class="toc-backref" href="#id16"><a class="reference internal" href="tools/plotFingerprint.html"><span class="doc">plotFingerprint</span></a></a><a class="headerlink" href="#tools-plotfingerprint" title="Permalink to this headline"></a></h3>
+</section>
+<section id="tools-bampefragmentsize">
+<h3><a class="toc-backref" href="#id17"><a class="reference internal" href="tools/bamPEFragmentSize.html"><span class="doc">bamPEFragmentSize</span></a></a><a class="headerlink" href="#tools-bampefragmentsize" title="Permalink to this headline"></a></h3>
+</section>
+<section id="tools-computegcbias">
+<h3><a class="toc-backref" href="#id18"><a class="reference internal" href="tools/computeGCBias.html"><span class="doc">computeGCBias</span></a></a><a class="headerlink" href="#tools-computegcbias" title="Permalink to this headline"></a></h3>
+</section>
+<section id="tools-plotcoverage">
+<h3><a class="toc-backref" href="#id19"><a class="reference internal" href="tools/plotCoverage.html"><span class="doc">plotCoverage</span></a></a><a class="headerlink" href="#tools-plotcoverage" title="Permalink to this headline"></a></h3>
+</section>
+</section>
+<section id="heatmaps-and-summary-plots">
+<h2><a class="toc-backref" href="#id20">Heatmaps and summary plots</a><a class="headerlink" href="#heatmaps-and-summary-plots" title="Permalink to this headline"></a></h2>
+<section id="tools-plotheatmap">
+<h3><a class="toc-backref" href="#id21"><a class="reference internal" href="tools/plotHeatmap.html"><span class="doc">plotHeatmap</span></a></a><a class="headerlink" href="#tools-plotheatmap" title="Permalink to this headline"></a></h3>
+</section>
+<section id="tools-plotprofile">
+<h3><a class="toc-backref" href="#id22"><a class="reference internal" href="tools/plotProfile.html"><span class="doc">plotProfile</span></a></a><a class="headerlink" href="#tools-plotprofile" title="Permalink to this headline"></a></h3>
+</section>
+<section id="tools-plotenrichment">
+<h3><a class="toc-backref" href="#id23"><a class="reference internal" href="tools/plotEnrichment.html"><span class="doc">plotEnrichment</span></a></a><a class="headerlink" href="#tools-plotenrichment" title="Permalink to this headline"></a></h3>
+</section>
+</section>
+<section id="miscellaneous">
+<h2><a class="toc-backref" href="#id24">Miscellaneous</a><a class="headerlink" href="#miscellaneous" title="Permalink to this headline"></a></h2>
+<section id="tools-computematrixoperations">
+<h3><a class="toc-backref" href="#id25"><a class="reference internal" href="tools/computeMatrixOperations.html"><span class="doc">computeMatrixOperations</span></a></a><a class="headerlink" href="#tools-computematrixoperations" title="Permalink to this headline"></a></h3>
+</section>
+<section id="tools-estimatereadfiltering">
+<h3><a class="toc-backref" href="#id26"><a class="reference internal" href="tools/estimateReadFiltering.html"><span class="doc">estimateReadFiltering</span></a></a><a class="headerlink" href="#tools-estimatereadfiltering" title="Permalink to this headline"></a></h3>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bamPEFragmentSize &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>bamPEFragmentSize</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/content/tools/bamPEFragmentSize.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bampefragmentsize">
+<h1>bamPEFragmentSize<a class="headerlink" href="#bampefragmentsize" title="Permalink to this headline"></a></h1>
+<section id="example-usage">
+<h2>Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ deepTools2.0/bin/bamPEFragmentSize <span class="se">\</span>
+-hist fragmentSize.png <span class="se">\</span>
+-T <span class="s2">&quot;Fragment size of PE RNA-seq data&quot;</span> <span class="se">\</span>
+--maxFragmentLength <span class="m">1000</span> <span class="se">\</span>
+-b testFiles/RNAseq_sample1.bam testFiles/RNAseq_sample2.bam <span class="se">\</span>
+testFiles/RNAseq_sample3.bam testFiles/RNAseq_sample4.bam <span class="se">\</span>
+-samplesLabel sample1 sample2 sample3 sample4
+</pre></div>
+</div>
+<p>## Output</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>BAM file : testFiles/RNAseq_sample1.bam
+
+Sample size: <span class="m">10815</span>
+
+
+Fragment lengths:
+Min.: <span class="m">0</span>.0
+1st Qu.: <span class="m">311</span>.0
+Mean: <span class="m">8960</span>.68987517
+Median: <span class="m">331</span>.0
+3rd Qu.: <span class="m">362</span>.0
+Max.: <span class="m">53574842</span>.0
+Std: <span class="m">572421</span>.46625
+
+Read lengths:
+Min.: <span class="m">20</span>.0
+1st Qu.: <span class="m">101</span>.0
+Mean: <span class="m">99</span>.1621821544
+Median: <span class="m">101</span>.0
+3rd Qu.: <span class="m">101</span>.0
+Max.: <span class="m">101</span>.0
+Std: <span class="m">9</span>.16567362755
+
+BAM file : testFiles/RNAseq_sample2.bam
+
+Sample size: <span class="m">6771</span>
+
+
+Fragment lengths:
+Min.: <span class="m">43</span>.0
+1st Qu.: <span class="m">148</span>.0
+Mean: <span class="m">176</span>.465071629
+Median: <span class="m">164</span>.0
+3rd Qu.: <span class="m">185</span>.0
+Max.: <span class="m">500</span>.0
+Std: <span class="m">53</span>.733877263
+
+......<span class="o">(</span>output truncated<span class="o">)</span>
+</pre></div>
+</div>
+<img alt="images/test_plots/ExampleFragmentSize.png" src="images/test_plots/ExampleFragmentSize.png" />
+<p>If the <code class="docutils literal notranslate"><span class="pre">--table</span></code> option is specified, the summary statistics are additionally printed in a tabular format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Frag</span><span class="o">.</span> <span class="n">Len</span><span class="o">.</span> <span class="n">Min</span><span class="o">.</span> <span class="n">Frag</span><span class="o">.</span> <span class="n">Len</span><span class="o">.</span> <span class="mi">1</span><span class="n">st</span><span class="o">.</span> <span class="n">Qu</span><span class="o">.</span>     <span class="n">Frag</span><span class="o">.</span> <span class="n">Len</span><span class="o">.</span> <span class="n">Mean</span> <span class="n">Frag</span><span class="o">.</span> <span class="n">Len</span><span class="o">.</span> <span class="n">Median</span>       <span class="n">Frag</span><span class="o">.</span> <span class="n">Len</span><span class="o">.</span> <span class="mi">3</span><span class="n">rd</span> <span class="n">Qu</span><span class="o">.</span>      <span class="n">Frag</span><span class="o">.</span> <span class="n">Len</span><span class="o">.</span> <span class="n">Max</span>  <span class="n">Frag</span><span class="o">.</span> <span class="n">Len</span><span class="o">.</span> <span class="n">Std</span><span class="o">.</span> <span class="n">Read</span> <span class="n">Len</span><span class="o">.</span> <span class="n">Min</span><span class="o">.</span>  <span class="n">Read</span> <span class="n">Len</span><span class="o">.</span> <span class="mi">1</span><span class="n">st</span><span class="o">.</span> <span class="n">Qu</span><span class="o">.</span>      <span class="n">Read</span> <span class="n">Len</span><span class="o">.</span> <span class="n">Mean</span>  <span class="n">Read</span> <span class="n">Len</span><span class="o">.</span> <span class="n">Median</span>        <span class="n">Read</span> <span class="n">Len</span><span class="o">.</span> <span class="mi">3</span><span class="n">rd</span> <span class="n">Qu</span><span class="o">.</span>       <span class="n">Read</span> <span class="n">Len</span><span class="o">.</span> <span class="n">Max</span>   <span class="n">Read</span> <span class="n">Len</span><span class="o">.</span> <span class="n">Std</span><span class="o">.</span>
+<span class="n">bowtie2</span> <span class="n">test1</span><span class="o">.</span><span class="n">bam</span>   <span class="mf">241.0</span>   <span class="mf">241.5</span>   <span class="mf">244.666666667</span>   <span class="mf">242.0</span>   <span class="mf">246.5</span>   <span class="mf">251.0</span>   <span class="mf">4.49691252108</span>   <span class="mf">251.0</span>   <span class="mf">251.0</span>   <span class="mf">251.0</span>   <span class="mf">251.0</span>   <span class="mf">251.0</span>   <span class="mf">251.0</span>   <span class="mf">0.0</span>
+</pre></div>
+</div>
+<p>If the <code class="docutils literal notranslate"><span class="pre">--outRawFragmentLengths</span></code> option is provided, another history item will be produced, containing the raw data underlying the histogram. It has the following format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#bamPEFragmentSize</span>
+<span class="n">Size</span>        <span class="n">Occurrences</span>     <span class="n">Sample</span>
+<span class="mi">241</span> <span class="mi">1</span>       <span class="n">bowtie2</span> <span class="n">test1</span><span class="o">.</span><span class="n">bam</span>
+<span class="mi">242</span> <span class="mi">1</span>       <span class="n">bowtie2</span> <span class="n">test1</span><span class="o">.</span><span class="n">bam</span>
+<span class="mi">251</span> <span class="mi">1</span>       <span class="n">bowtie2</span> <span class="n">test1</span><span class="o">.</span><span class="n">bam</span>
+</pre></div>
+</div>
+<p>The “Size” is the fragment (or read, for single-end datasets) size and “Occurrences” are the number of times reads/fragments with that length were observed. For easing downstream processing, the sample name is a
+lso included on each row.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

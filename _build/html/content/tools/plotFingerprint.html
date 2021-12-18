@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>plotFingerprint &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>plotFingerprint</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/content/tools/plotFingerprint.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="plotfingerprint">
+<h1>plotFingerprint<a class="headerlink" href="#plotfingerprint" title="Permalink to this headline"></a></h1>
+<p>This quality control will most likely be of interest for you if you are dealing with ChIP-seq samples as a pressing question in ChIP-seq experiments is “Did my ChIP work?”, i.e. did the antibody-treatment enrich sufficiently so that the ChIP signal can be separated from the background signal? (After all, around 90% of all DNA fragments in a ChIP experiment will represent the genomic background).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We’ve termed the plots described here “fingerprints” because we feel that they help us judging individual ChIP-seq files, but the original idea came from <a class="reference external" href="https://github.com/songlab/chance/wiki/CHANCE-Manual#checking-the-strength-of-enrichment-in-the-ip">Diaz et al.</a></p>
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#background" id="id1">Background</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-the-plots-tell-you" id="id2">What the plots tell you</a></p></li>
+<li><p><a class="reference internal" href="#quality-control-metrics" id="id3">Quality control metrics</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#usage-example" id="id4">Usage example</a></p></li>
+</ul>
+</div>
+<section id="background">
+<h2><a class="toc-backref" href="#id1">Background</a><a class="headerlink" href="#background" title="Permalink to this headline"></a></h2>
+<p>This tool is based on a method developed by <a class="reference external" href="http://www.ncbi.nlm.nih.gov/pubmed/22499706">Diaz et al.</a>.
+It determines how well the signal in the ChIP-seq sample can be differentiated from the background distribution of reads in the control sample.
+For factors that will enrich well-defined, rather narrow regions (e.g. transcription factors such as p300), the resulting plot can be used to assess the strength of a ChIP, but the broader the enrichments are to be expected, the less clear the plot will be.
+Vice versa, if you do not know what kind of signal to expect, the fingerprint plot will give you a straight-forward indication of how careful you will have to be during your downstream analyses to separate biological noise from meaningful signal.</p>
+<p>Similar to <code class="docutils literal notranslate"><span class="pre">multiBamSummary</span></code>, <code class="docutils literal notranslate"><span class="pre">plotFingerprint</span></code> randomly samples genome regions (bins) of a specified length and sums the per-base coverage in indexed [BAM][] (or bigWig) files that overlap with those regions.
+These values are then sorted according to their rank and the cumulative sum of read counts is plotted.</p>
+<section id="what-the-plots-tell-you">
+<h3><a class="toc-backref" href="#id2">What the plots tell you</a><a class="headerlink" href="#what-the-plots-tell-you" title="Permalink to this headline"></a></h3>
+<p>An ideal [input][] with perfect uniform distribution of reads along the genome (i.e. without enrichments in open chromatin etc.) and infinite sequencing coverage should generate a straight diagonal line. A very specific and strong ChIP enrichment will be indicated by a prominent and steep rise of the cumulative sum towards the highest rank. This means that a big chunk of reads from the ChIP sample is located in few bins which corresponds to high, narrow enrichments typically seen for transcription factors.</p>
+<p>Here you see 3 different fingerprint plots.
+We chose these examples to show you how the nature of the ChIP signal (narrow and high vs. wide and not extremely high) is reflected in the “fingerprint” plots.</p>
+<img alt="images/QC_fingerprint.png" src="images/QC_fingerprint.png" />
+</section>
+<section id="quality-control-metrics">
+<h3><a class="toc-backref" href="#id3">Quality control metrics</a><a class="headerlink" href="#quality-control-metrics" title="Permalink to this headline"></a></h3>
+<p>For a detailed explanation of the QC metrics, please see: <a class="reference internal" href="../feature/plotFingerprint_QC_metrics.html"><span class="doc">plotFingerprint QC metrics</span></a>.</p>
+</section>
+</section>
+<section id="usage-example">
+<h2><a class="toc-backref" href="#id4">Usage example</a><a class="headerlink" href="#usage-example" title="Permalink to this headline"></a></h2>
+<p>The following example generates the fingerprints for the invididual ENCODE histone mark ChIP-seq data sets and their corresponding input (focusing on chromosome 19 and thus adjusting the number of 500 bp bins that are being sampled using <code class="docutils literal notranslate"><span class="pre">--numberOfSamples</span></code> to avoid overlapping bins).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ deepTools2.0/bin/plotFingerprint <span class="se">\</span>
+ -b testFiles/*bam <span class="se">\</span>
+--labels H3K27me3 H3K4me1 H3K4me3 H3K9me3 input <span class="se">\</span>
+--minMappingQuality <span class="m">30</span> --skipZeros <span class="se">\</span>
+--region <span class="m">19</span> --numberOfSamples <span class="m">50000</span> <span class="se">\</span>
+-T <span class="s2">&quot;Fingerprints of different samples&quot;</span>  <span class="se">\</span>
+--plotFile fingerprints.png <span class="se">\</span>
+--outRawCounts fingerprints.tab
+</pre></div>
+</div>
+<img alt="images/test_plots/fingerprints.png" src="images/test_plots/fingerprints.png" />
+<p>The table that you can obtain via <code class="docutils literal notranslate"><span class="pre">--outRawCounts</span></code> simply contains the sum of the per-base coverage inside each sampled genome bin. For the plot above, each column is sorted in increasing order and then the cumulative sum is plotted.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ head fingerprints.tab
+  <span class="c1">#plotFingerprint --outRawCounts</span>
+  <span class="s1">&#39;H3K27me3&#39;</span>  <span class="s1">&#39;H3K4me1&#39;</span>       <span class="s1">&#39;H3K4me3&#39;</span>       <span class="s1">&#39;H3K9me3&#39;</span>       <span class="s1">&#39;input&#39;</span>
+      <span class="m">1</span>       <span class="m">0</span>       <span class="m">0</span>       <span class="m">0</span>       <span class="m">0</span>
+      <span class="m">0</span>       <span class="m">0</span>       <span class="m">0</span>       <span class="m">0</span>       <span class="m">1</span>
+      <span class="m">0</span>       <span class="m">1</span>       <span class="m">0</span>       <span class="m">0</span>       <span class="m">0</span>
+      <span class="m">12</span>      <span class="m">0</span>       <span class="m">0</span>       <span class="m">3</span>       <span class="m">3</span>
+      <span class="m">3</span>       <span class="m">0</span>       <span class="m">1</span>       <span class="m">1</span>       <span class="m">0</span>
+      <span class="m">6</span>       <span class="m">4</span>       <span class="m">0</span>       <span class="m">1</span>       <span class="m">0</span>
+      <span class="m">1</span>       <span class="m">0</span>       <span class="m">0</span>       <span class="m">0</span>       <span class="m">0</span>
+      <span class="m">4</span>       <span class="m">1</span>       <span class="m">1</span>       <span class="m">1</span>       <span class="m">0</span>
+      <span class="m">1</span>       <span class="m">0</span>       <span class="m">0</span>       <span class="m">0</span>       <span class="m">0</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>plotEnrichment &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>plotEnrichment</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/content/tools/plotEnrichment.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="plotenrichment">
+<h1>plotEnrichment<a class="headerlink" href="#plotenrichment" title="Permalink to this headline"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#background" id="id1">Background</a></p></li>
+<li><p><a class="reference internal" href="#usage-example" id="id2">Usage example</a></p></li>
+</ul>
+</div>
+<section id="background">
+<h2><a class="toc-backref" href="#id1">Background</a><a class="headerlink" href="#background" title="Permalink to this headline"></a></h2>
+<p>It’s often useful to know what percentage of alignments or fragments overlap one or more groups of regions. For example, “fragment of reads in peaks” or FRiP scores are a common QC metric for ChIPseq data that asks such a question. Another example would be seeing what fraction of RNAseq reads are in exons, or genes, since both of these should be high. <code class="docutils literal notranslate"><span class="pre">plotEnrichment</span></code> allows efficiently answering these sorts of questions.</p>
+</section>
+<section id="usage-example">
+<h2><a class="toc-backref" href="#id2">Usage example</a><a class="headerlink" href="#usage-example" title="Permalink to this headline"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">plotEnrichment</span></code> needs one or more sorted and indexed BAM files and one or more BED and/or GTF files. For GTF files, feature labels are given according to the 3rd column (‘feature’). For BED files, labels are given by the file name, though this can be overriden with the <code class="docutils literal notranslate"><span class="pre">--regionLabels</span></code> option.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ plotEnrichment -b Input.bam H3K4Me1.bam H3K4Me3.bam <span class="se">\</span>
+--BED up.bed down.bed <span class="se">\</span>
+--regionLabels <span class="s2">&quot;up regulated&quot;</span> <span class="s2">&quot;down regulated&quot;</span> <span class="se">\</span>
+-o enrichment.png
+</pre></div>
+</div>
+<p>The values underlying the plot can also be output with the <code class="docutils literal notranslate"><span class="pre">--outRawCounts</span></code> option and the y-axis can be auto-adjusted with the <code class="docutils literal notranslate"><span class="pre">--variableScales</span></code> option.</p>
+<img alt="images/test_plots/plotEnrichment.png" src="images/test_plots/plotEnrichment.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

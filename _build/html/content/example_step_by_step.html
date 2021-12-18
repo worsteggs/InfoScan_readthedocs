@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Step-by-step protocols &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Step-by-step protocols</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/example_step_by_step.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="step-by-step-protocols">
+<h1>Step-by-step protocols<a class="headerlink" href="#step-by-step-protocols" title="Permalink to this headline"></a></h1>
+<p>This section should give you an overview of how to do many common tasks. We’re using <strong>screenshots from Galaxy</strong> here.
+If you’re using the command-line version you can easily follow the given examples since the vast majority of parameters is either indicated in Galaxy, too. Otherwise, just type the program name and the help option (e.g. <code class="docutils literal notranslate"><span class="pre">/deepTools/bin/bamCoverage</span> <span class="pre">--help</span></code>), which will show you all the parameters and options available. Alternatively, you can follow the respective link to the tool documentation here on readthedocs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For support or questions please post to <a class="reference external" href="http://biostars.org">Biostars</a>. For bug reports and feature requests please open an issue <a class="reference external" href="http://github.com/deeptools/deeptools">&lt;on github</a>.</p>
+</div>
+<p>All protocols assume that you have uploaded your files into a Galaxy instance with a deepTools installation, e.g., <a class="reference external" href="http://deeptools.ie-freiburg.mpg.de">deepTools Galaxy</a>. If you need help to get started with Galaxy in general, e.g. to upload your data, see <a class="reference internal" href="help_galaxy_intro.html"><span class="doc">Using deepTools within Galaxy</span></a> and <a class="reference internal" href="help_galaxy_dataup.html"><span class="doc">Data import into Galaxy</span></a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you would like to try out the protocols with <strong>sample data</strong>, go to <a class="reference external" href="http://deeptools.ie-freiburg.mpg.de">deepTools Galaxy</a>  –&gt; “Shared Data”  –&gt; “Data Libraries”  –&gt; “deepTools Test Files”. Simply select BED/BAM/bigWig files and click, “to History”. You can also download the test data sets to your computer by clicking “Download” at the top.</p>
+</div>
+<div class="contents local topic" id="how-to-do">
+<p class="topic-title">How to do…?</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#qc-and-data-processing" id="id1">QC and data processing</a></p>
+<ul>
+<li><p><a class="reference internal" href="#i-have-downloaded-received-a-bam-file-how-do-i-generate-a-file-i-can-look-at-in-a-genome-browser" id="id2">I have downloaded/received a BAM file - how do I generate a file I can look at in a genome browser?</a></p></li>
+<li><p><a class="reference internal" href="#how-can-i-assess-the-reproducibility-of-my-sequencing-replicates" id="id3">How can I assess the reproducibility of my sequencing replicates?</a></p></li>
+<li><p><a class="reference internal" href="#how-do-i-know-whether-my-sample-is-gc-biased-and-if-it-is-how-do-i-correct-for-it" id="id4">How do I know whether my sample is GC biased? And if it is, how do I correct for it?</a></p></li>
+<li><p><a class="reference internal" href="#how-do-i-get-an-input-normalized-chip-seq-coverage-file" id="id5">How do I get an input-normalized ChIP-seq coverage file?</a></p></li>
+<li><p><a class="reference internal" href="#how-can-i-compare-the-chip-strength-for-different-chip-experiments" id="id6">How can I compare the ChIP strength for different ChIP experiments?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#heatmaps-and-summary-plots" id="id7">Heatmaps and summary plots</a></p>
+<ul>
+<li><p><a class="reference internal" href="#how-do-i-get-a-clustered-heatmap-of-sequencing-depth-normalized-read-coverages-around-the-transcription-start-site-of-all-genes" id="id8">How do I get a (clustered) heatmap of sequencing-depth-normalized read coverages around the transcription start site of all genes?</a></p></li>
+<li><p><a class="reference internal" href="#how-can-i-compare-the-average-signal-for-x-specific-and-autosomal-genes-for-2-or-more-different-sequencing-experiments" id="id9">How can I compare the average signal for X-specific and autosomal genes for 2 or more different sequencing experiments?</a></p>
+<ul>
+<li><p><a class="reference internal" href="#how-to-obtain-a-bed-file-for-x-chromosomal-and-autosomal-genes-each" id="id10">How to obtain a BED file for X chromosomal and autosomal genes each</a></p></li>
+<li><p><a class="reference internal" href="#compute-the-average-values-for-x-and-autosomal-genes" id="id11">Compute the average values for X and autosomal genes</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="docutils" />
+<section id="qc-and-data-processing">
+<h2><a class="toc-backref" href="#id1">QC and data processing</a><a class="headerlink" href="#qc-and-data-processing" title="Permalink to this headline"></a></h2>
+<section id="i-have-downloaded-received-a-bam-file-how-do-i-generate-a-file-i-can-look-at-in-a-genome-browser">
+<h3><a class="toc-backref" href="#id2">I have downloaded/received a BAM file - how do I generate a file I can look at in a genome browser?</a><a class="headerlink" href="#i-have-downloaded-received-a-bam-file-how-do-i-generate-a-file-i-can-look-at-in-a-genome-browser" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>tool: <a class="reference internal" href="tools/bamCoverage.html"><span class="doc">bamCoverage</span></a></p></li>
+<li><p>input: your <a class="reference internal" href="help_glossary.html#bam"><span class="std std-ref">BAM</span></a> file with aligned reads</p></li>
+</ul>
+<p>Of course, you could also look at your BAM file in the genome browser.
+However, generating a bigWig file of read coverages will drastically reduce the size of the file, it also allows you to normalize the coverage to 1x sequencing depth, which makes a visual comparison of multiple files more feasible.</p>
+<img alt="images/GalHow_bamCoverage.png" src="images/GalHow_bamCoverage.png" />
+</section>
+<hr class="docutils" />
+<section id="how-can-i-assess-the-reproducibility-of-my-sequencing-replicates">
+<h3><a class="toc-backref" href="#id3">How can I assess the reproducibility of my sequencing replicates?</a><a class="headerlink" href="#how-can-i-assess-the-reproducibility-of-my-sequencing-replicates" title="Permalink to this headline"></a></h3>
+<p>Typically, you’re going to be interested in the correlation of the read coverages for different replicates and different samples. What you want to see is that replicates should correlate better than non-replicates.
+The <a class="reference external" href="http://genome.ucsc.edu/ENCODE/protocols/dataStandards/ENCODE_RNAseq_Standards_V1.0.pdf">ENCODE consortium recommends</a> that <em>for messenger RNA,
+(…) biological replicates [should] display 0.9 correlation for transcripts/features</em>. For more information about correlation calculations, see the background description for <a class="reference internal" href="tools/plotCorrelation.html"><span class="doc">plotCorrelation</span></a>.</p>
+<ul class="simple">
+<li><p>tools: <a class="reference internal" href="tools/multiBamSummary.html"><span class="doc">multiBamSummary</span></a> followed by <a class="reference internal" href="tools/plotCorrelation.html"><span class="doc">plotCorrelation</span></a></p></li>
+<li><dl class="simple">
+<dt>input: BAM files</dt><dd><ul>
+<li><p>you can compare as many samples as you want, though the more you use the longer the computation will take</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="images/GalHow_multiBamSummary.png" src="images/GalHow_multiBamSummary.png" />
+<img alt="images/GalHow_plotCorrelation.png" src="images/GalHow_plotCorrelation.png" />
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you would like to do a similar analysis based on bigWig files, use the tool <code class="docutils literal notranslate"><span class="pre">multiBigwigSummary</span></code> instead.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="how-do-i-know-whether-my-sample-is-gc-biased-and-if-it-is-how-do-i-correct-for-it">
+<h3><a class="toc-backref" href="#id4">How do I know whether my sample is GC biased? And if it is, how do I correct for it?</a><a class="headerlink" href="#how-do-i-know-whether-my-sample-is-gc-biased-and-if-it-is-how-do-i-correct-for-it" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>input: <a class="reference internal" href="help_glossary.html#bam"><span class="std std-ref">BAM</span></a> file</p></li>
+<li><p>use the tool <a class="reference internal" href="tools/computeGCBias.html"><span class="doc">computeGCBias</span></a> on that BAM file (default settings, just <strong>make sure your reference genome and genome size are matching</strong>)</p></li>
+</ul>
+<img alt="images/GalHow_computeGCbias.png" src="images/GalHow_computeGCbias.png" />
+<ul>
+<li><p>have a look at the image that is produced and compare it to the examples <a class="reference internal" href="tools/computeGCBias.html#computegcbias-example-image"><span class="std std-ref">here</span></a></p></li>
+<li><p>if your sample shows an almost linear increase in exp/obs coverage (on the log scale of the lower plot), then you should consider correcting the GC bias - <em>if</em> you think that the biological interpretation of this data would otherwise be compromised (e.g. by comparing it to another sample that does not have an inherent GC bias)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the GC bias can be corrected with the tool <a class="reference internal" href="tools/correctGCBias.html"><span class="doc">correctGCBias</span></a> using the second output of the computeGCbias tool that you had to run anyway</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<img alt="images/GalHow_correctGCbias.png" src="images/GalHow_correctGCbias.png" />
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">correctGCbias</span></code> will add reads to otherwise depleted regions (typically GC-poor regions), that means that you should <strong>not</strong> remove duplicates in any downstream analyses based on the GC-corrected BAM file. We therefore recommend removing duplicates before doing the correction so that only those duplicate reads are kept that were produced by the GC correction procedure.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="how-do-i-get-an-input-normalized-chip-seq-coverage-file">
+<h3><a class="toc-backref" href="#id5">How do I get an input-normalized ChIP-seq coverage file?</a><a class="headerlink" href="#how-do-i-get-an-input-normalized-chip-seq-coverage-file" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>input: you need two BAM files, one for the input and one for the ChIP-seq experiment</p></li>
+<li><p>tool: <a class="reference internal" href="tools/bamCompare.html"><span class="doc">bamCompare</span></a> with ChIP = treatment, input = control sample</p></li>
+</ul>
+<img alt="images/GalHow_bamCompare.png" src="images/GalHow_bamCompare.png" />
+</section>
+<hr class="docutils" />
+<section id="how-can-i-compare-the-chip-strength-for-different-chip-experiments">
+<h3><a class="toc-backref" href="#id6">How can I compare the ChIP strength for different ChIP experiments?</a><a class="headerlink" href="#how-can-i-compare-the-chip-strength-for-different-chip-experiments" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>tool: <a class="reference internal" href="tools/plotFingerprint.html"><span class="doc">plotFingerprint</span></a></p></li>
+<li><p>input: as many BAM files of ChIP-seq samples as you’d like to compare (it is helpful to include the input control to see what a hopefully non-enriched sample looks like)</p></li>
+</ul>
+<img alt="images/GalHow_plotFingerprint.png" src="images/GalHow_plotFingerprint.png" />
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For more details on the interpretation of the plot, see <a class="reference internal" href="tools/plotFingerprint.html"><span class="doc">plotFingerprint</span></a> or select the tool within the deepTools Galaxy and scroll down for more information.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="heatmaps-and-summary-plots">
+<h2><a class="toc-backref" href="#id7">Heatmaps and summary plots</a><a class="headerlink" href="#heatmaps-and-summary-plots" title="Permalink to this headline"></a></h2>
+<section id="how-do-i-get-a-clustered-heatmap-of-sequencing-depth-normalized-read-coverages-around-the-transcription-start-site-of-all-genes">
+<h3><a class="toc-backref" href="#id8">How do I get a (clustered) heatmap of sequencing-depth-normalized read coverages around the transcription start site of all genes?</a><a class="headerlink" href="#how-do-i-get-a-clustered-heatmap-of-sequencing-depth-normalized-read-coverages-around-the-transcription-start-site-of-all-genes" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>tools: <a class="reference internal" href="tools/computeMatrix.html"><span class="doc">computeMatrix</span></a>, then <a class="reference internal" href="tools/plotHeatmap.html"><span class="doc">plotHeatmap</span></a></p></li>
+<li><dl class="simple">
+<dt>inputs:</dt><dd><ul>
+<li><p>1 <a class="reference internal" href="help_glossary.html#bigwig"><span class="std std-ref">bigWig</span></a> file of normalized read coverages (e.g. the output of <a class="reference internal" href="tools/bamCoverage.html"><span class="doc">bamCoverage</span></a> or <a class="reference internal" href="tools/bamCompare.html"><span class="doc">bamCompare</span></a>)</p></li>
+<li><p>1 <a class="reference internal" href="help_glossary.html#bed"><span class="std std-ref">BED</span></a> or INTERVAL file of genes, e.g. obtained through Galaxy via “Get Data” –&gt; “UCSC main table browser” –&gt; group: “Genes and Gene Predictions” –&gt; (e.g.) “RefSeqGenes” –&gt; send to Galaxy (see screenshots below)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="images/GalHow_clustHM01.png" src="images/GalHow_clustHM01.png" />
+<ul class="simple">
+<li><p>use <a class="reference internal" href="tools/computeMatrix.html"><span class="doc">computeMatrix</span></a> with the bigWig file and the BED file</p></li>
+<li><p>indicate <code class="docutils literal notranslate"><span class="pre">reference-point</span></code> (and whatever other option you would like to tune, see screenshot below)</p></li>
+</ul>
+<img alt="images/GalHow_clustHM02.png" src="images/GalHow_clustHM02.png" />
+<ul class="simple">
+<li><dl class="simple">
+<dt>use the output from <a class="reference internal" href="tools/computeMatrix.html"><span class="doc">computeMatrix</span></a> with <a class="reference internal" href="tools/plotHeatmap.html"><span class="doc">plotHeatmap</span></a></dt><dd><ul>
+<li><p>if you would like to cluster the signals, choose <code class="docutils literal notranslate"><span class="pre">k-means</span> <span class="pre">clustering</span></code> (last option of “advanced options”) with a reasonable number of clusters (usually between 2 to 7)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<img alt="images/GalHow_clustHM03.png" src="images/GalHow_clustHM03.png" />
+</section>
+<hr class="docutils" />
+<section id="how-can-i-compare-the-average-signal-for-x-specific-and-autosomal-genes-for-2-or-more-different-sequencing-experiments">
+<h3><a class="toc-backref" href="#id9">How can I compare the average signal for X-specific and autosomal genes for 2 or more different sequencing experiments?</a><a class="headerlink" href="#how-can-i-compare-the-average-signal-for-x-specific-and-autosomal-genes-for-2-or-more-different-sequencing-experiments" title="Permalink to this headline"></a></h3>
+<p>Make sure you’re familiar with computeMatrix and plotProfile before using this protocol.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>tools:</dt><dd><ul>
+<li><p>Filter data on any column using simple expressions</p></li>
+<li><p>computeMatrix</p></li>
+<li><p>plotProfile</p></li>
+<li><p>(plotting the summary plots for multiple samples)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>inputs:</dt><dd><ul>
+<li><p>several bigWig files (one for each sequencing experiment you would like to compare)</p></li>
+<li><p>two BED files, one with X-chromosomal and one with autosomal genes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<section id="how-to-obtain-a-bed-file-for-x-chromosomal-and-autosomal-genes-each">
+<h4><a class="toc-backref" href="#id10">How to obtain a BED file for X chromosomal and autosomal genes each</a><a class="headerlink" href="#how-to-obtain-a-bed-file-for-x-chromosomal-and-autosomal-genes-each" title="Permalink to this headline"></a></h4>
+<ol class="arabic">
+<li><p>download a full list of genes via “Get Data” –&gt; “UCSC main table browser” –&gt; group:”Genes and Gene Predictions” –&gt; tracks: (e.g.) “RefSeqGenes” –&gt; send to Galaxy</p></li>
+<li><p>filter the list twice using the tool <strong>“Filter data on any column using simple expressions”</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>first use the expression: c1==”chrX” to filter the list of all genes –&gt; this will generate a list of X-linked genes</p></li>
+<li><p>then re-run the filtering, now with c1!=”chrX”, which will generate a list of genes that do not belong to chromosome X (!= indicates “not matching”)</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="compute-the-average-values-for-x-and-autosomal-genes">
+<h4><a class="toc-backref" href="#id11">Compute the average values for X and autosomal genes</a><a class="headerlink" href="#compute-the-average-values-for-x-and-autosomal-genes" title="Permalink to this headline"></a></h4>
+<ul>
+<li><p>use <a class="reference internal" href="tools/computeMatrix.html"><span class="doc">computeMatrix</span></a> for all of the signal files (bigWig format) at once</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>supply both filtered BED files (click on “Add new regions to plot” once) and label them</p></li>
+<li><p>indicate the corresponding signal files</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>now use <a class="reference internal" href="tools/plotProfile.html"><span class="doc">plotProfile</span></a> on the resulting file</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>important: display the “advanced output options” and select “save the data underlying the average profile” –&gt; this will generate a table in addition to the summary plot images</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<a class="reference external image-reference" href="../images/GalHow_profiles_XvsA02.png"><img alt="images/GalHow_profiles_XvsA02.png" src="images/GalHow_profiles_XvsA02.png" /></a>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

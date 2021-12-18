@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galaxy-related FAQ &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Galaxy-related FAQ</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/help_faq_galaxy.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="galaxy-related-faq">
+<h1>Galaxy-related FAQ<a class="headerlink" href="#galaxy-related-faq" title="Permalink to this headline"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#i-ve-reached-my-quota-what-can-i-do-to-save-some-space" id="id1">I’ve reached my quota - what can I do to save some space?</a></p></li>
+<li><p><a class="reference internal" href="#copying-from-one-history-to-another-doesn-t-work-for-me-the-data-set-simply-doesn-t-show-up-in-the-target-history" id="id2">Copying from one history to another doesn’t work for me - the data set simply doesn’t show up in the target history!</a></p></li>
+<li><p><a class="reference internal" href="#how-can-i-use-a-published-workflow" id="id3">How can I use a published workflow?</a></p></li>
+<li><p><a class="reference internal" href="#i-would-like-to-use-one-of-your-workflows-not-in-the-deeptools-galaxy-but-in-the-local-galaxy-instance-provided-by-my-institute-is-that-possible" id="id4">I would like to use one of your workflows - not in the deepTools Galaxy, but in the local Galaxy instance provided by my institute. Is that possible?</a></p></li>
+<li><p><a class="reference internal" href="#plotprofile-says-that-one-option-will-only-work-if-computematrix-was-run-with-missingdataaszero-how-can-i-find-out-whether-i-ran-computematrix-that-way" id="id5"><code class="docutils literal notranslate"><span class="pre">plotProfile</span></code> says that one option will only work if “computeMatrix was run with –missingDataAsZero”. How can I find out whether I ran <code class="docutils literal notranslate"><span class="pre">computeMatrix</span></code> that way?</a></p></li>
+<li><p><a class="reference internal" href="#how-can-i-have-a-look-at-the-continuous-read-coverages-from-bigwig-files-which-genome-browser-do-you-recommend" id="id6">How can I have a look at the continuous read coverages from bigWig files? Which genome browser do you recommend?</a></p>
+<ul>
+<li><p><a class="reference internal" href="#igv-recommended" id="id7">IGV (recommended)</a></p></li>
+<li><p><a class="reference internal" href="#ucsc" id="id8">UCSC</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#what-s-the-best-way-to-integrate-the-deeptools-results-with-other-downstream-analyses-outside-of-galaxy" id="id9">What’s the best way to integrate the deepTools results with other downstream analyses (outside of Galaxy)?</a></p></li>
+<li><p><a class="reference internal" href="#how-can-i-determine-basic-parameters-of-a-bam-file-such-as-the-number-of-reads-read-length-duplication-rate-and-average-dna-fragment-length" id="id10">How can I determine basic parameters of a BAM file, such as the number of reads, read length, duplication rate and average DNA fragment length?</a></p></li>
+</ul>
+</div>
+<section id="i-ve-reached-my-quota-what-can-i-do-to-save-some-space">
+<h2><a class="toc-backref" href="#id1">I’ve reached my quota - what can I do to save some space?</a><a class="headerlink" href="#i-ve-reached-my-quota-what-can-i-do-to-save-some-space" title="Permalink to this headline"></a></h2>
+<ol class="arabic simple">
+<li><p>make sure that all the data sets you deleted are <strong>permanently</strong> eliminated from our disks: go to the history option button and select “Purge deleted data sets”, then hit the “refresh” button on top of your history panel</p></li>
+<li><p>download all data sets for which you’ve completed the analysis, then remove the data sets (click on the “x” and then <strong>make sure they’re purged</strong> (see above)).</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="copying-from-one-history-to-another-doesn-t-work-for-me-the-data-set-simply-doesn-t-show-up-in-the-target-history">
+<h2><a class="toc-backref" href="#id2">Copying from one history to another doesn’t work for me - the data set simply doesn’t show up in the target history!</a><a class="headerlink" href="#copying-from-one-history-to-another-doesn-t-work-for-me-the-data-set-simply-doesn-t-show-up-in-the-target-history" title="Permalink to this headline"></a></h2>
+<dl class="simple">
+<dt>Once you’ve copied a data set from one history to another, check two things:</dt><dd><ul class="simple">
+<li><p>do you see the destination history in your history panel, i.e. does the title of the current history panel match the name of the destination history you selected in the main frame?</p></li>
+<li><p>hit the refresh button</p></li>
+</ul>
+</dd>
+</dl>
+<img alt="images/Gal_historyReload.png" src="images/Gal_historyReload.png" />
+</section>
+<hr class="docutils" />
+<section id="how-can-i-use-a-published-workflow">
+<h2><a class="toc-backref" href="#id3">How can I use a published workflow?</a><a class="headerlink" href="#how-can-i-use-a-published-workflow" title="Permalink to this headline"></a></h2>
+<p>You <strong>must register</strong> if you want to use the workflows within <a class="reference external" href="http://deeptools.ie-freiburg.mpg.de">deepTools Galaxy</a>. (“User” –&gt; “Register” - all you have to supply is an email address). Make sure to read the Terms of Use, though!</p>
+<p>You can find workflows that are public or specifically shared with you by another user via “Shared Data” –&gt; “Published Workflows”. Click on the triangle next to the workflow you’re interested in and select “import”.</p>
+<img alt="images/GalHow_wf01.png" src="images/GalHow_wf01.png" />
+<p>A green box should appear, there you select “start using this workflow”, which should lead you to your own workflow menu (that you can always access via the top menu “Workflow”). Here, you should now see a workflow labeled “imported: ….”. If you want to use the workflow right away, click on the triangle and select “Run”. The workflow should now be available within the Galaxy main data frame and should be waiting for your input.</p>
+<img alt="images/GalHow_wf02.png" src="images/GalHow_wf02.png" />
+</section>
+<hr class="docutils" />
+<section id="i-would-like-to-use-one-of-your-workflows-not-in-the-deeptools-galaxy-but-in-the-local-galaxy-instance-provided-by-my-institute-is-that-possible">
+<h2><a class="toc-backref" href="#id4">I would like to use one of your workflows - not in the deepTools Galaxy, but in the local Galaxy instance provided by my institute. Is that possible?</a><a class="headerlink" href="#i-would-like-to-use-one-of-your-workflows-not-in-the-deeptools-galaxy-but-in-the-local-galaxy-instance-provided-by-my-institute-is-that-possible" title="Permalink to this headline"></a></h2>
+<p>Yes, it is possible. The only requirement is that your local Galaxy has a recent installation of deepTools.</p>
+<p>Go to the workflows, click on the ones you’re interested in and go to “Download”. This will save the workflows into .ga files on your computer. Now go to your local Galaxy installation and login. Go to the workflow menu and select “import workflow” (top right hand corner of the page). Click on “Browse” and select the saved workflow. If you have the same tool versions installed in your local Galaxy, these workflows should work right away.</p>
+</section>
+<hr class="docutils" />
+<section id="plotprofile-says-that-one-option-will-only-work-if-computematrix-was-run-with-missingdataaszero-how-can-i-find-out-whether-i-ran-computematrix-that-way">
+<h2><a class="toc-backref" href="#id5"><code class="docutils literal notranslate"><span class="pre">plotProfile</span></code> says that one option will only work if “computeMatrix was run with –missingDataAsZero”. How can I find out whether I ran <code class="docutils literal notranslate"><span class="pre">computeMatrix</span></code> that way?</a><a class="headerlink" href="#plotprofile-says-that-one-option-will-only-work-if-computematrix-was-run-with-missingdataaszero-how-can-i-find-out-whether-i-ran-computematrix-that-way" title="Permalink to this headline"></a></h2>
+<p>Galaxy keeps track of everything you do. To see which options you chose to generate a specific data set, simply click on the “info” button.</p>
+<img alt="images/Gal_FAQ_info.png" src="images/Gal_FAQ_info.png" />
+</section>
+<hr class="docutils" />
+<section id="how-can-i-have-a-look-at-the-continuous-read-coverages-from-bigwig-files-which-genome-browser-do-you-recommend">
+<h2><a class="toc-backref" href="#id6">How can I have a look at the continuous read coverages from bigWig files? Which genome browser do you recommend?</a><a class="headerlink" href="#how-can-i-have-a-look-at-the-continuous-read-coverages-from-bigwig-files-which-genome-browser-do-you-recommend" title="Permalink to this headline"></a></h2>
+<p>There are 2 popular genome browsers for visualizing continuous data: <a class="reference external" href="http://genome.ucsc.edu/cgi-bin/hgGateway?redirect=manual&amp;source=genome-euro.ucsc.edu">UCSC</a> and <a class="reference external" href="http://www.broadinstitute.org/igv/">IGV</a>.</p>
+<section id="igv-recommended">
+<h3><a class="toc-backref" href="#id7">IGV (recommended)</a><a class="headerlink" href="#igv-recommended" title="Permalink to this headline"></a></h3>
+<p>We recommend downloading <a class="reference external" href="http://www.broadinstitute.org/igv/">IGV</a>, which is free for academic use. IGV itself needs an up-to-date Java installation and a considerable amount of RAM. It’s usage is rather intuitive and the display can be easily customized. In addition, you can download genome-wide annotation data that can be displayed together with your own data.</p>
+<p>To display data in IGV, do the following:</p>
+<ol class="arabic simple">
+<li><p>Go to <a class="reference external" href="http://www.broadinstitute.org/igv/">http://www.broadinstitute.org/igv/</a>, register and download IGV</p></li>
+<li><p>Unpack the IGV archive and change to the extracted IGV folder</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">igv.bat</span></code> (Windows), <code class="docutils literal notranslate"><span class="pre">igv.sh</span></code> (Linux) or <code class="docutils literal notranslate"><span class="pre">igv.command</span></code> (OSX) to start IGV (for more information please read the included <code class="docutils literal notranslate"><span class="pre">readme.txt</span></code> file or the IGV documentation).</p></li>
+<li><p>Choose the genome version of the file(s) you would like to visualize (e.g. dm3) <strong>THIS IS THE MOST IMPORTANT STEP!</strong> IGV will not detect the genome version automatically, i.e. if you select mm9 but your file is based on human data, it will still be displayed without an error message (but with the wrong positions, obviously!)</p></li>
+<li><p>Go to your deepTools Galaxy server (<a class="reference external" href="http://deeptools.ie-freiburg.mpg.de/">http://deeptools.ie-freiburg.mpg.de/</a>) and navigate to your data set of choice</p></li>
+<li><p>Click on your data set so that you see its details like in the screenshot below (<strong>Keep in mind that not all datasets can be visualized in IGV or UCSC.</strong> We recommend to use <a class="reference internal" href="help_glossary.html#bigwig"><span class="std std-ref">bigWig</span></a> or <a class="reference internal" href="help_glossary.html#bed"><span class="std std-ref">BED</span></a> files for visualization.)</p></li>
+</ol>
+<img alt="images/Gal_FAQ_IGV_dataset.png" src="images/Gal_FAQ_IGV_dataset.png" />
+<p>Now click on <strong>“display with IGV local”</strong> to visualize your data set in IGV that should already be running on your computer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>“display with IGV Web current” can be used if you do not have an installed IGV. It will start an IGV web start version. <strong>We do *not* recommend that option</strong>.</p>
+</div>
+<p>Here’s a screenshot of a typical bigWig file display:</p>
+<img alt="images/Gal_FAQ_IGV.png" src="images/Gal_FAQ_IGV.png" />
+<p>For more information, check out the <a class="reference external" href="http://www.broadinstitute.org/software/igv/UserGuide">IGV documentation</a>.</p>
+</section>
+<section id="ucsc">
+<h3><a class="toc-backref" href="#id8">UCSC</a><a class="headerlink" href="#ucsc" title="Permalink to this headline"></a></h3>
+<p>There is a direct link from within deepTools Galaxy to stream a data set to UCSC. You can find it in the data set tiles: “display at UCSC”, like here:</p>
+<img alt="images/Gal_FAQ_UCSC_dataset.png" src="images/Gal_FAQ_UCSC_dataset.png" />
+<p>Click on “main” and the UCSC browser should open within a new window, displaying the data set that you chose.
+The default setting for bigWig files is the “dense” display that looks like a heatmap.</p>
+<img alt="images/Gal_FAQ_UCSC01.png" src="images/Gal_FAQ_UCSC01.png" />
+<p>If you would like to display the continuous profile in a “valley-mountain” fashion like the one shown in the IGV screenshot, go to the drop-down menu underneath your custom track and choose “full”.</p>
+<p>UCSC has large amounts of public data that you can display which you can find by scrolling down the page, beyond your custom track entry. For more information on how to use the UCSC Genome Browser, go <a class="reference external" href="https://genome.ucsc.edu/goldenPath/help/hgTracksHelp.html">here</a>.</p>
+<p><strong>Known issues with UCSC</strong></p>
+<ul class="simple">
+<li><p><strong>chromosome naming</strong>: UCSC expects chromosome names to be indicated in the format “chr”Number, e.g. chr1. If you mapped your reads to a non-UCSC-standard genome, chances are that chromosomes are labeled just with their number. bigWig files generated from these BAM files will not be recognized by UCSC, i.e. you will see the data set name, but no signal.</p></li>
+<li><p><strong>no upload of bigWig files from your hard drive</strong>: to minimize the computational strains, UCSC relies on streaming bigWig files (i.e. there’s no need to load the entire file at once, the browser will always just load the data for the specific region a user is looking at).</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="what-s-the-best-way-to-integrate-the-deeptools-results-with-other-downstream-analyses-outside-of-galaxy">
+<h2><a class="toc-backref" href="#id9">What’s the best way to integrate the deepTools results with other downstream analyses (outside of Galaxy)?</a><a class="headerlink" href="#what-s-the-best-way-to-integrate-the-deeptools-results-with-other-downstream-analyses-outside-of-galaxy" title="Permalink to this headline"></a></h2>
+<p>You can <strong>save all the data tables</strong> underlying every image produced by deepTools, i.e. if you would like to plot the average profiles in a different way, you could download the corresponding data (after ticking the relevant option under “advanced output options”) and import them into R, Excel, GraphPadPrism etc.</p>
+<p>The descriptions of the tools within Galaxy will also contain details on how to save the data and what sort of format to expect.</p>
+</section>
+<hr class="docutils" />
+<section id="how-can-i-determine-basic-parameters-of-a-bam-file-such-as-the-number-of-reads-read-length-duplication-rate-and-average-dna-fragment-length">
+<h2><a class="toc-backref" href="#id10">How can I determine basic parameters of a BAM file, such as the number of reads, read length, duplication rate and average DNA fragment length?</a><a class="headerlink" href="#how-can-i-determine-basic-parameters-of-a-bam-file-such-as-the-number-of-reads-read-length-duplication-rate-and-average-dna-fragment-length" title="Permalink to this headline"></a></h2>
+<p>If you downloaded the <a class="reference internal" href="help_glossary.html#bam"><span class="std std-ref">BAM</span></a> file from a public repository, chances are that those characteristics are in fact noted there.</p>
+<p>If that’s not the case, we recommend to have a look at the tool <a class="reference external" href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC</a>, which will return all of the above points (except the fragment size).
+The fragment size distribution can be obtained using the deepTools’ <a class="reference internal" href="tools/bamPEFragmentSize.html"><span class="doc">bamPEFragmentSize</span></a> (since deepTools 2.0).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blacklist Regions &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Blacklist Regions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/content/feature/blacklist.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="blacklist-regions">
+<h1>Blacklist Regions<a class="headerlink" href="#blacklist-regions" title="Permalink to this headline"></a></h1>
+<p>There are many sources of bias in ChIPseq experiments. Among the most prevalent of these is signal arising from “blacklist” regions (see <a class="reference external" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3989762/">Carroll et al.</a> and the references therein for historical context). Blacklisted regions show notably enriched signal across many ChIP experiment types (e.g., regardless of what is being IPed or the experimental conditions). Including these regions can lead not only to false-positive peaks, but can also throw off between-sample normalization. An example of this is found below:</p>
+<img alt="images/feature-blacklist0.png" src="images/feature-blacklist0.png" />
+<p>The region on chromosome 9 starting around position 3 million marks the start of an annotated satellite repeat. As this region contains vastly more reads than expected, slight differences in enrichment here between samples can cause errors in between-sample scaling, thereby masking signal in non-repetitive regions. This can be seen in the IGV screenshot below, where the blacklisted region is just off the side of the screen.</p>
+<img alt="images/feature-blacklist1.png" src="images/feature-blacklist1.png" />
+<p>Note that the signal outside of the blacklisted region is slightly depressed due to the blacklisted region. Using the <cite>–blackListFileName</cite> option available throughout deepTools. The subtraction of these regions is accounted for in all normalizations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some programs, such as <code class="docutils literal notranslate"><span class="pre">bamCoverage</span></code>, can use the number of reads in a file to estimate coverage for the purposes of normalization. Reads in blacklisted regions are subtracted for this purpose, but do note that the number of reads in blacklisted regions is computed by counting the number of reads fully contained within each region. Consequently, if you use regions that are overlapping, it’s possible to double count the number of reads that will be blacklisted and thereby decrease the reliability of the normalization. As of version 2.5.5, deepTools will print a warning and quit if there are overlapping blacklist regions. It will also issue a warning if any of them are closer than 1kb, as this is unlikely to be biologically reasonable (in practice it will likely underestimate the number of reads and regions that actually SHOULD be blacklisted).</p>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

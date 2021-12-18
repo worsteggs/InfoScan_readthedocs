@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example usage &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Example usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/example_usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="example-usage">
+<h1>Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#how-we-use-deeptools-for-chip-seq-analyses" id="id1">How we use deepTools for ChIP-seq analyses</a></p></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="example_step_by_step.html">Step-by-step protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_gallery.html">Gallery of deepTools plots</a></li>
+</ul>
+</div>
+<section id="how-we-use-deeptools-for-chip-seq-analyses">
+<h2><a class="toc-backref" href="#id1">How we use deepTools for ChIP-seq analyses</a><a class="headerlink" href="#how-we-use-deeptools-for-chip-seq-analyses" title="Permalink to this headline"></a></h2>
+<p>To get a feeling for what deepTools can do, we’d like to give you a brief glimpse into how we typically use deepTools for ChIP-seq analyses. For more detailed exampes and descriptions of the tools, simply follow the respective links.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While some tools, such as <a class="reference internal" href="tools/plotFingerprint.html"><span class="doc">plotFingerprint</span></a>, specifically address ChIP-seq-issues, the majority of tools is widely applicable to deep-sequencing data, including RNA-seq.</p>
+</div>
+<img alt="images/start_workflow.png" src="images/start_workflow.png" />
+<p>As shown in the flow chart above, our work usually begins with one or
+more <a class="reference internal" href="help_glossary.html#fastq"><span class="std std-ref">FASTQ</span></a>
+file(s) of deeply-sequenced samples. After preliminary quality control using
+<a class="reference external" href="http://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FASTQC</a>,
+we align the reads to the reference genome, e.g., using
+<a class="reference external" href="http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml">bowtie2</a>.
+The standard output of bowtie2 (and other mapping tools) is in the form of sorted and indexed <a class="reference internal" href="help_glossary.html#bam"><span class="std std-ref">BAM</span></a> files
+that provide the common input and starting point for all subsequent deepTools analyses.
+We then use deepTools to assess the quality of the aligned reads:</p>
+<ol class="arabic">
+<li><p><strong>Correlation between BAM files</strong> (<a class="reference internal" href="tools/multiBamSummary.html"><span class="doc">multiBamSummary</span></a> and <a class="reference internal" href="tools/plotCorrelation.html"><span class="doc">plotCorrelation</span></a>).
+Together, these two modules perform a very basic test to see whether
+the sequenced and aligned reads meet your expectations. We use this
+check to assess reproducibility - either between replicates
+and/or between different experiments that might have used the same
+antibody or the same cell type, etc. For instance, replicates should
+correlate better than differently treated samples.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can also assess the correlation of <a class="reference internal" href="help_glossary.html#bigwig"><span class="std std-ref">bigWig</span></a> files using <a class="reference internal" href="tools/multiBigwigSummary.html"><span class="doc">multiBigwigSummary</span></a>.</p>
+</div>
+</li>
+</ol>
+<a class="reference internal image-reference" href="images/test_plots/heatmap_SpearmanCorr_readCounts.png"><img alt="images/test_plots/heatmap_SpearmanCorr_readCounts.png" src="images/test_plots/heatmap_SpearmanCorr_readCounts.png" style="width: 70%;" /></a>
+<ol class="arabic simple" start="2">
+<li><p><strong>Coverage check</strong> (<a class="reference internal" href="tools/plotCoverage.html"><span class="doc">plotCoverage</span></a>). To see how many bp in the genome are actually covered by (a good number) of sequencing reads, we use <a class="reference internal" href="tools/plotCoverage.html"><span class="doc">plotCoverage</span></a> which generates two diagnostic plots that help us decide whether we need to sequence deeper or not. The option <code class="docutils literal notranslate"><span class="pre">--ignoreDuplicates</span></code> is particularly useful here!</p></li>
+</ol>
+<a class="reference internal image-reference" href="images/test_plots/ExamplePlotCoverage.png"><img alt="images/test_plots/ExamplePlotCoverage.png" src="images/test_plots/ExamplePlotCoverage.png" style="width: 70%;" /></a>
+<p>For paired-end samples, we often additionally check whether the fragment sizes are more or less what we would expected based on the library preparation. The module <a class="reference internal" href="tools/bamPEFragmentSize.html"><span class="doc">bamPEFragmentSize</span></a> can be used for that.</p>
+<a class="reference internal image-reference" href="images/test_plots/fragmentSize.png"><img alt="images/test_plots/fragmentSize.png" src="images/test_plots/fragmentSize.png" style="width: 60%;" /></a>
+<ol class="arabic simple" start="3">
+<li><p><strong>GC-bias check</strong> (<a class="reference internal" href="tools/computeGCBias.html"><span class="doc">computeGCBias</span></a>). Many sequencing protocols
+require several rounds of PCR-based DNA amplification, which often introduces notable bias, due to many DNA polymerases preferentially amplifying GC-rich templates. Depending on the sample (preparation), the GC-bias can vary    significantly and we routinely check its extent. When we need to compare files with different GC biases, we use the <a class="reference internal" href="tools/correctGCBias.html"><span class="doc">correctGCBias</span></a> module.
+See the paper by <a class="reference external" href="http://nar.oxfordjournals.org/content/40/10/e72">Benjamini and Speed</a> for many insights into this problem.</p></li>
+</ol>
+<a class="reference internal image-reference" href="images/test_plots/ExampleCorrectGCBias.png"><img alt="images/test_plots/ExampleCorrectGCBias.png" src="images/test_plots/ExampleCorrectGCBias.png" style="width: 50%;" /></a>
+<ol class="arabic simple" start="4">
+<li><p><strong>Assessing the ChIP strength</strong>. We do this quality control step to get a
+feeling for the signal-to-noise ratio in samples from ChIP-seq
+experiments. It is based on the insights published by <a class="reference external" href="http://www.degruyter.com/view/j/sagmb.2012.11.issue-3/1544-6115.1750/1544-6115.1750.xml">Diaz et
+al.</a></p></li>
+</ol>
+<a class="reference internal image-reference" href="images/test_plots/fingerprints.png"><img alt="images/test_plots/fingerprints.png" src="images/test_plots/fingerprints.png" style="width: 70%;" /></a>
+<p>Once we’re satisfied with the basic quality checks, we normally <strong>convert</strong>
+the large <a class="reference internal" href="help_glossary.html#bam"><span class="std std-ref">BAM</span></a> files into a leaner data format, typically
+<a class="reference internal" href="help_glossary.html#bigwig"><span class="std std-ref">bigWig</span></a>.
+bigWig files have several advantages over BAM files, mainly stemming
+from their significantly decreased size:</p>
+<ul class="simple">
+<li><p>useful for data sharing and storage</p></li>
+<li><p>intuitive visualization in Genome Browsers (e.g.
+<a class="reference external" href="http://www.broadinstitute.org/igv/">IGV</a>)</p></li>
+<li><p>more efficient downstream analyses are possible</p></li>
+</ul>
+<p>The deepTools modules <a class="reference internal" href="tools/bamCompare.html"><span class="doc">bamCompare</span></a> and <a class="reference internal" href="tools/bamCoverage.html"><span class="doc">bamCoverage</span></a> not only allow for simple conversion of BAM to bigWig (or <a class="reference internal" href="help_glossary.html#bedgraph"><span class="std std-ref">bedGraph</span></a> for that matter), but also for normalization, such that different samples can be compared  despite differences in their sequencing depth.</p>
+<p>Finally, once all the converted files have passed our visual inspections (e.g., using the <a class="reference external" href="https://www.broadinstitute.org/igv/">Integrative Genomics Viewer</a>), the fun
+of downstream analysis with <a class="reference internal" href="tools/computeMatrix.html"><span class="doc">computeMatrix</span></a>, <a class="reference internal" href="tools/plotHeatmap.html"><span class="doc">plotHeatmap</span></a> and <a class="reference internal" href="tools/plotProfile.html"><span class="doc">plotProfile</span></a> can begin!</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>computeMatrix &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>computeMatrix</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/content/tools/computeMatrix.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="computematrix">
+<h1>computeMatrix<a class="headerlink" href="#computematrix" title="Permalink to this headline"></a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#details" id="id1">Details</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id2">Examples</a></p>
+<ul>
+<li><p><a class="reference internal" href="#example-1-single-input-files-reference-point-mode" id="id3">Example 1: single input files (reference-point mode)</a></p></li>
+<li><p><a class="reference internal" href="#example-2-multiple-input-files-scale-regions-mode" id="id4">Example 2: multiple input files (scale-regions mode)</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="details">
+<h2><a class="toc-backref" href="#id1">Details</a><a class="headerlink" href="#details" title="Permalink to this headline"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">computeMatrix</span></code> has two main modes of use:</p>
+<ul class="simple">
+<li><p>for computing the signal distribution <strong>relative to a point</strong> (<code class="docutils literal notranslate"><span class="pre">reference-point</span></code>), e.g., the beginning or end of each genomic region</p></li>
+<li><p>for computing the signal <strong>over a set of regions</strong> (<code class="docutils literal notranslate"><span class="pre">scale-regions</span></code>) where all regions are scaled to the same size</p></li>
+</ul>
+<img alt="images/computeMatrix_modes.png" src="images/computeMatrix_modes.png" />
+<p><code class="docutils literal notranslate"><span class="pre">computeMatrix</span></code> is tightly connected to <code class="docutils literal notranslate"><span class="pre">plotHeatmap</span></code> and <code class="docutils literal notranslate"><span class="pre">plotProfile</span></code>: it takes the values of all the signal files and all genomic regions that you would like to plot and computes the corresponding data matrix.</p>
+<p>See <a class="reference internal" href="plotHeatmap.html"><span class="doc">plotHeatmap</span></a> and <a class="reference internal" href="plotProfile.html"><span class="doc">plotProfile</span></a> for example plots.</p>
+<img alt="images/computeMatrix_overview.png" src="images/computeMatrix_overview.png" />
+<p>In addition to generating the intermediate, gzipped file for <code class="docutils literal notranslate"><span class="pre">plotHeatmap</span></code> and <code class="docutils literal notranslate"><span class="pre">plotProfile</span></code>, <code class="docutils literal notranslate"><span class="pre">computeMatrix</span></code> can also be used to simply output the values underlying the heatmap or to <strong>filter and sort BED files</strong> using, for example, the <code class="docutils literal notranslate"><span class="pre">--skipZeros</span></code> and the <code class="docutils literal notranslate"><span class="pre">--sortUsing</span></code> parameters.</p>
+<p>The following tables summarizes the kinds of optional outputs that are available with the three tools.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 27%" />
+<col style="width: 16%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>optional output type</strong></p></td>
+<td><p><strong>command</strong></p></td>
+<td><p><strong>computeMatrix</strong></p></td>
+<td><p><strong>plotHeatmap</strong></p></td>
+<td><p><strong>plotProfile</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>values underlying the heatmap</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--outFileNameMatrix</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p>values underlying the profile</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--outFileNameData</span></code></p></td>
+<td><p>no</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>sorted and/or filtered regions</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">--outFileSortedRegions</span></code></p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code class="docutils literal notranslate"><span class="pre">computeMatrix</span></code> can use multiple threads (<code class="docutils literal notranslate"><span class="pre">-p</span></code> option), which significantly decreases the time for calculating the values.</p>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>As of version 3.0, computeMatrix produces output with labels present for each sample. Matrices produced with that or later versions can not be used with older versions of <code class="docutils literal notranslate"><span class="pre">plotHeatmap</span></code> or any other deepTools program.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">computeMatrix</span></code> will properly handle strand information if your BED file includes that column (GTF files always include strand). For the <code class="docutils literal notranslate"><span class="pre">--metagene</span></code> option to work, you will need either a BED12 (including columns 11 and 12) or a GTF file as input. GFF is NOT the same as GTF format!</p>
+</div>
+</section>
+<section id="examples">
+<h2><a class="toc-backref" href="#id2">Examples</a><a class="headerlink" href="#examples" title="Permalink to this headline"></a></h2>
+<p>The following examples should give you an idea of some of the most often used settings for <code class="docutils literal notranslate"><span class="pre">computeMatrix</span></code>. As you can see, <code class="docutils literal notranslate"><span class="pre">computeMatrix</span></code> offers myriad tweaks and may turn out to be more useful to you than “just” to calculate heatmap matrices.</p>
+<section id="example-1-single-input-files-reference-point-mode">
+<h3><a class="toc-backref" href="#id3">Example 1: single input files (reference-point mode)</a><a class="headerlink" href="#example-1-single-input-files-reference-point-mode" title="Permalink to this headline"></a></h3>
+<p>Here, we start with a single <a class="reference internal" href="../help_glossary.html#bigwig"><span class="std std-ref">bigWig</span></a> and a single <a class="reference internal" href="../help_glossary.html#bed"><span class="std std-ref">BED</span></a> file, i.e., <code class="docutils literal notranslate"><span class="pre">computeMatrix</span></code> will:</p>
+<ol class="arabic simple">
+<li><p>take the beginning of the regions specified in the BED file</p></li>
+<li><p>add the values indicated with <code class="docutils literal notranslate"><span class="pre">--beforeRegionStartLength</span></code> (<code class="docutils literal notranslate"><span class="pre">-b</span></code>) and <code class="docutils literal notranslate"><span class="pre">--afterRegionStartLength</span></code> (<code class="docutils literal notranslate"><span class="pre">-a</span></code>)</p></li>
+<li><p>split the resulting region up into 50 bp bins (can be changed via (<code class="docutils literal notranslate"><span class="pre">--binSize</span></code>)</p></li>
+<li><p>calculate the mean score based on the scores given in the bigWig file (the kind of score can be changed via <code class="docutils literal notranslate"><span class="pre">--averageTypeBins</span></code>)</p></li>
+<li><p>write out the values where each row corresponds to one region in the BED file (note that you can, for example, skip regions with zero coverage; sorting is also possible)</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ computeMatrix reference-point <span class="se">\ </span><span class="c1"># choose the mode</span>
+       --referencePoint TSS <span class="se">\ </span><span class="c1"># alternatives: TES, center</span>
+       -b <span class="m">3000</span> -a <span class="m">10000</span> <span class="se">\ </span><span class="c1"># define the region you are interested in</span>
+       -R testFiles/genes.bed <span class="se">\</span>
+       -S testFiles/log2ratio_H3K4Me3_chr19.bw  <span class="se">\</span>
+       --skipZeros <span class="se">\</span>
+       -o matrix1_H3K4me3_l2r_TSS.gz <span class="se">\ </span><span class="c1"># to be used with plotHeatmap and plotProfile</span>
+       --outFileSortedRegions regions1_H3K4me3_l2r_genes.bed
+</pre></div>
+</div>
+<p>Let’s have a closer look at the regions’ output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ wc -l testFiles/genes.bed <span class="c1"># original file</span>
+   <span class="m">18257</span> testFiles/genes.bed
+$ wc -l regions1_H3K4me3_l2r_genes.bed <span class="c1"># file generated by computeMatrix</span>
+   <span class="m">12423</span> regions1_H3K4me3_l2r_genes.bed
+</pre></div>
+</div>
+<p>As you can see, the number of regions is drastically reduced. The remaining genes happen to be the ones on chromosome 19 for which there was at least one overlapping read. This makes sense since the bigWig file used above only contained reads for chromosome 19.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># the original file contained genes for chr.19 and chr.X</span>
+$ cut -f <span class="m">1</span> testFiles/genes.bed <span class="p">|</span> sort <span class="p">|</span> uniq -c
+    <span class="m">12439</span> <span class="m">19</span>
+    <span class="m">5818</span> X
+
+<span class="c1"># the regions used for the computation of the matrix for the heatmap are all located on chr.19 due to the --skipZeros setting (see above)</span>
+$ cut -f <span class="m">1</span> regions1_H3K4me3_l2r_genes.bed <span class="p">|</span> sort <span class="p">|</span> uniq -c
+    <span class="m">1</span> <span class="c1">#genes</span>
+    <span class="m">12422</span> <span class="m">19</span>
+</pre></div>
+</div>
+</section>
+<section id="example-2-multiple-input-files-scale-regions-mode">
+<h3><a class="toc-backref" href="#id4">Example 2: multiple input files (scale-regions mode)</a><a class="headerlink" href="#example-2-multiple-input-files-scale-regions-mode" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ deepTools2.0/bin/computeMatrix scale-regions <span class="se">\</span>
+  -R genes_chr19_firstHalf.bed genes_chr19_secondHalf.bed <span class="se">\ </span><span class="c1"># separate multiple files with spaces</span>
+  -S testFiles/log2ratio_*.bw  <span class="se">\ </span>or use the wild card approach
+  -b <span class="m">3000</span> -a <span class="m">3000</span> <span class="se">\</span>
+  --regionBodyLength <span class="m">5000</span> <span class="se">\</span>
+  --skipZeros -o matrix2_multipleBW_l2r_twoGroups_scaled.gz <span class="se">\</span>
+  --outFileNameMatrix matrix2_multipleBW_l2r_twoGroups_scaled.tab <span class="se">\</span>
+  --outFileSortedRegions regions2_multipleBW_l2r_twoGroups_genes.bed
+</pre></div>
+</div>
+<p>Note that the reported regions will have the same coordinates as the ones in the originally supplied file, not the region that was used for the heatmap matrix.</p>
+<p>The groups of regions supplied by two individual files will be merged into one:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ head -n <span class="m">2</span> regions2_multipleBW_l2r_twoGroups_genes.bed
+<span class="m">19</span>  <span class="m">60104</span>   <span class="m">70951</span>   ENST00000592209 <span class="m">0</span>.0     -       genes_chr19_firstHalf
+<span class="m">19</span>  <span class="m">60950</span>   <span class="m">70966</span>   ENST00000606728 <span class="m">0</span>.0     -       genes_chr19_firstHalf
+
+$ tail -n <span class="m">3</span> regions2_multipleBW_l2r_twoGroups_genes.bed
+<span class="m">19</span>  <span class="m">59108549</span>        <span class="m">59110722</span>        ENST00000596427 <span class="m">0</span>.0     -       genes_chr19_secondHalf
+<span class="m">19</span>  <span class="m">59110333</span>        <span class="m">59110802</span>        ENST00000464061 <span class="m">0</span>.0     +       genes_chr19_secondHalf
+<span class="c1">#genes_chr19_secondHalf</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>More examples</strong> can be found in our <a class="reference external" href="http://deeptools.readthedocs.org/en/latest/content/example_gallery.html#normalized-chip-seq-signals-and-peak-regions">Gallery</a>.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

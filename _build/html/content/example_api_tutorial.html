@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>deepTools API example &mdash; InfoScan 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom-style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> InfoScan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InfoUpload.html">InfoUpload</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NovelScan.html">NovelScan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CellInfo.html">CellInfo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">InfoScan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>deepTools API example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/example_api_tutorial.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="deeptools-api-example">
+<span id="api"></span><h1>deepTools API example<a class="headerlink" href="#deeptools-api-example" title="Permalink to this headline"></a></h1>
+<p>The following is a short overview of the most useful methods and classes
+from deepTools.
+Complete information can be found in the following links: <a class="reference internal" href="../genindex.html"><span class="std std-ref">Index</span></a> and <a class="reference internal" href="../py-modindex.html"><span class="std std-ref">Module Index</span></a></p>
+<section id="finding-read-coverage-over-a-region">
+<h2>Finding read coverage over a region<a class="headerlink" href="#finding-read-coverage-over-a-region" title="Permalink to this headline"></a></h2>
+<p>With deepTools, the read coverage over multiple genomic regions and multiple files can be computed quite quickly using multiple processors.
+First, we start with a simple example that is later expanded upon to demonstrate
+the use of multipe processors.
+In this example we compute the coverage of reads over a small region for bins of 50bp. For this we need the <code class="xref py py-class docutils literal notranslate"><span class="pre">deeptools.countReadsPerBin</span></code> class.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">deeptools.countReadsPerBin</span> <span class="k">as</span> <span class="nn">crpb</span>
+</pre></div>
+</div>
+<p>We also need a BAM file containing the aligned reads.
+The BAM file must be indexed to allow quick access to reads
+falling into the regions of interest.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bam_file</span> <span class="o">=</span> <span class="s2">&quot;file.bam&quot;</span>
+</pre></div>
+</div>
+<p>Now, the <code class="docutils literal notranslate"><span class="pre">CountReadsPerBin</span></code> object can be initialized.
+The first argument to the constructor is a list of BAM files,
+which in this case is just one file.
+We are going to use a <code class="docutils literal notranslate"><span class="pre">binLength</span></code> of 50 bases, with subsequent bins adjacent
+(i.e., the <code class="docutils literal notranslate"><span class="pre">stepSize</span></code> between bins is also 50 bases). Overlapping bin
+coverages can be used by setting a <code class="docutils literal notranslate"><span class="pre">stepSize</span></code> smaller than <code class="docutils literal notranslate"><span class="pre">binLength</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span> <span class="o">=</span> <span class="n">crpb</span><span class="o">.</span><span class="n">CountReadsPerBin</span><span class="p">([</span><span class="n">bam_file</span><span class="p">],</span> <span class="n">binLength</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stepSize</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, we can compute the coverage over a region in chromosome 2 from position 0
+to 1000.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span><span class="o">.</span><span class="n">count_reads_in_region</span><span class="p">(</span><span class="s1">&#39;chr2L&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">array</span><span class="p">([[</span> <span class="mf">2.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">3.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">2.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">3.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">2.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">4.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">3.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">2.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">3.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">4.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">6.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">4.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">2.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">2.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span><span class="p">]]),</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The result is a tuple with the first element a numpy array with one row per bin and one column per bam file. Since only one BAM file was used, there is only one column. If a file name for saving the raw data had been specificied, then the temporary file name used for this would appear in the second item of the tuple.</p>
+</section>
+<section id="filtering-reads">
+<h2>Filtering reads<a class="headerlink" href="#filtering-reads" title="Permalink to this headline"></a></h2>
+<p>If reads should be filtered, the relevant options simply
+need to be passed to the constructor. In the following code, the reads are filtered
+such that only those with a mapping quality of at least 20 and not aligned to the
+reverse strand are kept (samFlag_exclude=16, where 16 is the value for reverse reads, see
+the [SAM Flag Calculator](<a class="reference external" href="http://broadinstitute.github.io/picard/explain-flags.html">http://broadinstitute.github.io/picard/explain-flags.html</a>)
+for more info).
+Furthermore, duplicated reads are ignored.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span> <span class="o">=</span> <span class="n">crpb</span><span class="o">.</span><span class="n">CountReadsPerBin</span><span class="p">([</span><span class="n">bam_file</span><span class="p">],</span> <span class="n">binLength</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">stepSize</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+                           <span class="n">minMappingQuality</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                           <span class="n">samFlag_exclude</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+                           <span class="n">ignoreDuplicates</span><span class="o">=</span><span class="kc">True</span>
+                           <span class="p">)</span>
+<span class="n">cr</span><span class="o">.</span><span class="n">count_reads_in_region</span><span class="p">(</span><span class="s1">&#39;chr2L&#39;</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">,</span> <span class="mi">1001000</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">array</span><span class="p">([[</span> <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">2.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">3.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">2.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">2.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">]]),</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="sampling-the-genome">
+<h2>Sampling the genome<a class="headerlink" href="#sampling-the-genome" title="Permalink to this headline"></a></h2>
+<p>Instead of adjacent bins, as in the previous cases, a genome can
+simply be sampled. This is useful to estimate some values,
+like depth of sequencing, without having to look at the complete genome. In the following example,
+10,000 positions of size 1 base are going to be queried from three bam files to compute the average depth of sequencing.
+For this, we set the <cite>numberOfSamples</cite> parameter in the object constructor.</p>
+<p>The <cite>run()</cite> method is used instead of <cite>count_reads_in_region</cite> to provide efficient sampling over the entire genome.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cr</span> <span class="o">=</span> <span class="n">crpb</span><span class="o">.</span><span class="n">CountReadsPerBin</span><span class="p">([</span><span class="n">bam_file1</span><span class="p">,</span> <span class="n">bam_file2</span><span class="p">,</span> <span class="n">bam_file3</span><span class="p">],</span>
+                           <span class="n">binLength</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">numberOfSamples</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+                           <span class="n">numberOfProcessors</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">sequencing_depth</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="nb">print</span> <span class="n">sequencing_depth</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>  <span class="mf">1.98923924</span>   <span class="mf">2.43743744</span>  <span class="mf">22.90102603</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The <cite>run()</cite> method splits the computation over 10 processors and collates
+the results. When the parameter <cite>numberOfSamples</cite> is used, the regions selected
+for the computation of the coverage are not random. Instead, the genome is split into ‘number-of-samples’
+equal parts and the start of each part is queried for its coverage. You can also compute coverage over selected regions by inputting a BED file.</p>
+<p>Now it is possible to make some diagnostic plots from the results:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="c1"># plot coverage</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="n">T</span><span class="p">:</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">/</span><span class="n">total_sites</span><span class="p">)</span>
+    <span class="n">csum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">csum</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">csum</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;coverage&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;fraction of bases sampled&#39;</span><span class="p">)</span>
+<span class="c1"># plot cumulative coverage</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;coverage&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;fraction of bases sampled &gt;= coverage&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="images/plot_coverage.png" src="images/plot_coverage.png" />
+</section>
+<section id="computing-the-frip-score">
+<h2>Computing the FRiP score<a class="headerlink" href="#computing-the-frip-score" title="Permalink to this headline"></a></h2>
+<p>The FRiP score is defined as the fraction of reads that fall into a peak and is
+often used as a measure of ChIP-seq quality. For this example, we
+need a BED file containing the peak regions. Such files are
+usually computed using a peak caller. Also, two bam files are
+going to be used, corresponding to two biological replicates.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bed_files</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;peaks.bed&quot;</span><span class="p">]</span>
+<span class="n">cr</span> <span class="o">=</span> <span class="n">countReadsPerBin</span><span class="o">.</span><span class="n">CountReadsPerBin</span><span class="p">([</span><span class="n">bam_file1</span><span class="p">,</span> <span class="n">bam_file2</span><span class="p">],</span>
+                                        <span class="n">bedFile</span><span class="o">=</span><span class="n">bed_files</span><span class="p">,</span>
+                                        <span class="n">numberOfProcessors</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">reads_at_peaks</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="nb">print</span> <span class="n">reads_at_peaks</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span> <span class="mf">322.</span><span class="p">,</span>  <span class="mf">248.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">231.</span><span class="p">,</span>  <span class="mf">182.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">112.</span><span class="p">,</span>  <span class="mf">422.</span><span class="p">],</span>
+       <span class="o">...</span><span class="p">,</span>
+       <span class="p">[</span> <span class="mf">120.</span><span class="p">,</span>   <span class="mf">76.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">235.</span><span class="p">,</span>  <span class="mf">341.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">246.</span><span class="p">,</span>  <span class="mf">265.</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>The result is a numpy array with a row for each peak region and a column for each BAM file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reads_at_peaks</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">6295</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, the total number of reads per peaks per bam file is computed:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="n">reads_at_peaks</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, we need to find the total number of mapped reads in each of the bam files. For
+this we use the pysam module.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pysam</span>
+<span class="n">bam1</span> <span class="o">=</span> <span class="n">pysam</span><span class="o">.</span><span class="n">AlignmentFile</span><span class="p">(</span><span class="n">bam_file1</span><span class="p">)</span>
+<span class="n">bam2</span> <span class="o">=</span> <span class="n">pysam</span><span class="o">.</span><span class="n">AlignmentFile</span><span class="p">(</span><span class="n">bam_file2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, <cite>bam1.mapped</cite> and <cite>bam2.mapped</cite> contain the total number of mapped
+reads in each of the bam files, respectively.</p>
+<p>Finally, we can compute the FRiP score:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frip1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">total</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">bam1</span><span class="o">.</span><span class="n">mapped</span>
+<span class="n">frip2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">total</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">bam2</span><span class="o">.</span><span class="n">mapped</span>
+<span class="nb">print</span> <span class="n">frip1</span><span class="p">,</span> <span class="n">frip2</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.170030741997</span><span class="p">,</span> <span class="mf">0.216740390353</span>
+</pre></div>
+</div>
+</section>
+<section id="using-mapreduce-to-sample-paired-end-fragment-lengths">
+<h2>Using mapReduce to sample paired-end fragment lengths<a class="headerlink" href="#using-mapreduce-to-sample-paired-end-fragment-lengths" title="Permalink to this headline"></a></h2>
+<p>deepTools internally uses a map-reduce strategy, in which a computation is split into smaller
+parts that are sent to different processors. The output from the different processors is subsequently collated. The following
+example is based on the code available for <cite>bamPEFragmentSize.py</cite></p>
+<p>Here, we retrieve the reads from a BAM file and collect the
+fragment length. Reads are retrieved using pysam, and the <cite>read</cite> object returned
+contains the <cite>template_length</cite> attribute, which is the number of bases from the
+leftmost to the rightmost mapped base in the read pair.</p>
+<p>First, we will create a function that can collect fragment lengths over a genomic
+position from a BAM file. As we will later call this function using
+mapReduce, the function accepts only one argument, namely
+a tuple with the parameters: chromosome name, start position, end position, and BAM file name.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pysam</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="k">def</span> <span class="nf">get_fragment_length</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">chrom</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">bam_file_name</span> <span class="o">=</span> <span class="n">args</span>
+    <span class="n">bam</span> <span class="o">=</span> <span class="n">pysam</span><span class="o">.</span><span class="n">AlignmentFile</span><span class="p">(</span><span class="n">bam_file_name</span><span class="p">)</span>
+    <span class="n">f_lens_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">fetch_start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">):</span>
+        <span class="c1"># simply get the reads over a region of 10000 bases</span>
+        <span class="n">fetch_end</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="n">fetch_start</span> <span class="o">+</span> <span class="mi">10000</span><span class="p">)</span>
+
+        <span class="n">f_lens_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">abs</span><span class="p">(</span><span class="n">read</span><span class="o">.</span><span class="n">template_length</span><span class="p">)</span>
+                              <span class="k">for</span> <span class="n">read</span> <span class="ow">in</span> <span class="n">bam</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">chrom</span><span class="p">,</span> <span class="n">fetch_start</span><span class="p">,</span> <span class="n">fetch_end</span><span class="p">)</span>
+                              <span class="k">if</span> <span class="n">read</span><span class="o">.</span><span class="n">is_proper_pair</span> <span class="ow">and</span> <span class="n">read</span><span class="o">.</span><span class="n">is_read1</span><span class="p">]))</span>
+
+    <span class="c1"># concatenate all results</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">f_lens_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, we can use <cite>mapReduce</cite> to call this function and compute fragment lengths
+over the whole genome. mapReduce needs to know the chromosome sizes, which
+can be easily retrieved from the BAM file. Furthermore, it needs to know
+the size of the region(s) sent to each processor. For this
+example, a region of 10 million bases is sent to each processor using the <cite>genomeChunkLength</cite> parameter.
+In other words, each processor executes the same <cite>get_fragment_length</cite> function to collect data over
+different 10 million base regions. The arguments to mapReduce are the list of arguments sent to the function, besides
+the first obligatory three (chrom start, end). In this case only one extra argument is passed
+to the function, the BAM file name. The next two positional arguments are the name of the function to call
+(<cite>get_fragment_length</cite>) and the chromosome sizes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">deeptools.mapReduce</span>
+<span class="n">bam</span> <span class="o">=</span> <span class="n">pysam</span><span class="o">.</span><span class="n">AlignmentFile</span><span class="p">(</span><span class="n">bamFile</span><span class="p">)</span>
+<span class="n">chroms_sizes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">bam</span><span class="o">.</span><span class="n">references</span><span class="p">,</span> <span class="n">bam</span><span class="o">.</span><span class="n">lengths</span><span class="p">))</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">mapReduce</span><span class="o">.</span><span class="n">mapReduce</span><span class="p">([</span><span class="n">bam_file_name</span><span class="p">],</span>
+                             <span class="n">get_fragment_length</span><span class="p">,</span>
+                             <span class="n">chroms_sizes</span><span class="p">,</span>
+                             <span class="n">genomeChunkLength</span><span class="o">=</span><span class="mi">10000000</span><span class="p">,</span>
+                             <span class="n">numberOfProcessors</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                             <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">fragment_lengths</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mean fragment length </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fragment_lengths</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;median fragment length </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">fragment_lengths</span><span class="p">)))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.170030741997</span><span class="p">,</span> <span class="mf">0.216740390353</span>
+</pre></div>
+</div>
+</section>
+<section id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="../py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="../search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Zilch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

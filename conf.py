@@ -66,3 +66,8 @@ def setup(app):
     app.add_css_file('css/custom-style.css')
 
 rst_prolog = '\n.. include:: .custom-style.rst\n'
+
+
+# Add modules
+autodoc_mock_imports = ['myst_parser']
+

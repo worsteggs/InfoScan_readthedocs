@@ -7,7 +7,7 @@ A pipeline to :red:`I`\ dentify :red:`N`\ ovel transcripts :red:`F`\ r\ :red:`O`
 
 .. image:: images/start_collage.png
 
-**InfoScan** is a software used to identify new long non-coding RNAs from single cell data and explore their characteristics in different cell populations; In addition, we can obtain new long non-coding RNA specific to the cell population, and study its function through co-expression analysis and functional enrichment analysis.
+**InfoScan** is a software used to identify novel transcripts,including mRNAs and lncRNAs, from single-cell RNA-Seq data and explore their characteristics in different cell populations; In addition, we can obtain new long non-coding RNA specific to the cell population, and study its function through co-expression analysis and functional enrichment analysis.
 
 The flow chart below depicts the different tool modules that are currently available.
 

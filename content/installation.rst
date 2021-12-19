@@ -58,9 +58,9 @@ Once the InfoScan mian program and the Genome annotation are downloaded and unzi
 
 .. code:: bash
 
-    |$ cd /the/directory/of/unzipped_InfoScan
-    |
-    |# see all files, don't run.
+    $ cd /the/directory/of/unzipped_InfoScan
+    
+    # see all files, don't run.
     $ tree -L 1
     .
     ├── AppRun -> InfoScan

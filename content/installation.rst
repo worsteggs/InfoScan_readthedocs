@@ -36,6 +36,7 @@ InfoScan needs to use conda to configure the environment, please install conda f
 *Linux*
 
 .. code:: bash
+
     wget -c https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     chmod 777 Miniconda3-latest-Linux-x86_64.sh
     bash Miniconda3-latest-Linux-x86_64.sh
@@ -44,6 +45,7 @@ InfoScan needs to use conda to configure the environment, please install conda f
 *Mac OS*
 
 .. code:: bash
+
     curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
     chmod 777 Miniconda3-latest-MacOSX-x86_64.sh
     sh Miniconda3-latest-MacOSX-x86_64.sh
@@ -56,8 +58,9 @@ Once the InfoScan mian program and the Genome annotation are downloaded and unzi
 
 .. code:: bash
 
-    $ cd /the/directory/of/unzipped_InfoScan
-    # see all files, don't run.
+    |$ cd /the/directory/of/unzipped_InfoScan
+    |
+    |# see all files, don't run.
     $ tree -L 1
     .
     ├── AppRun -> InfoScan

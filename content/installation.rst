@@ -51,13 +51,13 @@ Then, upon executed the ./InfoScan, the following window appears:
 
 	$ ./InfoScan
 
-.. image:: images/introduction.png
+.. image:: /images/introduction.png
 
 Configuration
 ---------------------------
 Before uploading data, you should first configure the operating environment of the software, this step can be achieved through the *Configuration* button at the bottom of the main window.
 
-.. image:: images/Configuration.png
+.. image:: /images/Configuration.png
 
 .. note:: This step will automatically install some software through `conda <https://docs.conda.io/en/latest/>`_\ . 
 

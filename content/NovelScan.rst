@@ -3,7 +3,7 @@ NovelScan
 `Identify of novel transcripts (including mRNA and lncRNAs) and their characters.`
 
 
-.. image:: images/NovelScan.png
+.. image:: /images/NovelScan.png
 
 
 .. contents:: 
@@ -51,6 +51,6 @@ After the program runs, the user can view the results by clicking the Example Re
 Example Result
 ---------------
 
-.. image:: images/NovelScan_result.png
+.. image:: /images/NovelScan_result.png
 
 By clicking the NEXT button, the user can reach the CellInfo interface.

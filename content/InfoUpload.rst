@@ -3,7 +3,7 @@ InfoUpload
 `upload unaligned or aligned reads from scRNA-Seq data`
 
 
-.. image:: images/upload_file.png
+.. image:: /images/upload_file.png
 Users can choose to upload Fastq files or BAM files:
 
 .. contents:: 
@@ -13,7 +13,7 @@ Input fastq files
 ------------------------------------------------------
 
 The file needs to be in fastq.gz format, users can select the directory where the data is located through the Browse button;
-.. image:: images/upload_file_browse.png
+.. .. image:: /images/upload_file_browse.png
 
 Perform quality control on data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -28,19 +28,19 @@ Basic Parameters
 -  ``--thread`` - The worker thread number.
 
 Then the user can run the program by clicking START.
-.. image:: images/upload_file_START.png
+.. .. image:: /images/upload_file_START.png
 
 After the program runs, the user can view the results of the quality control by clicking the Result button.
-.. image:: images/upload_file_Result.png
+.. image:: /images/upload_file_Result.png
 
 Quality control results
 *************************
 
 
-.. image:: images/upload_file_Result_enter.png
+.. image:: /images/upload_file_Result_enter.png
 
 The user presses the Enter Key to display the results of the quality control and double-click the file to view the quality of the reads in the upload files.
-.. image:: images/upload_file_Result_files.png
+.. .. image:: /images/upload_file_Result_files.png
 
 InfoAssembly
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -48,7 +48,7 @@ InfoAssembly
 
 By clicking the NEXT-> Transcript Alignment button, the user can reach the InfoAssembly interface.
 
-.. image:: images/upload_file_InfoAssembly.png
+.. image:: /images/upload_file_InfoAssembly.png
 
 The functions of this interface mainly include: comparing data to a reference genome, assembling transcripts, and merging transcripts.
 
@@ -79,11 +79,11 @@ After the program runs, the user can view the results of the quality control by 
 
 Assembly results
 *************************
-.. image:: images/InfoAssembly_Result_enter.png
+.. image:: /images/InfoAssembly_Result_enter.png
 
 The user presses the Enter Key to display the results of the quality control and double-click the file to view.
 
-.. image:: images/InfoAssembly_Result_files.png
+.. image:: /images/InfoAssembly_Result_files.png
 
 By clicking the NEXT button, the user can reach the NovelScan interface.
 

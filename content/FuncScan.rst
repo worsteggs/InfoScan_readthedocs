@@ -3,7 +3,7 @@ FuncScan
 `Apply co-expression analysis to predict the functions of the novel transcripts.`
 
 
-.. image:: images/FuncScan.png
+.. image:: /images/FuncScan.png
 
 
 .. contents:: 
@@ -18,4 +18,4 @@ Select gene for co-expression and functional enrichment analysis
 ---------------------------------------------------------------------------
 The user needs to select the species, enter the gene name, and select the gene set for co-expression analysis and functional enrichment analysis.
 
-.. image:: images/FuncScan_result.png
+.. image:: /images/FuncScan_result.png

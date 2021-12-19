@@ -5,9 +5,9 @@ InfoScan
 A pipeline to :red:`I`\ dentify :red:`N`\ ovel transcripts :red:`F`\ r\ :red:`O`\ m :red:`S`\ cRNA-Seq data and analyze their :red:`C`\ haracters :red:`A`\ nd functio\ :red:`N`\ s
 =======================================================================================================================================================================================
 
-.. image:: images/start_collage.png
+.. image:: images/introduction.png
 
-**InfoScan** is a software used to identify novel transcripts,including mRNAs and lncRNAs, from single-cell RNA-Seq data and explore their characteristics in different cell populations; In addition, we can obtain new long non-coding RNA specific to the cell population, and study its function through co-expression analysis and functional enrichment analysis.
+**InfoScan** is a software used to identify novel transcripts, including mRNAs and lncRNAs, from single-cell RNA-Seq data and explore their characteristics in different cell populations; In addition, we can obtain new long non-coding RNA specific to the cell population, and study its function through co-expression analysis and functional enrichment analysis.
 
 The flow chart below depicts the different tool modules that are currently available.
 
@@ -26,7 +26,7 @@ Contents:
 ..   content/about
 
 
-.. .. tip:: For support or questions please post to `Biostars <http://biostars.org>`__. For bug reports and feature requests please open an issue `<on github <http://github.com/deeptools/deeptools>`__.
+.. tip:: For support or questions please post to `Biostars <http://biostars.org>`__. For bug reports and feature requests please open an issue `<on github <http://github.com/deeptools/deeptools>`__.
 
 
 

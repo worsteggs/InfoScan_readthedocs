@@ -3,7 +3,7 @@ CellInfo
 `Investigate cell-specific transcripts and their cell cluster ability.`
 
 
-.. image:: images/CellInfo.png
+.. image:: /images/CellInfo.png
 
 .. contents:: 
     :local:
@@ -71,4 +71,4 @@ After the program runs, the user can view the results by clicking the *Example R
 Example Result
 -----------------
 
-.. image:: images/CellInfo_result.png
+.. image:: /images/CellInfo_result.png

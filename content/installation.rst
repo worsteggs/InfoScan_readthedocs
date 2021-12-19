@@ -25,7 +25,7 @@ Download Genome annotation file
 ---------------------------------
 Users should download the genome annotation file for the species of interest, and unzip these files into the directory of InfoScan.
 
-`Download test <https://rna.sysu.edu.cn/dreambase2/InfoScanfiles/dotplot.zip>`_
+`Download test <https://rna.sysu.edu.cn/dreamBase2/InfoScanfiles/dotplot.zip>`_
 
 `Download xxx <https://www.dropbox.com/s/flywnhup8iedrwh/grinn_macosx_v110.zip?dl=1>`_
 

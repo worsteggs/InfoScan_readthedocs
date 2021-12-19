@@ -26,7 +26,7 @@ Contents:
 ..   content/about
 
 
-.. tip:: For support or questions please post to `Biostars <http://biostars.org>`__. For bug reports and feature requests please open an issue `<on github <http://github.com/deeptools/deeptools>`__.
+.. tip:: For support or questions please post to `Biostars <http://biostars.org>`__. For bug reports and feature requests please open an issue on `github <https://github.com/worsteggs/InfoScan_readthedocs/issues>`__.
 
 
 

@@ -13,9 +13,9 @@ Download InfoScan
 
 If you're here for the first time, download InfoScan first, and unzip it into a directory whatever you like.
 
-`Download gRINN v.1.1.0 for Linux x64 <https://www.dropbox.com/s/rijb1em1q83b0kf/grinn_linux_v110.tar.gz?dl=1>`_
+`Download InfoSacn v.0.1 for Linux x64 <https://rna.sysu.edu.cn/dreamBase2/InfoScanfiles/InfoScan.rar>`_
 
-`Download gRINN v.1.1.0 for Mac OSX <https://www.dropbox.com/s/flywnhup8iedrwh/grinn_macosx_v110.zip?dl=1>`_
+`Download InfoSacn v.0.1 for Mac OSX <https://rna.sysu.edu.cn/dreamBase2/InfoScanfiles/InfoScan_mac.rar>`_
 
 Windows support is currently a work-in-progress. Stay tuned and visit back for a Windows compatible executable.
 
@@ -23,11 +23,31 @@ Windows support is currently a work-in-progress. Stay tuned and visit back for a
 
 Download Genome annotation file
 ---------------------------------
-Users should download the genome annotation file for the species of interest, and unzip these files into the directory of InfoScan.
+Users should download the genome annotation file for the species of interest, and unzip these files into the same directory of InfoScan.
 
-`Download test <https://rna.sysu.edu.cn/dreamBase2/InfoScanfiles/dotplot.zip>`_
+`Download Genome annotation file <https://rna.sysu.edu.cn/dreamBase2/InfoScanfiles/genome.zip>`_
 
-`Download xxx <https://www.dropbox.com/s/flywnhup8iedrwh/grinn_macosx_v110.zip?dl=1>`_
+.. `Download xxx <https://www.dropbox.com/s/flywnhup8iedrwh/grinn_macosx_v110.zip?dl=1>`_
+
+Install conda
+---------------------------------
+InfoScan needs to use conda to configure the environment, please install conda first:
+
+*Linux*
+
+.. code:: bash
+    wget -c https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    chmod 777 Miniconda3-latest-Linux-x86_64.sh
+    bash Miniconda3-latest-Linux-x86_64.sh
+    source ~/.bashrc
+
+*Mac OS*
+
+.. code:: bash
+    curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+    chmod 777 Miniconda3-latest-MacOSX-x86_64.sh
+    sh Miniconda3-latest-MacOSX-x86_64.sh
+    source ~/.bash_profile
 
 
 Starting the software
@@ -37,6 +57,31 @@ Once the InfoScan mian program and the Genome annotation are downloaded and unzi
 .. code:: bash
 
     $ cd /the/directory/of/unzipped_InfoScan
+    # see all files, don't run.
+    $ tree -L 1
+    .
+    ├── AppRun -> InfoScan
+    ├── CPAT-3.0.0
+    ├── CPAT_run_info.log
+    ├── data
+    ├── default.desktop
+    ├── genome
+    ├── genome.zip
+    ├── images
+    ├── InfoScan
+    ├── InfoScan.sh
+    ├── lib
+    ├── libexec
+    ├── libstdc++.so.6
+    ├── pack.sh
+    ├── plugins
+    ├── qss
+    ├── qt.conf
+    ├── resources
+    ├── snakemake
+    ├── snakemake_mac
+    └── translations
+    12 directories, 9 files
 
 The operation of InfoScan needs to grant executable permission to the script of the software. Please execute the following code before running the software:
 
@@ -59,6 +104,6 @@ Before uploading data, you should first configure the operating environment of t
 
 .. image:: /images/Configuration.png
 
-.. note:: This step will automatically install some software through `conda <https://docs.conda.io/en/latest/>`_\ . 
+.. note:: This step will automatically install some software through `conda <https://docs.conda.io/en/latest/>`_\ .  
 
-.. tip:: For support or questions please make a post on `Biostars <http://biostars.org>`__. For feature requests or bug reports please open an issue `on github <http://github.com/deeptools/deeptools>`__.
+.. tip:: For support or questions please make a post on `Biostars <http://biostars.org>`__. For feature requests or bug reports please open an issue on `github <https://github.com/worsteggs/InfoScan_readthedocs/issues>`__.

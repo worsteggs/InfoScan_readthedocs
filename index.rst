@@ -11,7 +11,7 @@ A pipeline to :red:`I`\ dentify :red:`N`\ ovel transcripts :red:`F`\ r\ :red:`O`
 
 The flow chart below depicts the different tool modules that are currently available.
 
-.. image:: images/start_workflow.png
+.. image:: images/start_workflow.jpg
 
 Contents:
 ---------

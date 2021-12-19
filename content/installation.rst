@@ -25,9 +25,21 @@ Download Genome annotation file
 ---------------------------------
 Users should download the genome annotation file for the species of interest, and unzip these files into the same directory of InfoScan.
 
-`Download Genome annotation file <https://rna.sysu.edu.cn/dreamBase2/InfoScanfiles/genome.zip>`_
+There are two types of genome annotation file, one is the indexes with spike-in pre-built by us. The other is HISAT2 official indexes.
 
-.. `Download xxx <https://www.dropbox.com/s/flywnhup8iedrwh/grinn_macosx_v110.zip?dl=1>`_
+* **spike-in indexes**
+
+`Download Genome annotation file <https://rna.sysu.edu.cn/dreamBase2/InfoScanfiles/genome.rar>`_
+
+
+* **HISAT2 indexes**
+
+
+`Download H. sapiens GRCh38 genome_snp <https://genome-idx.s3.amazonaws.com/hisat/grch38_snp.tar.gz>`_
+
+`Download M. musculus GRCm38 genome_snp <https://cloud.biohpc.swmed.edu/index.php/s/grcm38_snp/download>`_
+
+.. note:: This step will automatically install some software through `conda <https://docs.conda.io/en/latest/>`_\ .
 
 Install conda
 ---------------------------------

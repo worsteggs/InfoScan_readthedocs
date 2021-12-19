@@ -39,7 +39,7 @@ There are two types of genome annotation file, one is the indexes with spike-in 
 
 `Download M. musculus GRCm38 genome_snp <https://cloud.biohpc.swmed.edu/index.php/s/grcm38_snp/download>`_
 
-.. note:: This step will automatically install some software through `conda <https://docs.conda.io/en/latest/>`_\ .
+.. .. note:: This step will automatically install some software through `conda <https://docs.conda.io/en/latest/>`_\ . 
 
 Install conda
 ---------------------------------

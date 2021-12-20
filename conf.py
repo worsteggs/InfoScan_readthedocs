@@ -67,6 +67,12 @@ def setup(app):
 
 rst_prolog = '\n.. include:: .custom-style.rst\n'
 
+# Add custom js
+# for ip calculate
+html_js_files = [
+    'js/baidutongji.js'
+]
+
 
 # Add modules
 autodoc_mock_imports = ['myst_parser']

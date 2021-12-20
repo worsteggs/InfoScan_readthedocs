@@ -33,12 +33,12 @@ Users should download the genome annotation file for the species of interest, an
 `Download Genome annotation file <https://rna.sysu.edu.cn/InfoScan/genome.rar>`_
 
 
-..* **HISAT2 indexes**
+.. **HISAT2 indexes**
 
 
-..`Download H. sapiens GRCh38 genome_snp <https://genome-idx.s3.amazonaws.com/hisat/grch38_snp.tar.gz>`_
+.. `Download H. sapiens GRCh38 genome_snp <https://genome-idx.s3.amazonaws.com/hisat/grch38_snp.tar.gz>`_
 
-..`Download M. musculus GRCm38 genome_snp <https://cloud.biohpc.swmed.edu/index.php/s/grcm38_snp/download>`_
+.. `Download M. musculus GRCm38 genome_snp <https://cloud.biohpc.swmed.edu/index.php/s/grcm38_snp/download>`_
 
 .. .. note:: This step will automatically install some software through `conda <https://docs.conda.io/en/latest/>`_\ . 
 

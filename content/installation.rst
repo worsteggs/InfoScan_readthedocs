@@ -13,9 +13,9 @@ Download InfoScan
 
 If you're here for the first time, download InfoScan first, and decompress it into a directory whatever you like.
 
-`Download InfoScan v.0.1 for Linux x64 <https://rna.sysu.edu.cn/InfoScan/InfoScan.zip>`_
+`Download InfoScan v.0.1 for Linux x64 <https://rna.sysu.edu.cn/InfoScan/download/InfoScan.zip>`_
 
-`Download InfoScan v.0.1 for Mac OSX <https://rna.sysu.edu.cn/InfoScan/InfoScan.dmg.zip>`_
+`Download InfoScan v.0.1 for Mac OSX <https://rna.sysu.edu.cn/InfoScan/download/InfoScan.dmg.zip>`_
 
 Windows support is currently a work-in-progress. Stay tuned and visit back for a Windows compatible executable.
 
@@ -30,7 +30,7 @@ Users should download the genome annotation file for the species of interest, an
 
 * **pre-built indexes**
 
-`Download Genome annotation file <https://rna.sysu.edu.cn/InfoScan/genome.rar>`_
+`Download Genome annotation file <https://rna.sysu.edu.cn/InfoScan/download/genome.rar>`_
 
 
 .. **HISAT2 indexes**
@@ -47,7 +47,7 @@ Download example data
 
 InfoScan provide some example data for the user to test.If want to do so, you should download the example data, and decompress these files into the same directory of InfoScan.
 
-`Download example data <https://rna.sysu.edu.cn/InfoScan/data.rar>`_
+`Download example data <https://rna.sysu.edu.cn/InfoScan/download/data.rar>`_
 
 
 Install conda

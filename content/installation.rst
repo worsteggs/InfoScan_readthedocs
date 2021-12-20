@@ -13,9 +13,9 @@ Download InfoScan
 
 If you're here for the first time, download InfoScan first, and unzip it into a directory whatever you like.
 
-`Download InfoSacn v.0.1 for Linux x64 <https://rna.sysu.edu.cn/dreamBase2/InfoScanfiles/InfoScan.rar>`_
+`Download InfoScan v.0.1 for Linux x64 <https://rna.sysu.edu.cn/dreamBase2/InfoScanfiles/InfoScan.rar>`_
 
-`Download InfoSacn v.0.1 for Mac OSX <https://rna.sysu.edu.cn/dreamBase2/InfoScanfiles/InfoScan_mac.rar>`_
+`Download InfoScan v.0.1 for Mac OSX <https://rna.sysu.edu.cn/dreamBase2/InfoScanfiles/InfoScan_mac.rar>`_
 
 Windows support is currently a work-in-progress. Stay tuned and visit back for a Windows compatible executable.
 

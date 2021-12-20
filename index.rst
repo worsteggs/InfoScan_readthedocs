@@ -20,6 +20,7 @@ Contents:
 
    content/installation
    content/InfoUpload
+   content/InfoAssembly
    content/NovelScan
    content/CellInfo
    content/FuncScan

@@ -11,11 +11,11 @@ Download InfoScan
 --------------------
 *InfoScan is free and open to all users.*
 
-If you're here for the first time, download InfoScan first, and unzip it into a directory whatever you like.
+If you're here for the first time, download InfoScan first, and decompress it into a directory whatever you like.
 
-`Download InfoScan v.0.1 for Linux x64 <https://rna.sysu.edu.cn/InfoScan/InfoScan.rar>`_
+`Download InfoScan v.0.1 for Linux x64 <https://rna.sysu.edu.cn/InfoScan/InfoScan.zip>`_
 
-`Download InfoScan v.0.1 for Mac OSX <https://rna.sysu.edu.cn/InfoScan/InfoScan_mac.rar>`_
+`Download InfoScan v.0.1 for Mac OSX <https://rna.sysu.edu.cn/InfoScan/InfoScan.dmg.zip>`_
 
 Windows support is currently a work-in-progress. Stay tuned and visit back for a Windows compatible executable.
 
@@ -24,7 +24,7 @@ Windows support is currently a work-in-progress. Stay tuned and visit back for a
 Download Genome annotation file
 ---------------------------------
 
-Users should download the genome annotation file for the species of interest, and unzip these files into the same directory of InfoScan.
+Users should download the genome annotation file for the species of interest, and decompress these files into the same directory of InfoScan.
 
 ..There are two types of genome annotation file, one is the indexes with spike-in pre-built by us. The other is HISAT2 official indexes.
 
@@ -45,7 +45,7 @@ Users should download the genome annotation file for the species of interest, an
 Download example data
 -----------------------
 
-InfoScan provide some example data for the user to test.If want to do so, you should download the example data, and unzip these files into the same directory of InfoScan.
+InfoScan provide some example data for the user to test.If want to do so, you should download the example data, and decompress these files into the same directory of InfoScan.
 
 `Download example data <https://rna.sysu.edu.cn/InfoScan/data.rar>`_
 
@@ -89,11 +89,7 @@ Once the InfoScan mian program and the Genome annotation are downloaded and unzi
     .
     ├── AppRun -> InfoScan
     ├── CPAT-3.0.0
-    ├── CPAT_run_info.log
-    ├── data
     ├── default.desktop
-    ├── genome
-    ├── genome.zip
     ├── images
     ├── InfoScan
     ├── InfoScan.sh
@@ -106,9 +102,10 @@ Once the InfoScan mian program and the Genome annotation are downloaded and unzi
     ├── qt.conf
     ├── resources
     ├── snakemake
-    ├── snakemake_mac
     └── translations
-    12 directories, 9 files
+
+    9 directories, 7 files
+
 
 The operation of InfoScan needs to grant executable permission to the script of the software. Please execute the following code before running the software:
 
@@ -127,7 +124,9 @@ Then, upon executed the ./InfoScan, the following window appears:
 
 * *Mac OS*
 
-For Mac users, just simply run the .dmg application.
+For Mac users, after decompressing the file, open the ``InfoScan.dmg`` file, enter the ``InfoScan.app/Contents/Macos directory``, and click ``InfoScan`` flie to run.
+
+.. note:: Unlike Linux, you should place the downloaded genome file and/or the example data in the same directory of ``InfoScan`` flie mentioned above. (like ``InfoScan.app/Contents/Macos/genome`` and/or ``InfoScan.app/Contents/Macos/data``)
 
 Configuration
 ---------------------------

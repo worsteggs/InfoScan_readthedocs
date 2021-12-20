@@ -54,7 +54,7 @@ Install conda
 ---------------------------------
 InfoScan needs to use conda to configure the environment, please install conda first:
 
-*Linux*
+* *Linux*
 
 .. code:: bash
 
@@ -63,7 +63,7 @@ InfoScan needs to use conda to configure the environment, please install conda f
     bash Miniconda3-latest-Linux-x86_64.sh
     source ~/.bashrc
 
-*Mac OS*
+* *Mac OS*
 
 .. code:: bash
 
@@ -75,6 +75,9 @@ InfoScan needs to use conda to configure the environment, please install conda f
 
 Starting the software
 ---------------------------------
+
+* *Linux*
+
 Once the InfoScan mian program and the Genome annotation are downloaded and unzipped properly, go to the directory of InfoScan:
 
 .. code:: bash
@@ -122,9 +125,13 @@ Then, upon executed the ./InfoScan, the following window appears:
 
 .. image:: /images/introduction.png
 
+* *Mac OS*
+
+For Mac users, just simply run the .dmg application.
+
 Configuration
 ---------------------------
-Before uploading data, you should first configure the operating environment of the software, this step can be achieved through the *Configuration* button at the bottom of the main window.
+Before uploading data, you should first configure the operating environment of the software, this step can be achieved through clicking the *Configuration* button at the bottom of the main window.
 
 .. image:: /images/Configuration.png
 

@@ -30,8 +30,9 @@ Users should download the genome annotation file for the species of interest, an
 
 * **pre-built indexes**
 
-`Download Genome annotation file <https://rna.sysu.edu.cn/InfoScan/download/genome.rar>`_
+`Download hg38 <https://mega.nz/file/g8tQwQpY#NpAlUHQiQErnbq2VuF9iNTapvKhc09VUh3WVFOYqhZw>`_
 
+`Download mm10 <https://mega.nz/file/g8tQwQpY#NpAlUHQiQErnbq2VuF9iNTapvKhc09VUh3WVFOYqhZw>`_
 
 .. **HISAT2 indexes**
 

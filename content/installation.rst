@@ -46,7 +46,7 @@ Users should download the genome annotation file for the species of interest, an
 Download example data
 -----------------------
 
-InfoScan provide some example data for the user to test.If want to do so, you should download the example data, and decompress these files into the same directory of InfoScan.
+InfoScan provide some example data (mouse) for the user to test. If want to do so, you should download the example data, and decompress these files into the same directory of InfoScan.
 
 `Download example data <https://rna.sysu.edu.cn/InfoScan/download/data.rar>`_
 

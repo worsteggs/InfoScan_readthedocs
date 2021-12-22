@@ -30,9 +30,9 @@ Users should download the genome annotation file for the species of interest, an
 
 * **pre-built indexes**
 
-`Download hg38 <https://mega.nz/file/g8tQwQpY#NpAlUHQiQErnbq2VuF9iNTapvKhc09VUh3WVFOYqhZw>`_
+`Download hg38 <https://mega.nz/file/Ess2gYAZ#PyfipRKvbL17OA6w6kh60rPDP-bNm3hyqbszxiS4et8>`_
 
-`Download mm10 <https://mega.nz/file/g8tQwQpY#NpAlUHQiQErnbq2VuF9iNTapvKhc09VUh3WVFOYqhZw>`_
+`Download mm10 <https://mega.nz/file/Ess2gYAZ#PyfipRKvbL17OA6w6kh60rPDP-bNm3hyqbszxiS4et8>`_
 
 .. **HISAT2 indexes**
 

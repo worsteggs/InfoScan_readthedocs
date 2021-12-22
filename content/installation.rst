@@ -13,9 +13,9 @@ Download InfoScan
 
 If you're here for the first time, download InfoScan first, and decompress it into a directory whatever you like.
 
-`Download InfoScan v.0.1 for Linux x64 <https://rna.sysu.edu.cn/InfoScan/download/InfoScan.zip>`_
+`Download InfoScan v.0.1 for Linux x64 <https://mega.nz/file/Fp8jiahC#ALSGOZ55pUisEyzTOO6F86xFAS8DALjM0tG0sunGce4>`_
 
-`Download InfoScan v.0.1 for Mac OSX <https://rna.sysu.edu.cn/InfoScan/download/InfoScan.dmg.zip>`_
+`Download InfoScan v.0.1 for Mac OSX <https://mega.nz/file/4ltBSIQK#s223ALf4RVXmZ3QLszpYbGYJiABmYWIe5MlB5Yt9H0U>`_
 
 Windows support is currently a work-in-progress. Stay tuned and visit back for a Windows compatible executable.
 
@@ -48,7 +48,7 @@ Download example data
 
 InfoScan provide some example data (mouse) for the user to test. If want to do so, you should download the example data, and decompress these files into the same directory of InfoScan.
 
-`Download example data <https://rna.sysu.edu.cn/InfoScan/download/data.rar>`_
+`Download example data <https://mega.nz/file/Axk3wa6S#eEXffvKWwFO3Zz07PaGr3elSSFdRF92swOeIJwUn05c>`_
 
 
 Install conda

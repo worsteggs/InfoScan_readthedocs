@@ -13,9 +13,9 @@ Download InfoScan
 
 If you're here for the first time, download InfoScan first, and decompress it into a directory whatever you like.
 
-`Download InfoScan v.0.1 for Linux x64 <https://mega.nz/file/Fp8jiahC#ALSGOZ55pUisEyzTOO6F86xFAS8DALjM0tG0sunGce4>`_
+`Download InfoScan v.0.1 for Linux x64 <https://rna.sysu.edu.cn/InfoScan/InfoScan.zip>`_
 
-`Download InfoScan v.0.1 for Mac OSX <https://mega.nz/file/4ltBSIQK#s223ALf4RVXmZ3QLszpYbGYJiABmYWIe5MlB5Yt9H0U>`_
+`Download InfoScan v.0.1 for Mac OSX <https://rna.sysu.edu.cn/InfoScan/InfoScan_mac.zip>`_
 
 Windows support is currently a work-in-progress. Stay tuned and visit back for a Windows compatible executable.
 

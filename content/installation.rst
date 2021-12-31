@@ -1,7 +1,7 @@
 Installation
 =============
 
-Remember -- InfoScan are available for **Linux os** as well as for
+``Remember`` -- InfoScan are available for **Linux os** as well as for
 **Mac os**!
 
 .. contents:: 
@@ -26,7 +26,7 @@ Download Genome annotation file
 
 Users should download the genome annotation file for the species of interest, and decompress these files into the same directory of InfoScan.
 
-..There are two types of genome annotation file, one is the indexes with spike-in pre-built by us. The other is HISAT2 official indexes.
+.. There are two types of genome annotation file, one is the indexes with spike-in pre-built by us. The other is HISAT2 official indexes.
 
 * **pre-built indexes**
 

@@ -8,6 +8,8 @@ InfoScan is under constant maintenance and improvement and is developed by the `
 
 Any questions about the usage, comments or suggestions are appreciated.
 
+The contact :
+Lingling Zheng: zhengll33@mail.sysu.edu.cn
 
 Our Other Tools
 ^^^^^^^^^^^^^^^^^^^^
